@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+
+* {
+}
+
+.navbar a{
+    color: rgb(255, 255, 255);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+}
