@@ -291,6 +291,11 @@ footer{
         height: 50%;
     }
 
+    div#navbarNav {
+        margin-right: auto;
+        text-align: right;
+    }
+
 }
 
 @media screen and (max-width:400px){
@@ -320,5 +325,10 @@ footer{
     .website img{
         width: 50%;
         height: 50%;
-    }    
+    }
+    
+    div#navbarNav {
+        margin-right: auto;
+        text-align: right;
+    }
 }
