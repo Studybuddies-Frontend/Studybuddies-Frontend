@@ -67,7 +67,7 @@
           "options": {
             "browserTarget": "studybuddies:build",
             "host": "0.0.0.0",
-            "port": "1739"
+            "port": 1739
           },
           "configurations": {
             "production": {
