@@ -65,7 +65,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "studybuddies:build"
+            "browserTarget": "studybuddies:build",
+            "host": "0.0.0.0",
+            "port": "1739"
           },
           "configurations": {
             "production": {
@@ -76,9 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "studybuddies:build",
-            "host": "0.0.0.0",
-            "port": "1739"
+            "browserTarget": "studybuddies:build"
           }
         },
         "test": {
