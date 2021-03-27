@@ -1,4 +1,20 @@
+/* Empezando desde aquí */
+
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
 
 .navbar{
     border: 3px solid #20598B;
@@ -28,19 +44,7 @@
     color: #000000 !important;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    font-family: 'Raleway', sans-serif;
-}
+/* Terminando aquí se importa en todas las páginas que hagamos */
 
 .hero{
     background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../assets/back.jpg");
