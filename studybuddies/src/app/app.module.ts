@@ -13,6 +13,8 @@ import { CreateClassStudentComponent } from './components/student/create-class-s
 import { ClassListTutorComponent } from './components/tutor/class-list-tutor/class-list-tutor.component';
 import { CreateClassTutorComponent } from './components/tutor/create-class-tutor/create-class-tutor.component';
 import { HomeComponent } from './components/home/home.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
@@ -24,6 +26,10 @@ const routes: Routes = [
   { path: 'tutor/createClass', component: CreateClassTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent },
   { path: '', component: HomeComponent },
+  { path: 'errorPage', component: ErrorPageComponent },
+  { path: 'constructionPage', component: ConstructionPageComponent },
+
+  
 ];
 
 @NgModule({
@@ -36,6 +42,8 @@ const routes: Routes = [
     CreateClassStudentComponent,
     CreateClassTutorComponent,
     HomeComponent,
+    ErrorPageComponent,
+    ConstructionPageComponent,
     LoginComponent
   ],
   imports: [
