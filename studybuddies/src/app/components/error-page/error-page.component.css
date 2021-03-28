@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar{
+    border: 3px solid #20598B;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbar a{
+    color: #F2F2F2;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+}
+
+.navbar a:hover{
+    color: #000000 !important;
+}
+
+.navbar-brand{
+    margin-right: 10%;
+    padding-left: 1%;
+}
+
+.navbar-brand:hover{
+    color: #000000 !important;
+}
+
+.hero{
+    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../assets/back.jpg");
+    width: 100%;
+    height: 750px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.textos-hero{
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textos-hero img{
+    padding-top: 5%;
+}
+
+.textos-hero h1{
+    font-size: 40px;
+}
+
+.textos-hero h2{
+    font-size: 30px;
+}
+
+.textos-hero p{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+@media screen and (max-width:1024px){
+
+    .textos-hero h1{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .textos-hero h2{
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .textos-hero img{
+        padding-top: 10%;
+    }    
+
+    /* last */
+
+    .last-section img{
+        width: 98%;
+    }
+
+    .last-section .contenedor-textos-main{
+        width: 98%;
+        margin-bottom: 20px;
+    }
+    .website img{
+        width: 50%;
+        height: 50%;
+    }
+
+    div#navbarNav {
+        margin-right: auto;
+        text-align: right;
+    }
+
+}
+
+@media screen and (max-width:767px){
+    .titulo,
+    .textos-hero h1{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .textos-hero h2{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .textos-hero p{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .textos-hero img{
+        padding-top: 10%;
+    }    
+
+    
+    div#navbarNav {
+        margin-right: auto;
+        text-align: right;
+    }
+}
+
