@@ -43,7 +43,7 @@ const routes: Routes = [
     CreateClassTutorComponent,
     HomeComponent,
     ErrorPageComponent,
-    ConstructionPageComponent
+    ConstructionPageComponent,
     LoginComponent
   ],
   imports: [
