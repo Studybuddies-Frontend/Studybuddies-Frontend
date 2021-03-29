@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { StudentComponent } from './components/student/student.component';
 import { TutorComponent } from './components/tutor/tutor.component';
@@ -13,10 +15,14 @@ import { CreateClassTutorComponent } from './components/tutor/create-class-tutor
 import { HomeComponent } from './components/home/home.component';
 import { ViewClassStudentComponent } from './components/student/view-class-student/view-class-student.component';
 import { ViewClassTutorComponent } from './components/tutor/view-class-tutor/view-class-tutor.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
   { path: 'tutor', component: TutorComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'student/createClass', component: CreateClassStudentComponent },
   { path: 'student/classList', component: ClassListStudentComponent },
   { path: 'student/classView', component: ViewClassStudentComponent },
@@ -24,6 +30,10 @@ const routes: Routes = [
   { path: 'tutor/classList', component: ClassListTutorComponent },
   { path: 'tutor/classView', component: ViewClassTutorComponent },
   { path: '', component: HomeComponent },
+  { path: 'errorPage', component: ErrorPageComponent },
+  { path: 'constructionPage', component: ConstructionPageComponent },
+
+  
 ];
 
 @NgModule({
@@ -37,11 +47,15 @@ const routes: Routes = [
     CreateClassTutorComponent,
     HomeComponent,
     ViewClassStudentComponent,
-    ViewClassTutorComponent
+    ViewClassTutorComponent,
+    ErrorPageComponent,
+    ConstructionPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
