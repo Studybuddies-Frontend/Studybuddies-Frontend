@@ -13,6 +13,8 @@ import { CreateClassStudentComponent } from './components/student/create-class-s
 import { ClassListTutorComponent } from './components/tutor/class-list-tutor/class-list-tutor.component';
 import { CreateClassTutorComponent } from './components/tutor/create-class-tutor/create-class-tutor.component';
 import { HomeComponent } from './components/home/home.component';
+import { ViewClassStudentComponent } from './components/student/view-class-student/view-class-student.component';
+import { ViewClassTutorComponent } from './components/tutor/view-class-tutor/view-class-tutor.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,8 +25,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'student/createClass', component: CreateClassStudentComponent },
   { path: 'student/classList', component: ClassListStudentComponent },
+  { path: 'student/classView', component: ViewClassStudentComponent },
   { path: 'tutor/createClass', component: CreateClassTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent },
+  { path: 'tutor/classView', component: ViewClassTutorComponent },
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
@@ -42,6 +46,8 @@ const routes: Routes = [
     CreateClassStudentComponent,
     CreateClassTutorComponent,
     HomeComponent,
+    ViewClassStudentComponent,
+    ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
     LoginComponent
