@@ -200,7 +200,7 @@ section{
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1.42em;
-  color:#A7A1AE;
+  color:#0F2C45;
   background-color:#1F2739;
 }
 
@@ -244,12 +244,13 @@ section{
 
 /* Background-color of the odd rows */
 .containertable tr:nth-child(odd) {
-	  background-color: #323C50;
+	  background-color: #D9D9D9
+    ;
 }
 
 /* Background-color of the even rows */
 .containertable tr:nth-child(even) {
-	  background-color: #2C3446;
+	  background-color: #F2F2F2;
 }
 
 .containertable th {
@@ -257,23 +258,42 @@ section{
 }
 
 .containertable td:last-child {
-  color: #FB667A;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .containertable th:last-child {
-  padding-right: 8px;
+  padding-right: 10px;
 }
 
-.containertable tr:hover {
-   background-color: #464A52;
+.containertable tr:hover{
+   background-color: #20598B;
+   color: white;
 -webkit-box-shadow: 0 6px 6px -6px #0E1119;
 	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
 	        box-shadow: 0 6px 6px -6px #0E1119;
 }
 
 @media (max-width: 800px) {
-.containertable td:nth-child(3),
-.containertable th:nth-child(3) { display: none; }
+.containertable td:nth-child(7),
+.containertable th:nth-child(7) { display: none; }
 }
 
+@media (max-width: 620px) {
+  .containertable{
+    width: 100%;
+    margin: 0px;
+  }
+
+  section{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+}
+
+/*@media (max-width: 550px){
+
+  Qué hacer con el botón de crear salas?
+  La tabla se deja que se mueva a izda y dcha y ya?
+
+}*/
