@@ -1,1 +1,54 @@
-<p>view-class-student works!</p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
+      Studybuddies
+    </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse"  id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <form class="formRooms"><h1 class="titulo">Detalles de la sala</h1><br><div class="row">
+    <div class="col-sm">
+      <label for="fname">Descripción</label><br>
+      <input type="text" id="description" name="description" readonly=true><br><br>
+      <label for="lname">Universidad</label><br>
+      <input type="text" id="university" name="university" readonly=true><br><br>
+      <label for="lname">Grado</label><br>
+      <input type="text" id="grade" name="grade" readonly=true><br><br>
+      <label for="lname">Asignatura</label><br>
+      <input type="text" id="subjects" name="subjects" readonly=true><br><br>
+    </div>
+    <div class="col-sm">
+      <label for="lname">Fecha</label><br>
+      <input type="date" id="date" name="date" readonly=true><br><br>
+      <label for="lname">Hora inicio</label><br>
+      <input type="time" id="iTime" name="iTime" readonly=true><br><br>
+      <label for="lname">Hora fin</label><br>
+      <input type="time" id="fTime" name="fTime" readonly=true><br><br>
+    </div>
+    <div><input type=button value="VOLVER" onclick="history.back()"></div>
+  <div><input type="submit" value="CREAR"></div>
+  </div></form>
+</div>
