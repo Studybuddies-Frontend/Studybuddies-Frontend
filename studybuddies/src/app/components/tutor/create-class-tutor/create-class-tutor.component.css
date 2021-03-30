@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .navbar{
@@ -44,7 +44,7 @@ body{
 }
 
 .titulo{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Titillium Web', serif;
     color: #EBA144;
     font-weight: bold;
     background-image: url("../../../../assets/pizarra.png");
@@ -70,7 +70,7 @@ body{
 
 .formRooms label{
     margin-bottom: 2%;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Titillium Web', serif;
     font-size: larger;
     color: #20598B;
     -webkit-text-stroke-width: 0.3px;

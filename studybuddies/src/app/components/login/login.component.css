@@ -14,7 +14,7 @@ html{
 }
 
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .navbar{
@@ -48,7 +48,7 @@ body{
 	margin:0;
 	color:#EBA144 !important;
 	background:#20598B !important;
-	font:600 16px/18px 'Open Sans',sans-serif;
+	font:600 16px/18px 'Titillium Web',sans-serif;
     height: calc(101vh - 60px);
 }
 
