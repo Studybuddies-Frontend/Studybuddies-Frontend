@@ -1,3 +1,4 @@
+import { ListService } from './../../../services/list.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassListStudentComponent implements OnInit {
 
-  constructor() { }
+  datasource: any;
 
-  ngOnInit(): void {
+  constructor(public listService: ListService) { }
+
+  ngOnInit() {
+    this.listService.listAll().subscribe(
+      response => {this.datasource = new Room(response);
+      }
+    )
   }
+
+
+
 
 }
