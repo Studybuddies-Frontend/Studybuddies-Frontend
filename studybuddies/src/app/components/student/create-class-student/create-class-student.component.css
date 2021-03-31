@@ -43,6 +43,11 @@ body{
     color: #000000 !important;
 }
 
+div#navbarNav {
+    margin-right: auto;
+    text-align: center;
+}
+
 .titulo{
     font-family: 'Titillium Web', serif;
     color: #F2F2F2;

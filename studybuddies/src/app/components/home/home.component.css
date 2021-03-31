@@ -44,6 +44,11 @@ body{
     color: #000000 !important;
 }
 
+div#navbarNav {
+    margin-right: auto;
+    text-align: center;
+}
+
 /* Terminando aquí se importa en todas las páginas que hagamos */
 
 .hero{
@@ -295,11 +300,6 @@ footer{
         height: 50%;
     }
 
-    div#navbarNav {
-        margin-right: auto;
-        text-align: right;
-    }
-
 }
 
 @media screen and (max-width:767px){
@@ -329,10 +329,5 @@ footer{
     .website img{
         width: 50%;
         height: 50%;
-    }
-    
-    div#navbarNav {
-        margin-right: auto;
-        text-align: right;
     }
 }

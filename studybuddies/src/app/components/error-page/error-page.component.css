@@ -42,6 +42,11 @@ body{
     color: #000000 !important;
 }
 
+div#navbarNav {
+    margin-right: auto;
+    text-align: center;
+}
+
 .hero{
     background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../assets/back.jpg");
     width: 100%;
