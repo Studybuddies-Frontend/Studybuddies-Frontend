@@ -44,7 +44,7 @@ body{
 
 div#navbarNav {
     margin-right: auto;
-    text-align: center;
+    text-align: center !important;
 }
 
 .hero{

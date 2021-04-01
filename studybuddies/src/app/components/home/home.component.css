@@ -302,6 +302,10 @@ footer{
 
 }
 
+.esconder{
+    width: 60% !important;
+}
+
 @media screen and (max-width:767px){
     .titulo,
     .textos-hero h1{
@@ -329,5 +333,11 @@ footer{
     .website img{
         width: 50%;
         height: 50%;
+    }
+    .esconder{
+        display: none;
+    }
+    .website .contenedor-textos-main{
+        width: 100%;
     }
 }
