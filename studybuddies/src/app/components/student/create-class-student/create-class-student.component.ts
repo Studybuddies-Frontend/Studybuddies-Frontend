@@ -20,10 +20,6 @@ export class CreateClassStudentComponent implements OnInit {
     let date = form.value.date.split("-");
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
-    console.log(date);
-    console.log(iDay);
-    console.log(fDay);
-    console.log(parseInt(date[1]));
 
     let room: Room = {
       id_user : "",
