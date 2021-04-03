@@ -4,6 +4,7 @@ import { LoginService } from "../../services/login/login.service";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {TranslateService} from "@ngx-translate/core";
+import {HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'app-login',
