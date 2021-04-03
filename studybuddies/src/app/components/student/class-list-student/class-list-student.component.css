@@ -169,7 +169,7 @@ section{
 .containertable th h1 {
 	  font-weight: bold;
 	  font-size: 1em;
-  text-align: left;
+  text-align: center;
   color: #185875;
 }
 
@@ -182,7 +182,7 @@ section{
 }
 
 .containertable {
-	  text-align: left;
+	  text-align: center;
 	  overflow: hidden;
 	  width: 90%;
 	  margin: 0 auto;
