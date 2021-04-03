@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { Room } from "../models/class";
+import { Class } from "../models/class";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,8 @@ export class RoomService {
 
   URL_API = "http://localhost:3000/api/v1/room/create";
 
-  selectedRoom: Room = {
-    id_user : "",
+  selectedRoom: Class = {
+    id_user : 0,
     description : "",
     university : "",
     degree : "",
@@ -21,12 +21,15 @@ export class RoomService {
     is_private : false,
     date : new Date(),
     iTime : new Date(),
-    fTime : new Date() 
+    fTime : new Date(),
+    guid : '',
+     authorised_users : [],
+    room_url : ''
   };
 
   constructor(public http:HttpClient) { }
 
-  createRoom(room: Room){
+  createRoom(room: Class){
     return this.http.post(this.URL_API, room);
   }
 }

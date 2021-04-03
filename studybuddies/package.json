@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^11.2.7",
+    "@angular/material": "^11.2.7",
     "@angular/animations": "^11.2.7",
     "@angular/common": "^11.2.7",
     "@angular/compiler": "^11.2.7",

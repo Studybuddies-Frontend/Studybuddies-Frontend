@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RoomService} from "../../../services/class.service";
 import { NgForm } from "@angular/forms";
-import { Room } from "../../../models/class";
+import { Class } from "../../../models/class";
 
 @Component({
   selector: 'app-create-class-student',
@@ -21,8 +21,8 @@ export class CreateClassStudentComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
 
-    let room: Room = {
-      id_user : "",
+    let room: Class = {
+      id_user : 0,
       description : form.value.description,
       university : form.value.university,
       degree : form.value.degree,
@@ -35,7 +35,10 @@ export class CreateClassStudentComponent implements OnInit {
       is_private : false,
       date : new Date(),
       iTime : new Date(),
-      fTime : new Date()
+      fTime : new Date(),
+      guid : '',
+      authorised_users : [],
+      room_url : ''
     };
 
     console.log(room);

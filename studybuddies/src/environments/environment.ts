@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false,
+  name: 'desarrollo',
+  urlBackend: 'http://localhost:3000/api/v1',
+  rutaLogin: '/user/login',
+  rutaSalas: '/room',
   baseURL: 'http://localhost:1739'
 };
 
