@@ -1,107 +1,92 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
-        Studybuddies
-      </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse"  id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/constructionPage" routerLinkActive="active">Pagina 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/constructionPage" routerLinkActive="active">Pagina 2</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Inicia sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/constructionPage" routerLinkActive="active">Regístrate</a>
-        </li>
-      </ul>
+<header class="hero">
+  <div class="textos-hero">
+    <h1>Bienvenidos a <span style="color:#eba144">Studybuddies</span></h1>
+    <p>La mejor forma de estudiar</p>
+  </div>
+  <div class="svg-hero" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+      style="height: 100%; width: 100%;">
+      <path d="M0.00,49.99 C150.00,150.00 306.09,0.30 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+        style="stroke: none; fill:#fff;"></path>
+    </svg></div>
+</header>
+
+<section class="wave-contenedor website">
+  <img src="../../../assets/logo1.png">
+  <div class="contenedor-textos-main">
+    <h2 class="titulo left">¿Qué es Studybuddies?</h2>
+    <p class="parrafo">¿Sabías que sólo la mitad de los universitarios españoles finalizan la carrera en el tiempo
+      previsto?
+      Este es el motivo por el que estamos desarrollando la aplicación web Studybuddies.
+    </p>
+    <p class="parrafo">
+      Desde Studybuddies, ayudamos a los estudiantes a encontrar gente con la que estudiar de forma fácil y rápida esas
+      asignaturas con las que tienen más dificultades.
+      Además, seleccionamos profesores y alumnos que hayan superado las asignaturas con buenos resultados con el fin de
+      ofrecer
+      sus conocimientos a aquellos que lo necesiten de forma segura e individualizada.
+    </p>
+    <!-- <a href="" class="cta">Learn more</a> -->
+  </div>
+</section>
+
+<section class="info">
+  <div class="contenedor">
+    <h2 class="titulo left">Juntos, podemos aprobar</h2>
+    <p class="parrafo">Creemos que facilitar el compartir conocimiento entre estudiantes y la cooperación entre los
+      mismos es clave para tener éxito académicamente.</p>
+  </div>
+</section>
+
+<section class="cards contenedores">
+  <h2 class="titulo">¿Qué ofrecemos?</h2>
+  <div class="content-cards">
+    <article class="card">
+      <i class="fas fa-users"></i>
+      <h2>Grupos de trabajo</h2>
+      <p>Podrás crear grupos de estudio personalizados o unirte a alguno ya existente para estudiar con otras personas.
+      </p>
+    </article>
+
+    <article class="card">
+      <i class="fas fa-book"></i>
+      <h2>Recibe clases particulares</h2>
+      <p>Los tutores de Studybuddies son expertos en sus materias y darán clases particulares a las que podrás unirte
+        para resolver todas tus dudas
+        de forma más personalizada.
+      </p>
+    </article>
+
+    <article class="card">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <h2>Conviértete en tutor</h2>
+      <p>Conviértete en tutor de las asignaturas que hayas cursado con éxito y obtén beneficio económico de tus
+        conocimientos.</p>
+    </article>
+  </div>
+</section>
+
+<section class="info-last">
+
+  <div class="contenedor last-section">
+    <div class="contenedor-textos-main">
+      <h2 class="titulo left">Ya nos conoces... <br>
+        Ahora, ¡únete!</h2>
+      <p class="parrafo">Regístrate en nuestra aplicación y podrás empezar a estudiar con otras personas de una forma
+        muy simple.
+      </p>
     </div>
-    </div>
-  </nav>
-  
-    <header class="hero">
-      <div class="textos-hero">
-        <h1>Bienvenidos a <span style="color:#eba144">Studybuddies</span></h1>
-        <p>La mejor forma de estudiar</p>
-      </div>
-      <div  class="svg-hero" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 306.09,0.30 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:#fff;"></path></svg></div>
-    </header>
-  
-    <section class="wave-contenedor website">
-      <img class="esconder" src="../../../assets/logo1.png">
-      <div class="contenedor-textos-main">
-        <h2 class="titulo left">¿Qué es Studybuddies?</h2>
-        <p class="parrafo">¿Sabías que sólo la mitad de los universitarios españoles finalizan la carrera en el tiempo previsto?
-          Este es el motivo por el que estamos desarrollando la aplicación web Studybuddies.
-        </p>
-        <p class="parrafo">
-          Desde Studybuddies, ayudamos a los estudiantes a encontrar gente con la que estudiar de forma fácil y rápida esas 
-          asignaturas con las que tienen más dificultades. 
-          Además, seleccionamos profesores y alumnos que hayan superado las asignaturas con buenos resultados con el fin de ofrecer 
-          sus conocimientos a aquellos que lo necesiten de forma segura e individualizada.
-        </p>
-  <!-- <a href="" class="cta">Learn more</a> -->
-      </div>
-    </section>
-  
-    <section class="info">
-      <div class="contenedor">
-        <h2 class="titulo left">Juntos, podemos aprobar</h2>
-        <p class="parrafo">Creemos que facilitar el compartir conocimiento entre estudiantes y la cooperación entre los mismos es clave para tener éxito académicamente.</p>
-      </div>
-    </section>
-  
-    <section class="cards contenedores">
-      <h2 class="titulo">¿Qué ofrecemos?</h2>
-      <div class="content-cards">
-        <article class="card">
-          <i class="fas fa-users"></i>
-          <h2>Grupos de trabajo</h2>
-          <p>Podrás crear grupos de estudio personalizados o unirte a alguno ya existente para estudiar con otras personas.</p>
-        </article>
-  
-        <article class="card">
-          <i class="fas fa-book"></i>
-          <h2>Recibe clases particulares</h2>
-          <p>Los tutores de Studybuddies son expertos en sus materias y darán clases particulares a las que podrás unirte para resolver todas tus dudas
-            de forma más personalizada.
-          </p>
-        </article>
-  
-        <article class="card">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <h2>Conviértete en tutor</h2>
-          <p>Conviértete en tutor de las asignaturas que hayas cursado con éxito y obtén beneficio económico de tus conocimientos.</p>
-        </article>
-      </div>
-    </section>
-  
-    <section class="info-last">
-      
-      <div class="contenedor last-section">
-        <div class="contenedor-textos-main">
-            <h2 class="titulo left">Ya nos conoces... <br>
-              Ahora, ¡únete!</h2>
-            <p class="parrafo">Regístrate en nuestra aplicación y podrás empezar a estudiar con otras personas de una forma muy simple.
-            </p>
-        </div>
-        <img src="../../../assets/ilustracion.png" alt="">
-    </div>
-      <div  class="svg-wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 306.09,0.30 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #eba144;"></path></svg></div>
-    </section>
-  
-    <footer id="contacto">
-      <div class="contenedor-textos">
-        <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
-    </div>
-    </footer>
-    
+    <img src="../../../assets/ilustracion.png" alt="">
+  </div>
+  <div class="svg-wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+      style="height: 100%; width: 100%;">
+      <path d="M0.00,49.99 C150.00,150.00 306.09,0.30 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+        style="stroke: none; fill: #eba144;"></path>
+    </svg></div>
+</section>
+
+<footer id="contacto">
+  <div class="contenedor-textos">
+    <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
+  </div>
+</footer>
+
