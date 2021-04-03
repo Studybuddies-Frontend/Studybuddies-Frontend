@@ -1,26 +1,31 @@
-<div class="container-fluid">
-  <form class="formRooms">
-    <h1 class="titulo">Creación de sala</h1><br>
-    <div class="row">
-      <div class="col-sm">
-        <label for="fname">Descripción</label><br>
-        <input type="text" id="description" name="description"><br><br>
-        <label for="lname">Universidad</label><br>
-        <input type="text" id="university" name="university"><br><br>
-        <label for="lname">Grado</label><br>
-        <input type="text" id="grade" name="grade"><br><br>
-        <label for="lname">Asignatura</label><br>
-        <input type="text" id="subjects" name="subjects"><br><br>
-      </div>
-      <div class="col-sm">
-        <label for="lname">Fecha</label><br>
-        <input type="date" id="date" name="date"><br><br>
-        <label for="lname">Hora inicio</label><br>
-        <input type="time" id="iTime" name="iTime"><br><br>
-        <label for="lname">Hora fin</label><br>
-        <input type="time" id="fTime" name="fTime"><br><br>
-      </div>
+    <div class="container-fluid">
+      <form class="formRooms" #roomForm="ngForm" (ngSubmit)="createRoom(roomForm)"><div class="row"><h1 class="titulo">CREA UNA SALA</h1>
+        <div class="col-lg">
+          <input type="hidden" id="id_user" name="id_user" [(ngModel)]="roomService.selectedRoom.id_user">
+          <label for="lname">Universidad</label><br>
+          <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university"><br><br>
+          <label for="lname">Grado</label><br>
+          <input type="text" id="grade" name="degree" [(ngModel)]="roomService.selectedRoom.degree"><br><br>
+          <label for="lname">Asignatura</label><br>
+          <input type="text" id="subjects" name="subject" [(ngModel)]="roomService.selectedRoom.subject"><br><br>
+          <label for="lname">Fecha</label><br>
+          <input type="date" id="date" name="date" [(ngModel)]="roomService.selectedRoom.date"><br><br>
+        </div>
+        <div class="col-lg">
+          <label for="lname">Hora inicio</label><br>
+          <input type="time" id="iTime" name="iTime" [(ngModel)]="roomService.selectedRoom.iTime"><br><br>
+          <label for="lname">Hora fin</label><br>
+          <input type="time" id="fTime" name="fTime" [(ngModel)]="roomService.selectedRoom.fTime"><br><br>
+          <label for="fname">Descripción</label><br>
+          <textarea id="description" name="description" [(ngModel)]="roomService.selectedRoom.description"></textarea><br><br>
+        </div>
       <div><input type="submit" value="CREAR"></div>
+      </div></form>
     </div>
-  </form>
-</div>
+
+  <footer id="contacto">
+    <div class="contenedor-textos">
+      <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
+    </div>
+    </footer>
+
