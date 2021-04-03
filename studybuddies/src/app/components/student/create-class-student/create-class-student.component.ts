@@ -22,7 +22,7 @@ export class CreateClassStudentComponent implements OnInit {
     let fDay = form.value.fTime.split(":");
 
     let room: Class = {
-      id_user : "",
+      id_user : 0,
       description : form.value.description,
       university : form.value.university,
       degree : form.value.degree,
@@ -35,7 +35,10 @@ export class CreateClassStudentComponent implements OnInit {
       is_private : false,
       date : new Date(),
       iTime : new Date(),
-      fTime : new Date()
+      fTime : new Date(),
+      guid : '',
+      authorised_users : [],
+      room_url : ''
     };
 
     console.log(room);
