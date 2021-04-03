@@ -2,12 +2,7 @@
   <form class="formRooms" #roomForm="ngForm" (ngSubmit)="roomForm.form.valid && createRoom(roomForm)"><div class="row"><h1 class="titulo">CREA UNA SALA</h1>
      <div class="col-lg">
       <input type="hidden" id="id_user" name="id_user" [(ngModel)]="roomService.selectedRoom.id_user">
-      <label for="fname">Descripción</label><br>
-      <input type="text" id="description" name="description" [(ngModel)]="roomService.selectedRoom.description" #description="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && description.invalid }" minlength="4" required></textarea><br>
-      <div [hidden]="description.valid" class="text-danger">
-        <span *ngIf="roomForm.submitted && description.errors?.required">La descripción no puede estar vacía</span>
-        <span *ngIf="roomForm.submitted  && description.errors?.minlength">La descripción es demasiado corta</span>
-      </div><br>
+      
       <label for="lname">Universidad</label><br>
       <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university" #university="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && university.invalid }" required><br>
       <div [hidden]="university.valid" class="text-danger">
@@ -23,13 +18,14 @@
       <div [hidden]="subject.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && subject.invalid">La asignatura no puede estar vacía</span>
       </div><br>
-    </div>  
-    <div class="col-sm">
       <label for="lname">Fecha</label><br>
       <input type="date" id="date" name="date" [(ngModel)]="roomService.selectedRoom.date" #date="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && date.invalid }" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"><br>
       <div [hidden]="date.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && date.invalid">La fecha no puede estar vacía</span>
       </div><br>
+    </div>  
+    <div class="col-sm">
+      
       <label for="lname">Hora inicio</label><br>
       <input type="time" id="iTime" name="iTime" [(ngModel)]="roomService.selectedRoom.iTime" #iTime="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && iTime.invalid }" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"><br>
       <div [hidden]="iTime.valid" class="text-danger">
@@ -39,6 +35,12 @@
       <input type="time" id="fTime" name="fTime" [(ngModel)]="roomService.selectedRoom.fTime" #fTime="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && fTime.invalid }" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"><br>
       <div [hidden]="fTime.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && fTime.invalid">Marque una hora de fin</span>
+      </div><br>
+      <label for="fname">Descripción</label><br>
+      <textarea type="text" id="description" name="description" [(ngModel)]="roomService.selectedRoom.description" #description="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && description.invalid }" minlength="4" required></textarea><br>
+      <div [hidden]="description.valid" class="text-danger">
+        <span *ngIf="roomForm.submitted && description.errors?.required">La descripción no puede estar vacía</span>
+        <span *ngIf="roomForm.submitted  && description.errors?.minlength">La descripción es demasiado corta</span>
       </div><br>
       <div [hidden]="date.invalid || description.invalid || university.invalid || degree.invalid || subject.invalid || date.invalid || iTime.invalid || fTime.invalid" class="text-danger">
         <span *ngIf="roomForm.submitted">La hora de fin debe ser posterior a la de inicio, y la fecha no puede situarse en el pasado</span>
