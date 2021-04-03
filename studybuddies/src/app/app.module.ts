@@ -73,7 +73,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     HttpClientTestingModule,
     RouterTestingModule,
     TranslateModule.forRoot({
