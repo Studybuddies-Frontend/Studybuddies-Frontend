@@ -1,53 +1,87 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
-        Studybuddies
-      </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse"  id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
-        </li>
-      </ul>
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
+      Studybuddies
+    </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse"  id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <form class="formRooms" #roomForm="ngForm" (ngSubmit)="createRoom(roomForm)"><h1 class="titulo" >Creación de sala</h1><br><div class="row">
+    <div class="col-sm">
+      <input type="hidden" id="id_user" name="id_user" [(ngModel)]="roomService.selectedRoom.id_user">
+      <label for="fname">Descripción</label><br>
+      <input type="text" id="description" name="description" [(ngModel)]="roomService.selectedRoom.description"><br><br>
+      <label for="lname">Universidad</label><br>
+      <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university"><br><br>
+      <label for="lname">Grado</label><br>
+      <input type="text" id="grade" name="degree" [(ngModel)]="roomService.selectedRoom.degree"><br><br>
+      <label for="lname">Asignatura</label><br>
+      <input type="text" id="subjects" name="subject" [(ngModel)]="roomService.selectedRoom.subject"><br><br>
     </div>
+    <div class="col-sm">
+      <label for="lname">Fecha</label><br>
+      <input type="date" id="date" name="date" [(ngModel)]="roomService.selectedRoom.date"><br><br>
+      <label for="lname">Hora inicio</label><br>
+      <input type="time" id="iTime" name="iTime" [(ngModel)]="roomService.selectedRoom.iTime"><br><br>
+      <label for="lname">Hora fin</label><br>
+      <input type="time" id="fTime" name="fTime" [(ngModel)]="roomService.selectedRoom.fTime"><br><br>
     </div>
   </nav>
 
   <div class="container-fluid">
-    <form class="formRooms"><h1 class="titulo">Creación de sala</h1><br><div class="row">
+    <form class="formRooms"><div class="row"><h1 class="titulo">CREA UNA SALA</h1>
       <div class="col-sm">
-        <label for="fname">Descripción</label><br>
-        <input type="text" id="description" name="description"><br><br>
         <label for="lname">Universidad</label><br>
         <input type="text" id="university" name="university"><br><br>
         <label for="lname">Grado</label><br>
         <input type="text" id="grade" name="grade"><br><br>
         <label for="lname">Asignatura</label><br>
         <input type="text" id="subjects" name="subjects"><br><br>
-      </div>
-      <div class="col-sm">
         <label for="lname">Fecha</label><br>
         <input type="date" id="date" name="date"><br><br>
+      </div>
+      <div class="col-sm">
         <label for="lname">Hora inicio</label><br>
         <input type="time" id="iTime" name="iTime"><br><br>
         <label for="lname">Hora fin</label><br>
         <input type="time" id="fTime" name="fTime"><br><br>
+        <label for="fname">Descripción</label><br>
+        <textarea style="height: 20%;" id="description" name="description"></textarea><br><br>
+        
       </div>
     <div><input type="submit" value="CREAR" ></div>
     </div></form>
   </div>
+
+  <footer id="contacto">
+    <div class="contenedor-textos">
+      <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
+    </div>
+    </footer>
+  <div><input type="submit" value="CREAR"></div>
+  </div>
+</form>
+</div>

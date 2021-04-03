@@ -29,28 +29,35 @@
 </nav>
 
 <div class="container-fluid">
-  <form class="formRooms"><h1 class="titulo">Detalles de la sala</h1><br><div class="row">
+  <form class="formRooms"><div class="row"><h1 class="titulo">DETALLES DE LA SALA</h1>
     <div class="col-sm">
-      <label for="fname">Descripción</label><br>
-      <input type="text" id="description" name="description" readonly=true><br><br>
       <label for="lname">Universidad</label><br>
-      <input type="text" id="university" name="university" readonly=true><br><br>
+      <input type="text" id="university" name="university" readonly="true"><br><br>
       <label for="lname">Grado</label><br>
-      <input type="text" id="grade" name="grade" readonly=true><br><br>
+      <input type="text" id="grade" name="grade" readonly="true"><br><br>
       <label for="lname">Asignatura</label><br>
-      <input type="text" id="subjects" name="subjects" readonly=true><br><br>
+      <input type="text" id="subjects" name="subjects" readonly="true"><br><br>
+      <label for="lname">Fecha</label><br>
+      <input type="date" id="date" name="date" readonly="true"><br><br>
     </div>
     <div class="col-sm">
-      <label for="lname">Fecha</label><br>
-      <input type="date" id="date" name="date" readonly=true><br><br>
       <label for="lname">Hora inicio</label><br>
-      <input type="time" id="iTime" name="iTime" readonly=true><br><br>
+      <input type="time" id="iTime" name="iTime" readonly="true"><br><br>
       <label for="lname">Hora fin</label><br>
-      <input type="time" id="fTime" name="fTime" readonly=true><br><br>
+      <input type="time" id="fTime" name="fTime" readonly="true"><br><br>
       <label for="lname">Precio por hora</label><br>
-      <input type="number" id="money" name="money" readonly=true><br><br>
+      <input style="width: 80px" type="number" min="1" step="any" id="money" name="money"  readonly="true"/><br><br>
+      <label for="fname">Descripción</label><br>
+      <textarea id="description" name="description" readonly="true"></textarea><br><br>
+      
     </div>
   <div><input type=button value="VOLVER" onclick="history.back()"></div>
   <div><input type="submit" value="UNIRSE" routerLink="/constructionPage" routerLinkActive="active"></div>
   </div></form>
 </div>
+
+<footer id="contacto">
+  <div class="contenedor-textos">
+    <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
+  </div>
+  </footer>

@@ -21,7 +21,7 @@ import { ConstructionPageComponent } from './components/construction-page/constr
 import { LoginComponent } from './components/login/login.component';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -60,7 +60,8 @@ const routes: Routes = [
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BaseURLInterceptorService, multi: true },
