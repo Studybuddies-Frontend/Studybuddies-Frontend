@@ -1,4 +1,4 @@
-export interface Room {
+export interface Class {
     _id?: string,
     id_user: string,
     description : string,
