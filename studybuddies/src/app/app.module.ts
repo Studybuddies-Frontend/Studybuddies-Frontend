@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 
@@ -18,6 +19,8 @@ import { ViewClassTutorComponent } from './components/tutor/view-class-tutor/vie
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
+import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
@@ -54,12 +57,17 @@ const routes: Routes = [
     LoginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BaseURLInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HTTPErrorInterceptorService, multi: true },
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
