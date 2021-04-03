@@ -10,7 +10,7 @@ export class RoomService {
   URL_API = "http://localhost:3000/api/v1/room/create";
 
   selectedRoom: Class = {
-    id_user : "",
+    id_user : 0,
     description : "",
     university : "",
     degree : "",
@@ -21,7 +21,10 @@ export class RoomService {
     is_private : false,
     date : new Date(),
     iTime : new Date(),
-    fTime : new Date() 
+    fTime : new Date(),
+    guid : '',
+     authorised_users : [],
+    room_url : ''
   };
 
   constructor(public http:HttpClient) { }

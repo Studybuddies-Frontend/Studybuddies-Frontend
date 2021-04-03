@@ -1,92 +1,122 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
-        Studybuddies
-      </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse"  id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
+<!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
+	<div class="container">
+		<a class="navbar-brand" href="#">
+			<img src="../../../assets/logoSinFondo.png" style="width: 50px;">
+			Studybuddies
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav> -->
 
 
 <body>
-<div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar Sesión</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
-		<div class="login-form">
-			<div class="sign-in-htm">
-				<div class="group">
-					<label for="user" class="label">Usuario</label>
-					<input id="user" type="text" class="input">
+	<div class="login-wrap">
+		<div class="login-html">
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar
+				Sesión</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
+			<div class="login-form">
+				<form
+					class = "form-horizontal m-t-20"
+					*ngIf = "!isLoggedIn"
+					id="idloginform"
+					name="loginform"
+					#f="ngForm"
+					(ngSubmit)="f.form.valid && login()">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="user" class="label">Usuario</label>
+							<input 
+								name="username"
+								[(ngModel)]="username"
+								type="text" 
+								class="form-control"
+								#usernameField="ngModel"
+								[ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }"
+								required>
+							<div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
+								El nombre de usuario no es correcto
+							</div> 
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Contraseña</label>
+							<input 
+								name="password"
+								[(ngModel)]="password"
+								type="password" 
+								class="form-control"
+								(keydown.enter)="f.ngSubmit.emit()"
+								#passwordField="ngModel"
+								[ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }"
+								required>
+							<div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
+								La contraseña no es correcta
+							</div>
+						</div>
+						<div class="group">
+							<input id="check" type="checkbox" class="check" checked>
+							<label for="check"><span class="icon"></span> Mantener mi sesión iniciada</label>
+						</div>
+						<div class="group">
+							<input type="submit" class="button" value="Iniciar sesión">
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<a href="#forgot">¿Olvidaste tu contraseña?</a>
+						</div>
+					</div>
+				</form>
+				<div class="sign-up-htm">
+					<div class="group">
+						<label for="user" class="label">Usuario</label>
+						<input id="user" type="text" class="input">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Contraseña</label>
+						<input id="pass" type="password" class="input" data-type="password">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Repetir contraseña</label>
+						<input id="pass" type="password" class="input" data-type="password">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Email</label>
+						<input id="pass" type="text" class="input">
+					</div>
+					<div class="group">
+						<input type="submit" class="button" value="Registrarse">
+					</div>
+					<div class="hr"></div>
 				</div>
-				<div class="group">
-					<label for="pass" class="label">Contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<input id="check" type="checkbox" class="check" checked>
-					<label for="check"><span class="icon"></span> Mantener mi sesión iniciada</label>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Iniciar sesión">
-				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<a href="#forgot">¿Olvidaste tu contraseña?</a>
-				</div>
-			</div>
-			<div class="sign-up-htm">
-				<div class="group">
-					<label for="user" class="label">Usuario</label>
-					<input id="user" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repetir contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email</label>
-					<input id="pass" type="text" class="input">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Registrarse">
-				</div>
-				<div class="hr"></div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 
 
 <footer id="contacto">
 	<div class="contenedor-textos">
-	  <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
-  </div>
-  </footer>
-
+		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com
+		</p>
+	</div>
+</footer>
