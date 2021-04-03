@@ -73,5 +73,6 @@ export class CreateClassStudentComponent implements OnInit {
       this.router.navigate(["/student/classList"])
     }  
   }
+  
 
 }
