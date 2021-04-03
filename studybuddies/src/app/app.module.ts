@@ -32,7 +32,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
