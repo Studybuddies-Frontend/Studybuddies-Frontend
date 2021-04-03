@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http'
 import {TranslateCompiler, TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateMessageFormatCompiler} from "ngx-translate-messageformat-compiler";
+import { FormsModule } from '@angular/forms';
+
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,7 +17,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports : [ HttpClientTestingModule, RouterTestingModule,
+      imports : [ HttpClientTestingModule, RouterTestingModule, FormsModule,
         TranslateModule.forRoot({
           loader:{
             provide:TranslateLoader,
