@@ -18,6 +18,7 @@ import { ViewClassTutorComponent } from './components/tutor/view-class-tutor/vie
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -55,7 +56,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
