@@ -7,7 +7,8 @@ import { LoginService } from "../../services/login/login.service";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {TranslateService} from "@ngx-translate/core";
-import {HttpClient} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private loginService: LoginService
   ) 
   {}
 
@@ -28,6 +30,9 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   role = '';
+  loginError = null;
+  user: User = new User();
+  logged = false;
 
   ngOnInit(): void {
     if(this.tokenStorage.getUser()) {
