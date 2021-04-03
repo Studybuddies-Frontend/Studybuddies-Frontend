@@ -1,10 +1,19 @@
-import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule, Routes } from '@angular/router';
+
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import {TranslateCompiler, TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateMessageFormatCompiler} from "ngx-translate-messageformat-compiler";
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './components/student/student.component';
@@ -21,6 +30,9 @@ import { ConstructionPageComponent } from './components/construction-page/constr
 import { LoginComponent } from './components/login/login.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
+import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -63,8 +75,29 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule
+    HttpClientTestingModule,
+    RouterTestingModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      compiler: {
+        provide: TranslateCompiler,
+        useClass: TranslateMessageFormatCompiler
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BaseURLInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HTTPErrorInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http)
+}
+
