@@ -1,145 +1,50 @@
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/logoSinFondo.png" style="width: 50px;">
-      Studybuddies
-    </a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse"  id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/signin" routerLinkActive="active">Inicia sesión</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regístrate</a>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
+	<div class="div-all">
+		<button class="list-button" style="vertical-align:middle"
+			onclick="document.location='/tutor/classList'"><span>Crea una sala de estudio </span></button>
 
+		<section>
 
-<div class="div-all">
-<button class="list-button" style="vertical-align:middle" onclick="document.location='/tutor/classList'" ><span>Crea una sala de estudio </span></button>
+			<table class="containertable">
+				<thead>
+					<tr>
+						<th>
+							<h1 class="table">Universidad</h1>
+						</th>
+						<th>
+							<h1 class="table">Grado</h1>
+						</th>
+						<th>
+							<h1 class="table">Asignatura</h1>
+						</th>
+						<th>
+							<h1 class="table">Descripción</h1>
+						</th>
+						<th>
+							<h1 class="table">Fecha</h1>
+						</th>
+						<th>
+							<h1 class="table">Hora inicio</h1>
+						</th>
+						<th>
+							<h1 class="table">Hora fin</h1>
+						</th>
+					</tr>
+				</thead>
+				<mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
+				<tbody>
+					<tr *ngFor="let room of rooms" onclick="document.location='/student/classView'">
+						<td>{{room['university']}}</td>
+						<td>{{room['degree']}}</td>
+						<td>{{room['subject']}}</td>
+						<td>{{room['description']}}</td>
+						<td>{{room['starting_time']}}</td>
+						<td>{{room['ending_time']}}</td>
+						<td>{{room['ending_time']}}</td>
+					</tr>
+				</tbody>
+			</table>
 
-<section>
-<table class="containertable">
-	<thead>
-		<tr>
-			<th><h1 class="table">Universidad</h1></th>
-			<th><h1 class="table">Grado</h1></th>
-			<th><h1 class="table">Asignatura</h1></th>
-			<th><h1 class="table">Descripción</h1></th>
-      <th><h1 class="table">Fecha</h1></th>
-      <th><h1 class="table">Hora inicio</h1></th>
-      <th><h1 class="table">Hora fin</h1></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-		<tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-		<tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-      <td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-    <tr onclick="document.location='/student/classView'">
-			<td>Universidad de Sevilla</td>
-			<td>Ingeniería del Software</td>
-			<td>EGC</td>
-			<td>Sala para repasar las jornadas</td>
-      <td>30/06/2021</td>
-      <td>17:00</td>
-      <td>19:00</td>
-		</tr>
-	</tbody>
-</table>
-
-</section>
-</div>
+		</section>
+	</div>
 </body>

@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,8 @@ import { ViewClassTutorComponent } from './components/tutor/view-class-tutor/vie
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ConstructionPageComponent } from './components/construction-page/construction-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -32,6 +35,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
+  { path: '**', redirectTo: '' }
 
   
 ];
@@ -55,7 +59,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
