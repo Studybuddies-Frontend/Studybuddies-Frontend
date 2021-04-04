@@ -1,7 +1,7 @@
 <body>
 	<div class="div-all">
 		<button class="list-button" style="vertical-align:middle"
-			onclick="document.location='/tutor/classList'"><span>Crea una sala de estudio </span></button>
+			onclick="document.location='/student/createClass'"><span>Crea una sala de estudio </span></button>
 
 		<section>
 
@@ -29,11 +29,14 @@
 						<th class="esconder">
 							<h1 class="table">Hora fin</h1>
 						</th>
+						<th>
+							<h1 class="table">Acciones</h1>
+						</th>
 					</tr>
 				</thead>
 				<mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
 				<tbody>
-					<tr *ngFor="let room of rooms" onclick="document.location='/student/classView'">
+					<tr *ngFor="let room of rooms" >
 						<td>{{room['university']}}</td>
 						<td>{{room['degree']}}</td>
 						<td>{{room['subject']}}</td>
@@ -41,6 +44,7 @@
 						<td>{{room['starting_time']}}</td>
 						<td class="esconder">{{room['ending_time']}}</td>
 						<td class="esconder">{{room['ending_time']}}</td>
+            <td><a href="/student/classView/{{room['guid']}}">Ver detalles</a></td>
 					</tr>
 				</tbody>
 			</table>

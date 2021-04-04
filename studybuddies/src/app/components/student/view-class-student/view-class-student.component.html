@@ -1,27 +1,29 @@
 <div class="container-fluid">
-  <form class="formRooms"><div class="row"><h1 class="titulo">DETALLES DE LA SALA</h1>
-    <div class="col-lg">
-      <label for="lname">Universidad</label><br>
-      <input type="text" id="university" name="university" readonly="true"><br><br>
-      <label for="lname">Grado</label><br>
-      <input type="text" id="grade" name="grade" readonly="true"><br><br>
-      <label for="lname">Asignatura</label><br>
-      <input type="text" id="subjects" name="subjects" readonly="true"><br><br>
-      <label for="lname">Fecha</label><br>
-      <input type="date" id="date" name="date" readonly="true"><br><br>
+  <form class="formRooms">
+    <h1 class="titulo">Detalles de la sala</h1><br>
+    <div class="row">
+      <div class="col-lg">
+        <label for="lname">Universidad</label><br>
+        <input type="text" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
+        <label for="lname">Grado</label><br>
+        <input type="text" id="grade" name="grade" value="{{actualRoom['degree']}}" readonly=true><br><br>
+        <label for="lname">Asignatura</label><br>
+        <input type="text" id="subjects" name="subjects" value="{{actualRoom['subject']}}" readonly=true><br><br>
+        <label for="lname">Fecha</label><br>
+        <input type="text" id="date" name="date" value="{{actualRoom['starting_time']}}" readonly=true><br><br>
+      </div>
+      <div class="col-lg">
+        <label for="lname">Hora inicio</label><br>
+        <input type="text" id="iTime" name="iTime" value="{{actualRoom['starting_time']}}" readonly=true><br><br>
+        <label for="lname">Hora fin</label><br>
+        <input type="text" id="fTime" name="fTime" value="{{actualRoom['ending_time']}}" readonly=true><br><br>
+        <label for="fname">Descripción</label><br>
+        <textarea style="height: 20%;" id="description" name="description" value="{{actualRoom['description']}}" readonly="true"></textarea><br><br>
+      </div>
+      <div><input type=button value="VOLVER" onclick="history.back()"></div>
+      <div><a href="http://{{actualRoom['room_url']}}"><input type="submit" value="UNIRSE"></a></div>
     </div>
-    <div class="col-lg">
-      <label for="lname">Hora inicio</label><br>
-      <input type="time" id="iTime" name="iTime" readonly="true"><br><br>
-      <label for="lname">Hora fin</label><br>
-      <input type="time" id="fTime" name="fTime" readonly="true"><br><br>
-      <label for="fname">Descripción</label><br>
-      <textarea style="height: 20%;" id="description" name="description" readonly="true"></textarea><br><br>
-      
-    </div>
-    <div><input type=button value="VOLVER" onclick="history.back()"></div>
-  <div><input type="submit" value="UNIRSE" routerLink="/constructionPage" routerLinkActive="active"></div>
-  </div></form>
+  </form>
 </div>
 
 <footer id="contacto">
