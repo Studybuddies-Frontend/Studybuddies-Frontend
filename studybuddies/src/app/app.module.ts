@@ -21,23 +21,46 @@ import { ConstructionPageComponent } from './components/construction-page/constr
 import { LoginComponent } from './components/login/login.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { RoleGuardService } from './services/role-guard.service';
 
 const routes: Routes = [
-  { path: 'student', component: StudentComponent },
-  { path: 'tutor', component: TutorComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'student/createClass', component: CreateClassStudentComponent },
-  { path: 'student/classList', component: ClassListStudentComponent },
-  { path: 'student/classView/:guid', component: ViewClassStudentComponent },
-  { path: 'tutor/createClass', component: CreateClassTutorComponent },
-  { path: 'tutor/classList', component: ClassListTutorComponent },
-  { path: 'tutor/classView/:guid', component: ViewClassTutorComponent },
+  {
+    path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
+    path: 'tutor', component: TutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'tutor'
+    }
+  },
+  { path: 'login', component: LoginComponent  },
+  {
+    path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  { path: 'student/classList', component: ClassListStudentComponent, canActivate: [AuthGuardService]  },
+  { path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [AuthGuardService]  },
+  {
+    path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'tutor'
+    }
+  },
+  { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
+  { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
   { path: '**', redirectTo: '' }
 
-  
+
 ];
 
 @NgModule({

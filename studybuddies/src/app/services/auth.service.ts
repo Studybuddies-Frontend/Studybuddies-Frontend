@@ -32,6 +32,21 @@ export class AuthService {
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
   }
 
+  public isAuthenticated(): boolean {
+    return window.sessionStorage.getItem('auth-user') != null
+  }
+
+  public getRole(): string {
+    const user = window.sessionStorage.getItem('auth-user');
+    console.log(user)
+    if (user) {
+      let jsonUser = JSON.parse(user);
+      return jsonUser.role;
+    }
+
+    return '';
+  }
+
   /* signIn(user: any){
     return this.http.post<any>(this.URL + environment.rutaLogin, user);
   } */
