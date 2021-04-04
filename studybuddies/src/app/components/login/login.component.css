@@ -44,6 +44,12 @@ body{
 .navbar-brand:hover{
     color: #000000 !important;
 }
+
+div#navbarNav {
+	margin-right: auto;
+	text-align: center;
+}
+
 body{
 	margin:0;
 	color:#EBA144 !important;

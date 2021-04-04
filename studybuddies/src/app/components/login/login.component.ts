@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { User } from "../../models/user";
+import { LoginService } from "../../services/login/login.service";
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import {TranslateService} from "@ngx-translate/core";
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private loginService: LoginService
   ) 
   {}
 
@@ -23,6 +30,9 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   role = '';
+  loginError = null;
+  user: User = new User();
+  logged = false;
 
   ngOnInit(): void {
     if(this.tokenStorage.getUser()) {
@@ -56,5 +66,25 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload()
   }
+
+  log_in(): void {
+    this.loginError = null;
+    
+    this.loginService.storeToken(this.user)
+      .then(res => {
+        this.loginService.eventEmitter.subscribe(principal => {
+          this.logged = true;
+
+          if (principal.tutor == true)
+            this.router.navigate(['/tutor']);
+          else 
+            this.router.navigate(['/student']);
+        });
+      }).catch(error => {
+        if (error.status == 401)
+          this.loginError = error.status;
+      });
+  }
+
 
 }
