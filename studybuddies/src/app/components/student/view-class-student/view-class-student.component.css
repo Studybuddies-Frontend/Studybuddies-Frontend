@@ -146,8 +146,25 @@ footer{
       border: 2px solid #FFFFCC;
   }
   
-  .formRooms input[type=button]:hover{
+.formRooms input[type=button]:hover{
     background-color: #a47cfc;
     color: #F2F2F2;
     transition: all .4s ease;
   }
+
+.formRooms a{
+    margin-top: 2%;
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 2px solid #FFFFCC;
+}
+
+.formRooms a:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}

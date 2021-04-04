@@ -50,12 +50,12 @@ export class LoginComponent implements OnInit {
       Swal.fire('Login', 'La contraseña indicada no es correcta', 'error')
     }
 
-    this.authService.login(this.username, this.password).subscribe(response => {
+    this.authService.login(this.username, this.password).subscribe(async response => {
       this.tokenStorage.saveUser(response);
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.role = response.role
-      this.router.navigate(['/'])
+      await this.router.navigate([''])
       this.reloadPage();
     }, err => {
       this.isLoginFailed = true;

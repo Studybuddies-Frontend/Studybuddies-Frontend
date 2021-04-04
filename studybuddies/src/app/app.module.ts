@@ -35,6 +35,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
+import { NotAuthGuardService } from './services/not-auth-guard.service';
 
 const routes: Routes = [
   {
@@ -49,7 +50,7 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
-  { path: 'login', component: LoginComponent  },
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]  },
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -97,7 +98,7 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
-    HttpClientTestingModule,
+    /* HttpClientTestingModule,
     RouterTestingModule,
     TranslateModule.forRoot({
       loader:{
@@ -109,7 +110,7 @@ const routes: Routes = [
         provide: TranslateCompiler,
         useClass: TranslateMessageFormatCompiler
       }
-    })
+    }) */
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BaseURLInterceptorService, multi: true },
