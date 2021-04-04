@@ -1,30 +1,30 @@
 <div class="container-fluid">
   <form class="formRooms">
-    <h1 class="titulo">Detalles de la sala</h1><br>
     <div class="row">
-      <div class="col-sm">
-        <label for="fname">Descripción</label><br>
-        <input type="text" id="description" name="description" value="{{actualRoom['description']}}" 
-        readonly=true><br><br>
+      <h1 class="titulo">DETALLES DE LA SALA</h1> 
+      <div class="col-lg">
         <label for="lname">Universidad</label><br>
         <input type="text" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
         <label for="lname">Grado</label><br>
         <input type="text" id="grade" name="grade" value="{{actualRoom['degree']}}" readonly=true><br><br>
         <label for="lname">Asignatura</label><br>
         <input type="text" id="subjects" name="subjects" value="{{actualRoom['subject']}}" readonly=true><br><br>
-      </div>
-      <div class="col-sm">
         <label for="lname">Fecha</label><br>
         <input type="text" id="date" name="date" value="{{actualRoom['starting_time']}}" readonly=true><br><br>
+      </div>
+      <div class="col-lg">
         <label for="lname">Hora inicio</label><br>
         <input type="text" id="iTime" name="iTime" value="{{actualRoom['starting_time']}}" readonly=true><br><br>
         <label for="lname">Hora fin</label><br>
         <input type="text" id="fTime" name="fTime" value="{{actualRoom['ending_time']}}" readonly=true><br><br>
         <label for="lname">Precio por hora</label><br>
-        <input type="number" id="money" name="money" value="{{actualRoom['price_per_hour']}}" readonly=true><br><br>
+        <input style="width: 80px" type="number" min="1" step="any" id="money" name="money" value="{{actualRoom['price_per_hour']}}" readonly=true><br><br>
+        <label for="fname">Descripción</label><br>
+        <textarea id="description" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
       </div>
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
       <div><input type="submit" value="ACCEDER AL PAGO" onclick="window.location='/constructionPage'"></div>
     </div>
   </form>
 </div>
+

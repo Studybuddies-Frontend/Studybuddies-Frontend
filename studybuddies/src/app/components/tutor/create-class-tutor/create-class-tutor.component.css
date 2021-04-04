@@ -43,47 +43,51 @@ body{
     color: #000000 !important;
 }
 
+div#navbarNav {
+    margin-right: auto;
+    text-align: center;
+}
+
 .titulo{
     font-family: 'Titillium Web', serif;
-    color: #EBA144;
-    font-weight: bold;
-    background-image: url("../../../../assets/pizarra.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 4%;
+    color: #F2F2F2;
+    font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid #20598B;
 }
 
 .formRooms{
-    padding: 6% 20% 20% 20%;
+    padding: 5% 20% 20% 20%;
     text-align: center;
-    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
+    background-color: #20598B;
     background-size: cover;
 }
 
 .row{
     padding: 5%;
-    background-color: #EBA144;
+    background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40,57,101,.9) 100%), url("../../../../assets/back.jpg");
     border-radius: 15px;
-    border: solid 2px #F2F2F2;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .formRooms label{
     margin-bottom: 2%;
     font-family: 'Titillium Web', serif;
     font-size: larger;
-    color: #20598B;
-    -webkit-text-stroke-width: 0.3px;
-    -webkit-text-stroke-color: #20598B;
+    color: #F2F2F2;
 }
 
-.formRooms input{
+.formRooms input,textarea{
     border: none;
     padding: 1%;
     border-radius: 15px;
 }
 
-.formRooms input::content{
+.formRooms input,textarea::content{
     color: #a47cfc;
     text-align: center;
     font-weight: bold;
@@ -91,7 +95,7 @@ body{
 
 .formRooms input[type=submit]{
     margin-top: 2%;
-    background-color: #a47cfc;
+    background-color: #20598B;
     color: white;
     font-size: large;
     padding: 1.25%;
@@ -102,7 +106,7 @@ body{
 
 .formRooms input[type=submit]:hover{
     background-color: #FFFFCC;
-    color: #a47cfc;
+    color: #20598B;
     transition: all .4s ease;  
 }
 
@@ -110,5 +114,23 @@ body{
     .formRooms{
         padding-top: 15%;
     }
+}
+
+#footer .footer_image {
+    height: 24px;
+    width:24px;
+    text-align: center;
+    padding: 4px;
+}
+
+footer{
+    background: #eba144;
+    color: #fff;
+    padding: 12px;
+}
+
+.contenedor-textos p{
+    text-align: center;
+    font-size: 20px;
 }
 

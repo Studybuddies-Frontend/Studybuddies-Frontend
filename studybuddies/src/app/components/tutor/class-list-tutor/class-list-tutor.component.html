@@ -14,16 +14,16 @@
             <th>
               <h1 class="table">Asignatura</h1>
             </th>
-            <th>
+            <th class="esconder">
               <h1 class="table">Descripción</h1>
             </th>
             <th>
               <h1 class="table">Fecha</h1>
             </th>
-            <th>
+            <th class="esconder">
               <h1 class="table">Hora inicio</h1>
             </th>
-            <th>
+            <th class="esconder">
               <h1 class="table">Hora fin</h1>
             </th>
             <th>
@@ -37,15 +37,14 @@
             <td>{{room['university']}}</td>
             <td>{{room['degree']}}</td>
             <td>{{room['subject']}}</td>
-            <td>{{room['description']}}</td>
+            <td class="esconder">{{room['description']}}</td>
             <td>{{room['starting_time']}}</td>
-            <td>{{room['ending_time']}}</td>
-            <td>{{room['ending_time']}}</td>
+            <td class="esconder">{{room['ending_time']}}</td>
+            <td class="esconder">{{room['ending_time']}}</td>
             <td><a href="/tutor/classView/{{room['guid']}}">Ver detalles</a></td>
           </tr>
         </tbody>
-      </table>
-
+      </table>  
     </section>
   </div>
 </body>

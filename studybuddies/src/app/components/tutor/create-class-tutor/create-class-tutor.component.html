@@ -1,28 +1,65 @@
-<div class="container-fluid">
-  <form class="formRooms">
-    <h1 class="titulo">Creación de sala</h1><br>
-    <div class="row">
-      <div class="col-sm">
-        <label for="fname">Descripción</label><br>
-        <input type="text" id="description" name="description"><br><br>
+
+  <div class="container-fluid">
+    <form class="formRooms" #roomForm="ngForm" (ngSubmit)="roomForm.form.valid && createRoom(roomForm)"><div class="row"><h1 class="titulo">CREA UNA SALA</h1>
+       <div class="col-lg">
+        <input type="hidden" id="id_user" name="id_user" [(ngModel)]="roomService.selectedRoom.id_user">
+        
         <label for="lname">Universidad</label><br>
-        <input type="text" id="university" name="university"><br><br>
+        <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university" #university="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && university.invalid }" required><br>
+        <div [hidden]="university.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && university.invalid">La universidad no puede estar vacía</span>
+        </div><br>
         <label for="lname">Grado</label><br>
-        <input type="text" id="grade" name="grade"><br><br>
+        <input type="text" id="grade" name="degree" [(ngModel)]="roomService.selectedRoom.degree" #degree="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && degree.invalid }" required><br>
+        <div [hidden]="degree.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && degree.invalid">El grado no puede estar vacío</span>
+        </div><br>
         <label for="lname">Asignatura</label><br>
-        <input type="text" id="subjects" name="subjects"><br><br>
-      </div>
-      <div class="col-sm">
+        <input type="text" id="subjects" name="subject" [(ngModel)]="roomService.selectedRoom.subject" #subject="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && subject.invalid }" required><br>
+        <div [hidden]="subject.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && subject.invalid">La asignatura no puede estar vacía</span>
+        </div><br>
         <label for="lname">Fecha</label><br>
-        <input type="date" id="date" name="date"><br><br>
+        <input type="date" id="date" name="date" [(ngModel)]="roomService.selectedRoom.date" #date="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && date.invalid }" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"><br>
+        <div [hidden]="date.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && date.invalid">La fecha no puede estar vacía</span>
+        </div><br>
+      </div>  
+      <div class="col-sm">
+        
         <label for="lname">Hora inicio</label><br>
-        <input type="time" id="iTime" name="iTime"><br><br>
+        <input type="time" id="iTime" name="iTime" [(ngModel)]="roomService.selectedRoom.iTime" #iTime="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && iTime.invalid }" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"><br>
+        <div [hidden]="iTime.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && iTime.invalid">Marque una hora de inicio</span>
+        </div><br>
         <label for="lname">Hora fin</label><br>
-        <input type="time" id="fTime" name="fTime"><br><br>
+        <input type="time" id="fTime" name="fTime" [(ngModel)]="roomService.selectedRoom.fTime" #fTime="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && fTime.invalid }" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"><br>
+        <div [hidden]="fTime.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && fTime.invalid">Marque una hora de fin</span>
+        </div><br>
         <label for="lname">Precio por hora</label><br>
-        <input style="width: 80px" type="number" min="1" step="any" id="money" name="money" /><br><br>
+        <input style="width: 80px" type="number" min="0" step="any" id="money" name="money" [(ngModel)]="roomService.selectedRoom.price_per_hour"  #money="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && money.invalid }" required/><br><br>
+        <div [hidden]="money.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && money.invalid">Debe incluir un precio</span>
+        </div><br>
+        <label for="fname">Descripción</label><br>
+        <textarea type="text" id="description" name="description" [(ngModel)]="roomService.selectedRoom.description" #description="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && description.invalid }" minlength="4" required></textarea><br>
+        <div [hidden]="description.valid" class="text-danger">
+          <span *ngIf="roomForm.submitted && description.errors?.required">La descripción no puede estar vacía</span>
+          <span *ngIf="roomForm.submitted  && description.errors?.minlength">La descripción es demasiado corta</span>
+        </div><br>
+        <div [hidden]="date.invalid || description.invalid || university.invalid || degree.invalid || subject.invalid || date.invalid || iTime.invalid || fTime.invalid" class="text-danger">
+          <span *ngIf="roomForm.submitted">La hora de fin debe ser posterior a la de inicio, y la fecha no puede situarse en el pasado</span>
+        </div><br>    
       </div>
-      <div><input type="submit" value="CREAR"></div>
+      <div><input type="submit" value="CREAR" ng-click="submitted=true"></div>
     </div>
   </form>
-</div>
+  </div>
+  
+    <footer id="contacto">
+      <div class="contenedor-textos">
+        <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
+      </div>
+      </footer>
+  

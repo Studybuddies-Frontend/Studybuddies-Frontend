@@ -1,18 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SalasService } from './salas.service';
+import { RoomService } from './class.service';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('SalasService', () => {
-  let service: SalasService;
+describe('RoomService', () => {
+  let service: RoomService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ]});
-    service = TestBed.inject(SalasService);
+      imports: [ HttpClientTestingModule ]
+    });
+    service = TestBed.inject(RoomService);
   });
 
   it('should be created', () => {

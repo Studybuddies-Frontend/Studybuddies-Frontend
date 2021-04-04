@@ -30,6 +30,11 @@
     color: #000000 !important;
 }
 
+div#navbarNav {
+  margin-right: auto;
+  text-align: center;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -39,7 +44,6 @@
 html{
     scroll-behavior: smooth;
 }
-
 body{
     font-family: 'Titillium Web', sans-serif;
     background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
@@ -164,7 +168,7 @@ section{
 .containertable th h1 {
 	  font-weight: bold;
 	  font-size: 1em;
-  text-align: left;
+  text-align: center;
   color: #185875;
 }
 
@@ -177,7 +181,7 @@ section{
 }
 
 .containertable {
-	  text-align: left;
+	  text-align: center;
 	  overflow: hidden;
 	  width: 90%;
 	  margin: 0 auto;
@@ -238,6 +242,9 @@ section{
     margin-left: 0px;
   }
 
+  .esconder{
+    display: none;
+  }
 }
 
 /*@media (max-width: 550px){
