@@ -18,10 +18,10 @@ export class ClassListStudentComponent implements OnInit {
   }
 
   getRooms() {
-    this.roomService.getRooms()
+    this.roomService.getSalasEstudioActivas()
       .subscribe((res: any)=> {
-        console.log(res.allRoom)
-        this.rooms = res.allRoom;
+        console.log(res.salasEstudio)
+        this.rooms = res.salasEstudio;
       })
   }
 }

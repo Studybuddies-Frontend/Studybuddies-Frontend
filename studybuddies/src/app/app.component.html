@@ -9,11 +9,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" *ngIf="isLoggedIn">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/employees" routerLinkActive="active">Pagina 1</a>
+                <li class="nav-item" *ngIf="showStudentBoard">
+                    <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/posts" routerLinkActive="active">Pagina 2</a>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
+                </li>
+                <li class="nav-item" *ngIf="showTutorBoard">
+                    <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="!isLoggedIn">
