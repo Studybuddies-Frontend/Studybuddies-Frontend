@@ -5,7 +5,7 @@
       <table class="containertable">
         <thead>
           <tr>
-            <th>
+            <th class="esconder">
               <h1 class="table">Universidad</h1>
             </th>
             <th>
@@ -34,7 +34,7 @@
         <mat-spinner *ngIf="tutorias.length === 0"></mat-spinner>
         <tbody>
           <tr *ngFor="let room of tutorias">
-            <td>{{room['university']}}</td>
+            <td class="esconder">{{room['university']}}</td>
             <td>{{room['degree']}}</td>
             <td>{{room['subject']}}</td>
             <td class="esconder">{{room['description']}}</td>

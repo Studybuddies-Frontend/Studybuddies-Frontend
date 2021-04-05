@@ -38,7 +38,7 @@ import { HTTPErrorInterceptorService } from './services/httperror-interceptor.se
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 
 const routes: Routes = [
-  {
+  /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
@@ -49,7 +49,7 @@ const routes: Routes = [
     data: {
       expectedRole: 'tutor'
     }
-  },
+  }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],

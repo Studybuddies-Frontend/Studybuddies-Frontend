@@ -2,59 +2,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 
-.navbar{
-    border: 3px solid #20598B;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    position: fixed;
-    width: 100%;
-    z-index: 99;
-}
-
-.navbar a{
-    color: #F2F2F2;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
-}
-
-.navbar a:hover{
-    color: #000000 !important;
-}
-
-.navbar-brand{
-    margin-right: 10%;
-    padding-left: 1%;
-}
-
-.navbar-brand:hover{
-    color: #000000 !important;
-}
-
-div#navbarNav {
-  margin-right: auto;
-  text-align: center;
-}
-
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
-}
 body{
-    font-family: 'Titillium Web', sans-serif;
-    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: absolute;
-    overflow: auto;
+  font-family: 'Raleway', sans-serif;
+  background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
 .div-all{
@@ -142,7 +105,6 @@ padding-top: 85px;
 }
 
 section{
-  margin-top: 30px;
   margin-right: 25px;
   margin-left: 25px;
   margin-bottom: 30px;

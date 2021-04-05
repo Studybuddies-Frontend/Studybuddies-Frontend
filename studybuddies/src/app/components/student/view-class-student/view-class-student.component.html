@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <form class="formRooms">
-    <h1 class="titulo">Detalles de la sala</h1><br>
     <div class="row">
+      <h1 class="titulo">DETALLES DE LA SALA</h1><br>
       <div class="col-lg">
         <label for="lname">Universidad</label><br>
         <input type="text" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
@@ -21,13 +21,7 @@
         <textarea style="height: 20%;" id="description" name="description" value="{{actualRoom['description']}}" readonly="true"></textarea><br><br>
       </div>
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
-      <div><a href="http://{{actualRoom['room_url']}}" target="_blank">UNIRSE</a></div>
+      <div style="margin-top: 3.5%;"><a href="http://{{actualRoom['room_url']}}" target="_blank">UNIRSE</a></div>
     </div>
   </form>
 </div>
-
-<footer id="contacto">
-  <div class="contenedor-textos">
-    <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
-  </div>
-  </footer>
