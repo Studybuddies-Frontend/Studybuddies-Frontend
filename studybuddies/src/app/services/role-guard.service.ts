@@ -15,7 +15,9 @@ export class RoleGuardService {
     if(!this.auth.isAuthenticated() ){
       this.router.navigate(['/login'])
       return false;
-    } else if(this.auth.getRole() !== expectedRole) {
+    } else if(this.auth.getRole() == 'admin') {
+      return true;
+    } else if(this.auth.getRole() !== expectedRole ) {
       this.router.navigate([''])
       return false;
     }
