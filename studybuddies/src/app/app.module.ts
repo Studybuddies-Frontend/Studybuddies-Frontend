@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-import {TranslateCompiler, TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {TranslateMessageFormatCompiler} from "ngx-translate-messageformat-compiler";
+import { TranslateCompiler, TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateMessageFormatCompiler } from "ngx-translate-messageformat-compiler";
 import { RouterTestingModule } from '@angular/router/testing';
 
 
@@ -38,7 +38,7 @@ import { HTTPErrorInterceptorService } from './services/httperror-interceptor.se
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 
 const routes: Routes = [
-  {
+  /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
@@ -49,16 +49,26 @@ const routes: Routes = [
     data: {
       expectedRole: 'tutor'
     }
-  },
-  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService]  },
+  }, */
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
     }
   },
-  { path: 'student/classList', component: ClassListStudentComponent, canActivate: [AuthGuardService]  },
-  { path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [AuthGuardService]  },
+  {
+    path: 'student/classList', component: ClassListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
+    path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
   {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
     data: {
@@ -120,7 +130,7 @@ const routes: Routes = [
 })
 export class AppModule { }
 
-export function HttpLoaderFactory(http:HttpClient){
+export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
 

@@ -3,5 +3,6 @@ export const environment = {
   name: 'produccion',
   urlBackend: 'http://46.101.34.232:1740/api/v1',
   rutaLogin: '/user/login',
-  rutaSalas: '/room'
+  rutaSalas: '/room',
+  baseURL: 'http://46.101.34.232:1739'
 };

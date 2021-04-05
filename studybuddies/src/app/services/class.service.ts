@@ -7,7 +7,7 @@ import { Class } from "../models/class";
 })
 export class RoomService {
 
-  URL_API = "http://localhost:3000/api/v1/room/create";
+  URL_API = "http://46.101.34.232:1740/api/v1/room/create";
 
   selectedRoom: Class = {
     id_user : 0,
@@ -15,8 +15,8 @@ export class RoomService {
     university : "",
     degree : "",
     subject : "",
-    starting_time : new Date(),
-    ending_time : new Date(),
+    starting_time : "",
+    ending_time : "",
     price_per_hour : 0,
     is_private : false,
     date : new Date(),

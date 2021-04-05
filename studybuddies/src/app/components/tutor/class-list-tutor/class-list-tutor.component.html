@@ -5,7 +5,7 @@
       <table class="containertable">
         <thead>
           <tr>
-            <th>
+            <th class="esconder">
               <h1 class="table">Universidad</h1>
             </th>
             <th>
@@ -34,13 +34,13 @@
         <mat-spinner *ngIf="tutorias.length === 0"></mat-spinner>
         <tbody>
           <tr *ngFor="let room of tutorias">
-            <td>{{room['university']}}</td>
+            <td class="esconder">{{room['university']}}</td>
             <td>{{room['degree']}}</td>
             <td>{{room['subject']}}</td>
             <td class="esconder">{{room['description']}}</td>
-            <td>{{room['starting_time']}}</td>
-            <td class="esconder">{{room['ending_time']}}</td>
-            <td class="esconder">{{room['ending_time']}}</td>
+            <td>{{room['date']}}</td>
+            <td class="esconder">{{room['iTime']}}</td>
+            <td class="esconder">{{room['fTime']}}</td>
             <td><a href="/tutor/classView/{{room['guid']}}">Ver detalles</a></td>
           </tr>
         </tbody>

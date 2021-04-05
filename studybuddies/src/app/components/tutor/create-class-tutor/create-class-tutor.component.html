@@ -25,7 +25,7 @@
           <span *ngIf="roomForm.submitted && date.invalid">La fecha no puede estar vacía</span>
         </div><br>
       </div>  
-      <div class="col-sm">
+      <div class="col-lg">
         
         <label for="lname">Hora inicio</label><br>
         <input type="time" id="iTime" name="iTime" [(ngModel)]="roomService.selectedRoom.iTime" #iTime="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && iTime.invalid }" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"><br>
@@ -52,14 +52,9 @@
           <span *ngIf="roomForm.submitted">La hora de fin debe ser posterior a la de inicio, y la fecha no puede situarse en el pasado</span>
         </div><br>    
       </div>
+      <div><input type=button value="VOLVER" onclick="location.href = 'tutor/classList'"></div>
       <div><input type="submit" value="CREAR" ng-click="submitted=true"></div>
     </div>
   </form>
   </div>
-  
-    <footer id="contacto">
-      <div class="contenedor-textos">
-        <p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com</p>
-      </div>
-      </footer>
   

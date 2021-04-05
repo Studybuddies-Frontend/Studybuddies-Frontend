@@ -7,47 +7,6 @@
     box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    font-family: 'Titillium Web', sans-serif;
-}
-
-.navbar{
-    border: 3px solid #20598B;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    position: fixed;
-    width: 100%;
-    z-index: 99;
-}
-
-.navbar a{
-    color: #F2F2F2;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
-}
-
-.navbar a:hover{
-    color: #000000 !important;
-}
-
-.navbar-brand{
-    margin-right: 10%;
-    padding-left: 1%;
-}
-
-.navbar-brand:hover{
-    color: #000000 !important;
-}
-
-div#navbarNav {
-    margin-right: auto;
-    text-align: center;
-}
-
 .titulo{
     font-family: 'Titillium Web', serif;
     color: #F2F2F2;
@@ -157,10 +116,13 @@ footer{
     background-color: #20598B;
     color: white;
     font-size: large;
-    padding: 1.25%;
+    padding: 1.5%;
     padding-left: 8%;
     padding-right: 8%;
     border: 2px solid #FFFFCC;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .formRooms a:hover{

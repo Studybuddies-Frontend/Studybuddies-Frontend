@@ -9,25 +9,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" *ngIf="isLoggedIn">
-                <li class="nav-item" *ngIf="!showTutorBoard">
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio</a>
                 </li>
-                <li class="nav-item" *ngIf="!showTutorBoard">
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
                 </li>
                 <li class="nav-item" >
                     <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
                 </li>
-                <li class="nav-item" *ngIf="!showStudentBoard">
+                <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="!isLoggedIn">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login" routerLinkActive="active">Inicia sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/constructionPage" routerLinkActive="active">Regístrate</a>
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">Accede</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
@@ -35,10 +32,18 @@
                     <a href="/constructionPage" class="nav-link" routerLink="constructionPage">{{ username }}</a>
                 </li>
                 <li class="nav-item">
-                  <a href class="nav-link" (click)="logout()">LogOut</a>
+                  <a href class="nav-link" (click)="logout()">Desconectate</a>
                 </li>
               </ul>
         </div>
     </div>
 </nav>
+
 <router-outlet></router-outlet>
+
+<footer id="contacto">
+	<div class="contenedor-textos">
+		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com
+		</p>
+	</div>
+</footer>
