@@ -1,5 +1,5 @@
 export class Class {
-    constructor(guid='', description='', university='', degree='',subject='', starting_time= new Date, ending_time=new Date, iTime = new Date, fTime = new Date,
+    constructor(guid='', description='', university='', degree='',subject='', starting_time= '', ending_time='', iTime = new Date, fTime = new Date,
                 date = new Date,price_per_hour=0, is_private=false, authorised_users=[], id_user=0, room_url=''){
         this.guid = guid;
         this.description = description;
@@ -22,8 +22,8 @@ export class Class {
     university: string;
     degree: string;
     subject: string;
-    starting_time: Date;
-    ending_time: Date;
+    starting_time: string;
+    ending_time: string;
     price_per_hour: number;
     is_private: boolean;
     authorised_users: Array<number>;
