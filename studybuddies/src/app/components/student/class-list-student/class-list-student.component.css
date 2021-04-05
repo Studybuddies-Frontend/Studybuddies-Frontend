@@ -1,0 +1,221 @@
+/* Base */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: auto;
+}
+
+.div-all{
+padding-top: 85px;
+}
+
+/*Botón entrar*/
+
+.entrar{
+  display: block;
+  border-radius: 4px;
+  background-color: #0F2C45;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  width: 30%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+}
+
+.entrar span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+
+.entrar:hover span{
+
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+
+}
+
+.entrar:hover span:after{
+  opacity: 1;
+  right: 0;
+}
+
+
+/*Boton crear sala */
+.list-button {
+  display: block;
+  border-radius: 4px;
+  background-color: #0F2C45;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  width: 30%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+}
+
+.list-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.list-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.list-button:hover span {
+  padding-right: 25px;
+}
+
+.list-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+section{
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+
+}
+
+.containertable {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#0F2C45;
+  background-color:#1F2739;
+}
+
+.table h1 {
+  font-size:3em;
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+
+.containertable th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: center;
+  color: #185875;
+}
+
+.containertable td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.containertable {
+	  text-align: center;
+	  overflow: hidden;
+	  width: 90%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.containertable td, .containertable th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;
+}
+
+/* Background-color of the odd rows */
+.containertable tr:nth-child(odd) {
+	  background-color: #D9D9D9
+    ;
+}
+
+/* Background-color of the even rows */
+.containertable tr:nth-child(even) {
+	  background-color: #F2F2F2;
+}
+
+.containertable th {
+	  background-color: #EBA144;
+}
+
+.containertable td:last-child {
+  padding-right: 10px;
+}
+
+.containertable th:last-child {
+  padding-right: 10px;
+}
+
+.containertable tr:hover{
+   background-color: #20598B;
+   color: white;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+@media (max-width: 800px) {
+.containertable td:nth-child(7),
+.containertable th:nth-child(7) { display: none; }
+}
+
+@media (max-width: 620px) {
+  .containertable{
+    width: 100%;
+    margin: 0px;
+  }
+
+  section{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .esconder{
+    display: none;
+  }
+}
+
+/*@media (max-width: 550px){
+
+  Qué hacer con el botón de crear salas?
+  La tabla se deja que se mueva a izda y dcha y ya?
+
+}*/
