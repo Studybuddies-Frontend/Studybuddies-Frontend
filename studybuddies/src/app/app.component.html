@@ -31,6 +31,9 @@
                 <li class="nav-item">
                     <a href="/constructionPage" class="nav-link" routerLink="constructionPage">{{ username }}</a>
                 </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                    <a class="nav-link red" routerLink="/student/generalReport" routerLinkActive="active">¡Reporta un error!</a>
+                </li>
                 <li class="nav-item">
                   <a href class="nav-link" (click)="logout()">Desconectate</a>
                 </li>

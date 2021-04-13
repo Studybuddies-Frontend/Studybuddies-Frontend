@@ -36,6 +36,7 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { GeneralReportStudentComponent } from './components/student/general-report/general-report-student.component';
 
 const routes: Routes = [
   /* {
@@ -70,6 +71,12 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/generalReport', component: GeneralReportStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
@@ -99,7 +106,8 @@ const routes: Routes = [
     ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
-    LoginComponent
+    LoginComponent,
+    GeneralReportStudentComponent
   ],
   imports: [
     BrowserModule,
