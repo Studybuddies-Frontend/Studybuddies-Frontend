@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
+import { FormBuilder, FormGroup, NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,24 +10,31 @@ import { NgForm } from "@angular/forms";
 })
 export class GeneralReportStudentComponent implements OnInit {
   
+  asunto = '';
+  description = '';
+  emailLink = '';
 
   constructor() { }
   
   ngOnInit(): void {
+    
   }
 
-  validate(form: NgForm){
+  /* validate(form: NgForm){
 
     let isCorrect;
 
 
     return isCorrect;
-  }
+  } */
 
-  createReport(form: NgForm){
-    if(this.validate(form)){
+  createReport(){
+    /* if(this.validate(form)){
       
-    }  
+    }  */ 
+    this.emailLink = `mailto:alejandromol98@gmail.com?subject=${this.asunto}&body=${this.description}`
+    return this.emailLink
+    
   }
   
 
