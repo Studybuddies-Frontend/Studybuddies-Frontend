@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <form class="formRooms"><div class="row"><h1 class="titulo">REPORTA UN ERROR</h1>
+  <form class="formRooms" #reportForm="ngForm" (ngSubmit)="reportForm.form.valid && createReport(reportForm)"><div class="row"><h1 class="titulo">REPORTA UN ERROR</h1>
     <div class="col-lg">
       <br>
       <label for="lname">Asunto</label><br>
@@ -11,7 +11,7 @@
       <br>    
     </div>
     <div><input type=button value="VOLVER" onclick="location.href = 'student/classList'"></div>
-    <div style="margin-top: 3.5%;"><a href="mailto:soporte.studybuddies@gmail.com?subject=/AQUI VA EL ASUNTO/&body=/AQUI VA LA DESCRIPCION/">ENVIAR</a></div>
+    <div style="margin-top: 3.5%;"><a href="" target="_top">ENVIAR</a></div>
     
   </div>
 </form>

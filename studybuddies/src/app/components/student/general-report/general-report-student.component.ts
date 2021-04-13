@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RoomService} from "../../../services/class.service";
 import { NgForm } from "@angular/forms";
-import { Class } from "../../../models/class";
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,9 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./general-report-student.component.css']
 })
 export class GeneralReportStudentComponent implements OnInit {
+  
 
-  constructor(public roomService: RoomService, private router: Router) { }
-
+  constructor() { }
+  
   ngOnInit(): void {
   }
 
@@ -25,17 +23,10 @@ export class GeneralReportStudentComponent implements OnInit {
     return isCorrect;
   }
 
-  createRoom(form: NgForm){
-
-
-    /*
-    let date = form.value.date.split("-");
-    let iDay = form.value.iTime.split(":");
-    let fDay = form.value.fTime.split(":");
-    */
-
-    
+  createReport(form: NgForm){
+    if(this.validate(form)){
       
+    }  
   }
   
 
