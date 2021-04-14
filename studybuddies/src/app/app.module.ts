@@ -36,6 +36,9 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PaymentComponent } from './components/payment/payment.component';
+
 
 const routes: Routes = [
   /* {
@@ -80,7 +83,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
+  { path: 'payment', component: PaymentComponent}
 
 
 ];
@@ -99,7 +103,8 @@ const routes: Routes = [
     ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
-    LoginComponent
+    LoginComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +113,7 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    NgxPayPalModule
     /* HttpClientTestingModule,
     RouterTestingModule,
     TranslateModule.forRoot({
