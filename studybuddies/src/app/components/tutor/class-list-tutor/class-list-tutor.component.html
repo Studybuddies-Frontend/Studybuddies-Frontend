@@ -26,6 +26,9 @@
             <th class="esconder">
               <h1 class="table">Hora fin</h1>
             </th>
+            <th class="esconder">
+              <h1 class="table">Precio por hora</h1>
+            </th>
             <th>
 							<h1 class="table">Acciones</h1>
 						</th>
@@ -41,10 +44,11 @@
             <td>{{room['date']}}</td>
             <td class="esconder">{{room['iTime']}}</td>
             <td class="esconder">{{room['fTime']}}</td>
+            <td class="esconder">{{room['price_per_hour']}} €</td>
             <td><a href="/tutor/classView/{{room['guid']}}">Ver detalles</a></td>
           </tr>
         </tbody>
-      </table>  
+      </table>
     </section>
   </div>
 </body>
