@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="formUser">
       <div class="row">
-        <h1 class="titulo">DETALLES DEL TUTOR/ALUMNO </h1><br> <!--habria que poner un if segun el rol (?)-->
+        <h1 class="titulo">DETALLES DEL {{rol}} </h1><br> <!--habria que poner un if segun el rol (?)-->
         <div class="col-lg">
           <label for="lname">Nombre</label><br>
           <input type="text" id="nombre" name="nombre" value="{{actualUser['nombre']}}" readonly=true><br><br>
@@ -10,7 +10,7 @@
           <label for="lname">Nombre de usuario</label><br>
           <input type="text" id="username" name="username" value="{{actualUser['username']}}" readonly=true><br><br>
           <label for="lname">Correo de contacto</label><br>
-          <input type="text" id="email" name="email" value="{{actualUser['']}}" readonly=true><br><br>
+          <input type="text" id="email" name="email" value="{{actualUser['email']}}" readonly=true><br><br>
         </div>
         <div class="col-lg">
           <label for="lname">Universidad</label><br>
@@ -23,17 +23,11 @@
         <div style="margin-top: 3.5%;"><a  target="_blank">EDITAR PERFIL</a></div>
         <div><input type=button value="VOLVER" onclick="history.back()"></div>
       </div>
-      <div class="row2">
-        <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br> <!--habria que poner un if segun el rol (?)-->
-        <ul>
-            <li>
-                Matemáticas Discretas
-            </li>
-            <li>
-                Fundamentos de la Programación
-            </li>
-            <li>
-                Evolución y Gestión de la Configuración
+      <div class="row2" *ngIf="rol=='TUTOR'">
+        <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
+        <ul >
+            <li *ngFor="let asignatura of actualasignaturas">
+                {{asignatura}}
             </li>
         </ul>
       </div>

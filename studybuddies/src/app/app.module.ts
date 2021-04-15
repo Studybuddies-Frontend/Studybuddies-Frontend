@@ -52,7 +52,8 @@ const routes: Routes = [
     }
   }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
-  { path: 'perfil', component: PerfilUsuarioComponent, canActivate: [NotAuthGuardService] },
+
+  { path: 'perfil', component: PerfilUsuarioComponent },
 
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
