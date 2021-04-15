@@ -25,6 +25,11 @@ export class SalasService {
     return this.http.get(url, { headers: this.httpHeaders })
   }
 
+  public getMyRooms(id: any) {
+    let url = this.urlRooms + `/mine/${id}`;
+    return this.http.get(url, { headers: this.httpHeaders })
+  }
+
   public getSalasEstudioActivas() {
     let url = this.urlRooms + `/student/all`;
     return this.http.get(url, { headers: this.httpHeaders })
