@@ -20,7 +20,7 @@ export class ClassListTutorComponent implements OnInit {
     this.roomService.getTutoriasActivas()
       .subscribe((res: any)=> {
         console.log(res.tutorias)
-        this.tutorias = res.tutorias;
+        this.tutorias = res.tutorias.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
       })
   }
 
