@@ -32,7 +32,7 @@ export class GeneralReportStudentComponent implements OnInit {
     /* if(this.validate(form)){
       
     }  */ 
-    this.emailLink = `mailto:soporte.studybuddies@gmail.com?subject=${this.asunto}&body=${this.description}`
+    this.emailLink = `mailto:soporte@stuybuddies.es?subject=${this.asunto}&body=${this.description}`
     return this.emailLink
     
   }
