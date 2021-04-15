@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
   templateUrl: './general-report-student.component.html',
   styleUrls: ['./general-report-student.component.css']
 })
+
 export class GeneralReportStudentComponent implements OnInit {
   
   asunto = '';
   description = '';
   emailLink = '';
-
-  constructor() { }
+  
+  constructor(private router: Router) { }
   
   ngOnInit(): void {
     
@@ -34,8 +35,11 @@ export class GeneralReportStudentComponent implements OnInit {
     }  */ 
     this.emailLink = `mailto:soporte@stuybuddies.es?subject=${this.asunto}&body=${this.description}`
     return this.emailLink
-    
   }
-  
+
+  navigateToList(){
+    this.router.navigate(["/#"]);
+  }
+
 
 }
