@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ICreateOrderRequest } from "ngx-paypal";
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: "app-paypal",
   templateUrl: "./paypal.component.html",
@@ -10,8 +10,11 @@ export class PaypalComponent implements OnInit {
   public payPalConfig: any;
   public showPaypalButtons: boolean;
   guid: string;
+  totalPrice: string
 
-  constructor() {}
+  constructor(private routes: ActivatedRoute) {
+    this.totalPrice = this.routes.snapshot.params['price']
+  }
 
   ngOnInit() {
     this.payPalConfig = {
@@ -24,11 +27,11 @@ export class PaypalComponent implements OnInit {
             {
               amount: {
                 currency_code: "EUR",
-                value: "9.99",
+                value: this.totalPrice,
                 breakdown: {
                   item_total: {
                     currency_code: "EUR",
-                    value: "9.99"
+                    value: this.totalPrice
                   }
                 }
               },
@@ -39,7 +42,7 @@ export class PaypalComponent implements OnInit {
                   category: "DIGITAL_GOODS",
                   unit_amount: {
                     currency_code: "EUR",
-                    value: "9.99"
+                    value: this.totalPrice
                   }
                 }
               ]

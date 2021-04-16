@@ -1,26 +1,15 @@
-<br>
+<div class="container-fluid">
+    <div class="row">
+<div class="col-lg">
 
-<br>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+    
 <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-
-<button *ngIf="!showPaypalButtons" 
-  (click)="pay()">Pagar con paypal</button>
-
 
 <ngx-paypal *ngIf="showPaypalButtons" 
   [config]="payPalConfig">
 </ngx-paypal>
 <button  *ngIf="showPaypalButtons" (click)="back()">Volver atras</button>
+
+</div>
+</div>
+</div>
