@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ICreateOrderRequest } from "ngx-paypal";
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from "src/app/services/auth.service";
 @Component({
   selector: "app-paypal",
   templateUrl: "./paypal.component.html",
@@ -11,8 +12,10 @@ export class PaypalComponent implements OnInit {
   public showPaypalButtons: boolean;
   guid: string;
   totalPrice: string
+  paid: boolean
+  id_user_app = this.auth.getId();
 
-  constructor(private routes: ActivatedRoute) {
+  constructor(private routes: ActivatedRoute, public auth: AuthService ) {
     this.totalPrice = this.routes.snapshot.params['price']
   }
 
@@ -74,6 +77,7 @@ export class PaypalComponent implements OnInit {
           "onClientAuthorization - you should probably inform your server about completed transaction at this point",
           data
         );
+        this.paid = true;
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
