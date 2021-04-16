@@ -14,7 +14,7 @@
 <br>
 <br>
 
-<ngx-paypal []="payPalConfig"> </ngx-paypal>
+<ngx-paypal [config]="payPalConfig"></ngx-paypal>
 
 <button *ngIf="!showPaypalButtons" 
   (click)="pay()">Pagar con paypal</button>

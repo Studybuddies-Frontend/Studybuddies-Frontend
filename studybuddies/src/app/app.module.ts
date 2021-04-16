@@ -41,7 +41,7 @@ import { PaypalComponent } from './components/paypal/paypal.component';
 
 
 const routes: Routes = [
-  { path: 'paypal/:price', component: PaypalComponent },
+  { path: 'paypal', component: PaypalComponent },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {

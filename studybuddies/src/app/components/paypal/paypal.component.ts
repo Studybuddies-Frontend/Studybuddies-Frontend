@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ICreateOrderRequest } from "ngx-paypal";
 
-import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
   selector: "app-paypal",
   templateUrl: "./paypal.component.html",
@@ -12,13 +10,10 @@ export class PaypalComponent implements OnInit {
   public payPalConfig: any;
   public showPaypalButtons: boolean;
   guid: string;
-  price:string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
-    this.price = this.route.snapshot.params['price']
-    console.log(this.price)
     this.payPalConfig = {
       currency: "EUR",
       clientId: "ATRvi--QaPw0iferJZWGLFkF_Z00JiIF3Z4SHPTqCB15aEvVyylQG_qy3LBJ3YBoC4SKNv21tL9hp2UJ",
@@ -96,6 +91,5 @@ export class PaypalComponent implements OnInit {
   back(){
     this.showPaypalButtons = false;
   }
-
-
+  
 }
