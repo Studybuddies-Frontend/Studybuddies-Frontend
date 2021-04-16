@@ -14,7 +14,8 @@ export class ViewClassTutorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private roomService: SalasService) { }
+    private roomService: SalasService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.guid = this.route.snapshot.params['guid']
@@ -27,5 +28,9 @@ export class ViewClassTutorComponent implements OnInit {
         this.actualRoom = res.room[0];
         console.log(this.actualRoom)
       })
+  }
+
+  public getTutor(){
+    this.router.navigateByUrl(`/tutor/show/${this.actualRoom.id_user}`);
   }
 }
