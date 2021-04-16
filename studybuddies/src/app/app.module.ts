@@ -37,10 +37,11 @@ import { BaseURLInterceptorService } from './services/base-urlinterceptor.servic
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { NgxPayPalModule } from 'ngx-paypal';
-import { PaymentComponent } from './components/payment/payment.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
 
 
 const routes: Routes = [
+  { path: 'paypal/:price', component: PaypalComponent },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -83,8 +84,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
-  { path: '**', redirectTo: '' },
-  { path: 'payment', component: PaymentComponent}
+  { path: '**', redirectTo: '' }
 
 
 ];
@@ -104,7 +104,7 @@ const routes: Routes = [
     ErrorPageComponent,
     ConstructionPageComponent,
     LoginComponent,
-    PaymentComponent
+    PaypalComponent
   ],
   imports: [
     BrowserModule,
