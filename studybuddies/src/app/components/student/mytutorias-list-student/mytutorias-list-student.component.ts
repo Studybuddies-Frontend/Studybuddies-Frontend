@@ -3,11 +3,11 @@ import { SalasService } from 'src/app/services/salas.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-myclasses-list-student',
-  templateUrl: './myclasses-list-student.component.html',
-  styleUrls: ['./myclasses-list-student.component.css'],
+  selector: 'app-mytutorias-list-student',
+  templateUrl: './mytutorias-list-student.component.html',
+  styleUrls: ['./mytutorias-list-student.component.css'],
 })
-export class MyclassesListStudentComponent implements OnInit {
+export class MytutoriasListStudentComponent implements OnInit {
   userId: number;
   rooms = [];
 
@@ -19,14 +19,18 @@ export class MyclassesListStudentComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.getId();
     console.log(this.userId);
-    this.getMyRooms();
+    this.getMyTutorias();
   }
 
-  getMyRooms() {
-    this.roomService.getMyRooms(this.userId).subscribe((res: any) => {
+  //Hay que hacer método en el back, cambiar aqui el método a tutorías, añadir en el navbar de tutor, meter la url en el app module
+
+  getMyTutorias() {
+    this.roomService.getMyTutoriasAuth(this.userId).subscribe((res: any) => {
       console.log(res);
       console.log(res.salasEstudio);
-      this.rooms = res.salasEstudio.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
+      this.rooms = res.salasEstudio.sort(
+        (a: { date: Date }, b: { date: Date }) => (a.date > b.date ? 1 : -1)
+      );
     });
   }
 

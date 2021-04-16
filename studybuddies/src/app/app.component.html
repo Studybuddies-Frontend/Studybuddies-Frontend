@@ -21,6 +21,12 @@
                 <li class="nav-item" >
                     <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
                 </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías</a>
+              </li>
+                <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
+              </li>
                 <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                 </li>

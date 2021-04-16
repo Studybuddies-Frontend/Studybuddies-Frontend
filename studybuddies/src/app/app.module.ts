@@ -38,6 +38,7 @@ import { HTTPErrorInterceptorService } from './services/httperror-interceptor.se
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { MyclassesListStudentComponent } from './components/student/myclasses-list-student/myclasses-list-student.component';
 import { MyclassesListTutorComponent } from './components/tutor/myclasses-list-tutor/myclasses-list-tutor.component';
+import { MytutoriasListStudentComponent } from './components/student/mytutorias-list-student/mytutorias-list-student.component';
 
 const routes: Routes = [
   /* {
@@ -72,6 +73,12 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/Tmine/:id', component: MytutoriasListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
@@ -79,6 +86,12 @@ const routes: Routes = [
   },
   {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'tutor'
+    }
+  },
+  {
+    path: 'tutor/mine/:id', component: MyclassesListTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
     }
@@ -109,7 +122,8 @@ const routes: Routes = [
     ConstructionPageComponent,
     LoginComponent,
     MyclassesListStudentComponent,
-    MyclassesListTutorComponent
+    MyclassesListTutorComponent,
+    MytutoriasListStudentComponent
   ],
   imports: [
     BrowserModule,

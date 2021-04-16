@@ -9,8 +9,8 @@ import { SalasService } from 'src/app/services/salas.service';
 export class ClassListStudentComponent implements OnInit {
 
   rooms = []
-  
-  constructor(public roomService: SalasService) { 
+
+  constructor(public roomService: SalasService) {
   }
 
   ngOnInit(): void {
