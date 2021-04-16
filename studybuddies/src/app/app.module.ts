@@ -103,7 +103,8 @@ const routes: Routes = [
     ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

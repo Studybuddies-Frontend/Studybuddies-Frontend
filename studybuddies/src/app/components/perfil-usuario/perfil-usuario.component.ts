@@ -12,7 +12,7 @@ import { AuthService } from "src/app/services/auth.service";
 export class PerfilUsuarioComponent implements OnInit {
   guid!: number;
   actualUser!: any;
-  actualasignaturas!: any;
+  actualAsignaturas: any[]= [];
   rol!:any;
 
 
@@ -50,8 +50,8 @@ export class PerfilUsuarioComponent implements OnInit {
   private getAsignaturasByTutor(){
     this.userService.getAsignaturaByIdTutor(this.guid)
       .subscribe((res: any) => {
-        this.actualasignaturas = res;
-        console.log(this.actualasignaturas)
+        this.actualAsignaturas = res.asignaturas;
+        console.log(this.actualAsignaturas)
       })
   }
 

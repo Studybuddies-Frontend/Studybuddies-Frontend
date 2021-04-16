@@ -25,11 +25,9 @@
       </div>
       <div class="row2" *ngIf="rol=='TUTOR'">
         <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
-        <ul >
-            <li *ngFor="let asignatura of actualasignaturas">
+            <li *ngFor="let asignatura of actualAsignaturas">
                 {{asignatura}}
             </li>
-        </ul>
       </div>
     </div>
 </div>
