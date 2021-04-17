@@ -62,5 +62,5 @@ export class AuthService {
     return this.http.post<any>(this.URL + environment.rutaLogin, user);
   } */
 
-  
+
 }
