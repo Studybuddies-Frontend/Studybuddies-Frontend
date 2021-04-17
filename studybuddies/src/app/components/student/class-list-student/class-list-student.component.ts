@@ -9,8 +9,8 @@ import { SalasService } from 'src/app/services/salas.service';
 export class ClassListStudentComponent implements OnInit {
 
   rooms = []
-  
-  constructor(public roomService: SalasService) { 
+
+  constructor(public roomService: SalasService) {
   }
 
   ngOnInit(): void {
@@ -21,7 +21,8 @@ export class ClassListStudentComponent implements OnInit {
     this.roomService.getSalasEstudioActivas()
       .subscribe((res: any)=> {
         console.log(res.salasEstudio)
-        this.rooms = res.salasEstudio;
+        console.log(window.sessionStorage.getItem('auth-user'))
+        this.rooms = res.salasEstudio.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
       })
   }
 }
