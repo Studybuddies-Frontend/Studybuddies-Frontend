@@ -132,7 +132,7 @@ const routes: Routes = [
     LoginComponent,
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
-    MytutoriasListStudentComponent
+    MytutoriasListStudentComponent,
     PerfilUsuarioComponent
   ],
   imports: [
