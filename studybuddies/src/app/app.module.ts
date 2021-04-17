@@ -36,6 +36,14 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { GeneralReportStudentComponent } from './components/student/general-report/general-report-student.component';
+import { MyclassesListStudentComponent } from './components/student/myclasses-list-student/myclasses-list-student.component';
+import { MyclassesListTutorComponent } from './components/tutor/myclasses-list-tutor/myclasses-list-tutor.component';
+import { MytutoriasListStudentComponent } from './components/student/mytutorias-list-student/mytutorias-list-student.component';
+import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
+import { CommonModule } from '@angular/common';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+
 
 const routes: Routes = [
   /* {
@@ -51,6 +59,9 @@ const routes: Routes = [
     }
   }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
+
+  { path: 'perfil', component: PerfilUsuarioComponent },
+
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -64,7 +75,25 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/mine/:id', component: MyclassesListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
+    path: 'student/Tmine/:id', component: MytutoriasListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
+    path: 'student/generalReport', component: GeneralReportStudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
     }
@@ -75,6 +104,13 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
+  {
+    path: 'tutor/mine/:id', component: MyclassesListTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'tutor'
+    }
+  },
+  { path: 'tutor/show/:id', component: ShowTutorComponent, canActivate: [RoleGuardService],},
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -89,6 +125,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     StudentComponent,
+    ShowTutorComponent,
     TutorComponent,
     ClassListStudentComponent,
     ClassListTutorComponent,
@@ -99,10 +136,16 @@ const routes: Routes = [
     ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
-    LoginComponent
+    LoginComponent,
+    GeneralReportStudentComponent,
+    MyclassesListStudentComponent,
+    MyclassesListTutorComponent,
+    MytutoriasListStudentComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
