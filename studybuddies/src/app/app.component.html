@@ -13,11 +13,20 @@
                     <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio</a>
                 </li>
                 <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/student/mine/{{userId}}" routerLinkActive="active">Mis Salas</a>
+              </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
                 </li>
                 <li class="nav-item" >
                     <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
                 </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías</a>
+              </li>
+                <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
+              </li>
                 <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                 </li>

@@ -36,9 +36,13 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { MyclassesListStudentComponent } from './components/student/myclasses-list-student/myclasses-list-student.component';
+import { MyclassesListTutorComponent } from './components/tutor/myclasses-list-tutor/myclasses-list-tutor.component';
+import { MytutoriasListStudentComponent } from './components/student/mytutorias-list-student/mytutorias-list-student.component';
 import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+
 
 const routes: Routes = [
   /* {
@@ -70,6 +74,18 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/mine/:id', component: MyclassesListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
+    path: 'student/Tmine/:id', component: MytutoriasListStudentComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'student/classView/:guid', component: ViewClassStudentComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'alumno'
@@ -77,6 +93,12 @@ const routes: Routes = [
   },
   {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'tutor'
+    }
+  },
+  {
+    path: 'tutor/mine/:id', component: MyclassesListTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
     }
@@ -108,6 +130,9 @@ const routes: Routes = [
     ErrorPageComponent,
     ConstructionPageComponent,
     LoginComponent,
+    MyclassesListStudentComponent,
+    MyclassesListTutorComponent,
+    MytutoriasListStudentComponent,
     PerfilUsuarioComponent
   ],
   imports: [
