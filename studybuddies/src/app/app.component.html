@@ -38,7 +38,7 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
                 <li class="nav-item">
-                    <a href="/constructionPage" class="nav-link" routerLink="constructionPage">{{ username }}</a>
+                    <a href="/perfil" class="nav-link" routerLink="perfil">{{ username }}</a>
                 </li>
                 <li class="nav-item">
                   <a href class="nav-link" (click)="logout()">Desconectate</a>
@@ -52,7 +52,7 @@
 
 <footer id="contacto">
 	<div class="contenedor-textos">
-		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com
+		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: <a href="mailto:soporte@studybuddies.es" >soporte@studybuddies.es</a>
 		</p>
 	</div>
 </footer>

@@ -23,6 +23,7 @@ export class CreateClassStudentComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     let date = form.value.date.split("-");
+    let desc = form.value.description;
     let isCorrect;
     let now = new Date();
 
@@ -30,12 +31,18 @@ export class CreateClassStudentComponent implements OnInit {
     let checkHoraPasada = parseInt(iDay[0]) < now.getHours() || parseInt(iDay[0])==now.getHours() && parseInt(iDay[1]) < now.getMinutes();
     let checkHoraInicioMayorQueFin = parseInt(iDay[0]) > parseInt(fDay[0]) || parseInt(iDay[0])==parseInt(fDay[0]) && parseInt(iDay[1]) >= parseInt(fDay[1]);
     let checkDiaPasado = parseInt(date[0]) < now.getFullYear() || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) < now.getMonth()+1 || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) < now.getDate();
-
-    if (checkHoraInicioMayorQueFin) {
+    
+    if ( checkDiaPasado) {
+      document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada"
       isCorrect = false;
-    } else if(checkDiaPasado){
+    } else if(checkHoraInicioMayorQueFin){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio"
       isCorrect = false;
     } else if( checkMismoDia && checkHoraPasada){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual"
+      isCorrect = false;
+    } else if(desc.includes("joder")){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual"
       isCorrect = false;
     }else {
       isCorrect = true;
@@ -76,6 +83,7 @@ export class CreateClassStudentComponent implements OnInit {
     };
 
     if(this.validate(form)){
+      form.resetForm();
       this.roomService.createRoom(room).subscribe(
         res => {
           form.reset();
