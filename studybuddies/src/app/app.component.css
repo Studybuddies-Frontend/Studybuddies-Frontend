@@ -62,3 +62,7 @@ footer{
         text-align: center;
         font-size: 20px;
 }
+
+.red{
+    color:  darkred !important;
+}
