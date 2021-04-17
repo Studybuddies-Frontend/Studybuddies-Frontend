@@ -1,53 +1,62 @@
 <body>
-	<div class="div-all">
+  <div class="div-all">
+    <div class="info">
+      <p class="info-text">
+        Aquí puedes encontrar las salas de estudio de Studybuddies. Una sala de
+        estudio es una sala virtual donde podrás entrar de forma gratuita con
+        personas que quieran estudiar lo mismo que tú. También puedes crear una
+        sala para que otras personas te puedan ayudar con las posibles dudas que
+        tengas.
+      </p>
+    </div>
 
-		<section>
 
-			<table class="containertable">
-				<thead>
-					<tr>
-						<th class="esconder">
-							<h1 class="table">Universidad</h1>
-						</th>
-						<th>
-							<h1 class="table">Grado</h1>
-						</th>
-						<th>
-							<h1 class="table">Asignatura</h1>
-						</th>
-						<th class="esconder">
-							<h1 class="table">Descripción</h1>
-						</th>
-						<th>
-							<h1 class="table">Fecha</h1>
-						</th>
-						<th class="esconder">
-							<h1 class="table">Hora inicio</h1>
-						</th>
-						<th class="esconder">
-							<h1 class="table">Hora fin</h1>
-						</th>
-						<th>
-							<h1 class="table">Acciones</h1>
-						</th>
-					</tr>
-				</thead>
-				<mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
-				<tbody>
-					<tr *ngFor="let room of rooms" >
-						<td class="esconder">{{room['university']}}</td>
-						<td>{{room['degree']}}</td>
-						<td>{{room['subject']}}</td>
-						<td class="esconder">{{room['description']}}</td>
-						<td>{{room['date']}}</td>
-						<td class="esconder">{{room['iTime']}}</td>
-						<td class="esconder">{{room['fTime']}}</td>
-            <td><a href="/student/classView/{{room['guid']}}">Ver detalles</a></td>
-					</tr>
-				</tbody>
-			</table>
-
-		</section>
-	</div>
+    <section>
+      <table class="containertable">
+        <thead>
+          <tr>
+            <th class="esconder">
+              <h1 class="table">Universidad</h1>
+            </th>
+            <th>
+              <h1 class="table">Grado</h1>
+            </th>
+            <th>
+              <h1 class="table">Asignatura</h1>
+            </th>
+            <th class="esconder">
+              <h1 class="table">Descripción</h1>
+            </th>
+            <th>
+              <h1 class="table">Fecha</h1>
+            </th>
+            <th class="esconder">
+              <h1 class="table">Hora inicio</h1>
+            </th>
+            <th class="esconder">
+              <h1 class="table">Hora fin</h1>
+            </th>
+            <th>
+              <h1 class="table">Acciones</h1>
+            </th>
+          </tr>
+        </thead>
+        <mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
+        <tbody>
+          <tr *ngFor="let room of rooms">
+            <td class="esconder">{{ room["university"] }}</td>
+            <td>{{ room["degree"] }}</td>
+            <td>{{ room["subject"] }}</td>
+            <td class="esconder">{{ room["description"] }}</td>
+            <td>{{ room["date"] }}</td>
+            <td class="esconder">{{ room["iTime"] }}</td>
+            <td class="esconder">{{ room["fTime"] }}</td>
+            <td>
+              <a href="/student/classView/{{ room['guid'] }}">Ver detalles</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
 </body>
-

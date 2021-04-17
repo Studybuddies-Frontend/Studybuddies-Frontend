@@ -24,6 +24,25 @@ body{
 padding-top: 85px;
 }
 
+.info{
+  display: block;
+  border-radius: 4px;
+  background-color: #0F2C45;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 70%;
+  transition: all 0.5s;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.info-text{
+  color: #FFFFFF;
+}
+
 /*Botón entrar*/
 
 .entrar{
