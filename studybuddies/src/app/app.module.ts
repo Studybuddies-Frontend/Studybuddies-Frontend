@@ -37,6 +37,9 @@ import { BaseURLInterceptorService } from './services/base-urlinterceptor.servic
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
 import { GeneralReportStudentComponent } from './components/student/general-report/general-report-student.component';
+import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
+import { CommonModule } from '@angular/common';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   /* {
@@ -52,6 +55,9 @@ const routes: Routes = [
     }
   }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
+
+  { path: 'perfil', component: PerfilUsuarioComponent },
+
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -82,6 +88,7 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
+  { path: 'tutor/show/:id', component: ShowTutorComponent, canActivate: [RoleGuardService],},
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -96,6 +103,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     StudentComponent,
+    ShowTutorComponent,
     TutorComponent,
     ClassListStudentComponent,
     ClassListTutorComponent,
@@ -108,9 +116,11 @@ const routes: Routes = [
     ConstructionPageComponent,
     LoginComponent,
     GeneralReportStudentComponent
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
