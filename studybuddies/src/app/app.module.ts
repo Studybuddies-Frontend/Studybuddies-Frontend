@@ -36,6 +36,7 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   /* {
@@ -51,6 +52,9 @@ const routes: Routes = [
     }
   }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
+
+  { path: 'perfil', component: PerfilUsuarioComponent },
+
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -99,7 +103,8 @@ const routes: Routes = [
     ViewClassTutorComponent,
     ErrorPageComponent,
     ConstructionPageComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
