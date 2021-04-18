@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <form class="formRooms">
     <div class="row">
-      <h1 class="titulo">DETALLES DE LA SALA</h1> 
+      <h1 class="titulo">DETALLES DE LA SALA</h1>
       <div class="col-lg">
         <label for="lname">Universidad</label><br>
         <input type="text" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
@@ -18,20 +18,22 @@
         <label for="lname">Hora fin</label><br>
         <input type="text" id="fTime" name="fTime" value="{{actualRoom['fTime']}}" readonly=true><br><br>
         <label for="lname">Precio por hora</label><br>
-        <input style="width: 80px" type="number" min="1" step="any" id="money" name="money" value="{{actualRoom['price_per_hour']}}" readonly=true><br><br>
+        <input style="width: 80px" type="number" min="1" step="any" id="money" name="money"
+          value="{{actualRoom['price_per_hour']}}" readonly=true><br><br>
         <label for="fname">Descripción</label><br>
-        <textarea id="description" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
+        <textarea id="description" name="description" readonly="true"
+          value="{{actualRoom['description']}}"></textarea><br><br>
       </div>
-      
+
 
       <div class="align:center">
         <div><input type=button value="VOLVER" onclick="history.back()"></div>
         <button class="button" type=button value="VOLVER" (click)="getTutor()">MÁS DEL TUTOR</button><br>
-         <br>
-        <a *ngIf= "paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}">ACCEDER A LA SALA</a>
         <br>
-        <a *ngIf= "!paid" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+        <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}">ACCEDER A LA SALA</a>
+        <br>
+        <a *ngIf="!paid" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
       </div>
+    </div>
   </form>
 </div>
-

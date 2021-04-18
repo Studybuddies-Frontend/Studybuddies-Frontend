@@ -140,7 +140,7 @@ const routes: Routes = [
     ErrorPageComponent,
     ConstructionPageComponent,
     LoginComponent,
-    PaypalComponent
+    PaypalComponent,
     GeneralReportStudentComponent,
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
