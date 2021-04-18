@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SalasService } from 'src/app/services/salas.service';
+import { TokenStorageService } from '../../../services/token-storage.service';
 
 @Component({
   selector: 'app-view-class-tutor',
@@ -14,7 +15,8 @@ export class ViewClassTutorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private roomService: SalasService) { }
+    private roomService: SalasService,
+    public tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     this.guid = this.route.snapshot.params['guid']
@@ -27,5 +29,9 @@ export class ViewClassTutorComponent implements OnInit {
         this.actualRoom = res.room[0];
         console.log(this.actualRoom)
       })
+  }
+
+  saveData(){
+    return this.tokenStorage.saveRoom(this.guid, this.actualRoom['price_per_hour']);
   }
 }

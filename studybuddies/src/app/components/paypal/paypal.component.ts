@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { ICreateOrderRequest } from "ngx-paypal";
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from "src/app/services/auth.service";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { NgxPayPalModule } from 'ngx-paypal';
+import { RoomService } from "src/app/services/class.service";
 
 @Component({
   selector: "app-paypal",
@@ -12,20 +14,19 @@ import {HttpClient} from "@angular/common/http";
 export class PaypalComponent implements OnInit {
   public payPalConfig: any;
   public showPaypalButtons: boolean;
-  guid: string;
+  guid: any;
   totalPrice: string
   paid: boolean
   id_user_app = this.auth.getId();
-  URL_API: "http://46.101.34.232:1740/api/v1/demos/room";
+  URL_API: "http://localhost:3000/api/v1/room/autorizar";
 
-  constructor(private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient) {
+  constructor(private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
     this.totalPrice = this.routes.snapshot.params['price']
+    this.auth.getId()
   }
 
   ngOnInit() {
-    this.pay();
-    this.back();
-    this.createPayment();
+    this.showPaypalButtons = true;
     this.payPalConfig = {
       currency: "EUR",
       clientId: "ATRvi--QaPw0iferJZWGLFkF_Z00JiIF3Z4SHPTqCB15aEvVyylQG_qy3LBJ3YBoC4SKNv21tL9hp2UJ",
@@ -76,15 +77,17 @@ export class PaypalComponent implements OnInit {
             "onApprove - you can get full order details inside onApprove: ",
             details
           );
-          this.paid = true;
-          
         });
+
       },
       onClientAuthorization: (data: any) => {
+
         console.log(
           "onClientAuthorization - you should probably inform your server about completed transaction at this point",
-          data, this.paid = true
+          data
         );
+        this.paid = true;
+        this.id_user_app = this.auth.getId();
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
@@ -95,27 +98,25 @@ export class PaypalComponent implements OnInit {
       onClick: (data: any, actions: any) => {
         console.log("onClick", data, actions);
       },
-
     };
-    
 
   }
-
-  pay() {
-    this.showPaypalButtons = true;
-  }
-
-  back(){
-    this.showPaypalButtons = false;
-  }
-
-  createPayment(){
-    if(this.paid){
-      return this.http.post(this.URL_API, this.id_user_app);
+  createPayment(): any {
+    if (this.paid) {
+      let room = window.sessionStorage.getItem('room');
+      if (room) {
+        let roomJSON = JSON.parse(room);
+        this.guid = roomJSON.guid;
+        this.totalPrice = roomJSON.price_per_hour;
+        let roomData = { guid: this.guid, id_user: this.id_user_app }
+        this.http.put(this.URL_API, roomData);
+        return history.back()
+      }
+      return 'No existe la sala'
     }
-    else{
-      return 'Usuario sin pago';
+
+    else {
+      return console.log()
     }
   }
-  
 }
