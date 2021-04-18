@@ -46,7 +46,7 @@ export class ViewClassTutorComponent implements OnInit {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.authorised_users = res.room[0].authorised_users;
-        if(this.authorised_users.includes(this.id_user_app)){
+        if(this.authorised_users.includes(this.id_user_app) || res.room[0].id_user == this.id_user_app){
           this.paid = true;
         }
       })

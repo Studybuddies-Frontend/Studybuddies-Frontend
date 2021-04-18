@@ -3,6 +3,7 @@ import {RoomService} from "../../../services/class.service";
 import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-class-tutor',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CreateClassTutorComponent implements OnInit {
 
-  constructor(public roomService: RoomService, private router: Router) { }
+  constructor(public roomService: RoomService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -75,8 +76,11 @@ export class CreateClassTutorComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     */
+
+    let id_user_app = this.auth.getId();
+
     let room: Class = {
-      id_user : 0,
+      id_user : id_user_app,
       description : form.value.description,
       university : form.value.university,
       degree : form.value.degree,
