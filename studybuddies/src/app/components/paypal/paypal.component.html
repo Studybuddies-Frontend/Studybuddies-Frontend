@@ -1,13 +1,13 @@
 <body>
-<div class="formRooms">
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-lg">
-          <ngx-paypal *ngIf="!paid" [config]="payPalConfig">  </ngx-paypal>
-             <!--<button  *ngIf="paid" onclick="history.back()">Volver atras</button>--> 
-              <input *ngIf="paid"  type=button value="VOLVER"  (click)="createPayment()" >
+  <div class="formRooms">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg">
+          <ngx-paypal *ngIf="!paid" [config]="payPalConfig"> </ngx-paypal>
+          <!--<button  *ngIf="paid" onclick="history.back()">Volver atras</button>-->
+          <input *ngIf="paid" type=button value="VOLVER" onclick="history.back()">
+        </div>
       </div>
     </div>
-</div>
-</div>
+  </div>
 </body>

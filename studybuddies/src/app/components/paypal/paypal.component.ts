@@ -5,6 +5,8 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpClient } from "@angular/common/http";
 import { NgxPayPalModule } from 'ngx-paypal';
 import { RoomService } from "src/app/services/class.service";
+import { Observable } from "rxjs";
+import { PaypalService } from "src/app/services/paypal.service";
 
 @Component({
   selector: "app-paypal",
@@ -20,12 +22,13 @@ export class PaypalComponent implements OnInit {
   id_user_app = this.auth.getId();
   URL_API: "http://localhost:3000/api/v1/room/autorizar";
 
-  constructor(private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
+  constructor(public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
     this.totalPrice = this.routes.snapshot.params['price']
     this.auth.getId()
   }
 
   ngOnInit() {
+    this.URL_API = "http://localhost:3000/api/v1/room/autorizar";
     this.showPaypalButtons = true;
     this.payPalConfig = {
       currency: "EUR",
@@ -88,6 +91,19 @@ export class PaypalComponent implements OnInit {
         );
         this.paid = true;
         this.id_user_app = this.auth.getId();
+        let room = window.sessionStorage.getItem('room');
+        if (room) {
+          let roomJSON = JSON.parse(room);
+          this.guid = roomJSON.guid;
+          this.totalPrice = roomJSON.price_per_hour;
+          this.paypalService.updateRoomPayment(this.guid, this.id_user_app).subscribe(
+            res => {
+              console.log("PAGO realizado con éxito.");
+              console.log(res)
+            },
+            err => console.log(err)
+          )
+        }
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
@@ -101,22 +117,26 @@ export class PaypalComponent implements OnInit {
     };
 
   }
-  createPayment(): any {
+  /* async createPayment() {
+    console.log("Autorizando")
     if (this.paid) {
+      console.log(this.paid)
       let room = window.sessionStorage.getItem('room');
       if (room) {
         let roomJSON = JSON.parse(room);
         this.guid = roomJSON.guid;
         this.totalPrice = roomJSON.price_per_hour;
-        let roomData = { guid: this.guid, id_user: this.id_user_app }
-        this.http.put(this.URL_API, roomData);
-        return history.back()
+        this.paypalService.updateRoomPayment(this.guid, this.id_user_app).subscribe(
+          res => {
+            console.log("PAGO realizado con éxito.");
+          },
+          err => console.log(err)
+        )
       }
-      return 'No existe la sala'
     }
 
     else {
-      return console.log()
+      console.log('No h se ha realizado el pago')
     }
-  }
+  } */
 }

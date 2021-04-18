@@ -8,6 +8,7 @@ export const environment = {
   urlBackend: 'http://localhost:3000/api/v1',
   rutaLogin: '/user/login',
   rutaSalas: '/room',
+  rutaPayment: '/autorizar',
   baseURL: 'http://localhost:1739'
 };
 
