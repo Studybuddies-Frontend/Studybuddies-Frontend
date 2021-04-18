@@ -25,12 +25,10 @@
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
       <div>
         <br>
-        <a href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+        <a *ngIf= "paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}">ACCEDER A LA SALA</a>
+        <br>
+        <a *ngIf= "!paid" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
       </div>
-     
-
-
-
     </div>
   </form>
 </div>
