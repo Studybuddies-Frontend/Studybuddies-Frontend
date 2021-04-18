@@ -7,6 +7,7 @@ export const environment = {
   name: 'desarrollo',
   urlBackend: 'http://localhost:3000/api/v1',
   rutaLogin: '/user/login',
+  rutaRegister: '/user/register',
   rutaSalas: '/room',
   baseURL: 'http://localhost:1739'
 };
