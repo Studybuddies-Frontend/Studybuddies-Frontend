@@ -21,11 +21,9 @@ export class ViewClassTutorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private roomService: SalasService,
+    private router: Router,
     public tokenStorage: TokenStorageService, public auth: AuthService) {
   }
-
-
-  
 
   ngOnInit(): void {
     
@@ -64,4 +62,8 @@ export class ViewClassTutorComponent implements OnInit {
     return this.tokenStorage.saveRoom(this.guid, this.actualRoom['price_per_hour']);
   }
 
+
+  public getTutor(){
+    this.router.navigateByUrl(`/tutor/show/${this.actualRoom.id_user}`);
+  }
 }

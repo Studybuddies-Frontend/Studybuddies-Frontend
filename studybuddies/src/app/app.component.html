@@ -13,11 +13,20 @@
                     <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio</a>
                 </li>
                 <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/student/mine/{{userId}}" routerLinkActive="active">Mis Salas</a>
+              </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
                 </li>
                 <li class="nav-item" >
                     <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
                 </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías</a>
+              </li>
+                <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
+                  <a class="nav-link" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
+              </li>
                 <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
                     <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                 </li>
@@ -29,7 +38,10 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
                 <li class="nav-item">
-                    <a href="/constructionPage" class="nav-link" routerLink="constructionPage">{{ username }}</a>
+                    <a href="/perfil" class="nav-link" routerLink="perfil">{{ username }}</a>
+                </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                    <a class="nav-link red" routerLink="/student/generalReport" routerLinkActive="active">¡Reporta un error!</a>
                 </li>
                 <li class="nav-item">
                   <a href class="nav-link" (click)="logout()">Desconectate</a>
@@ -43,7 +55,7 @@
 
 <footer id="contacto">
 	<div class="contenedor-textos">
-		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com
+		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: <a href="mailto:soporte@studybuddies.es" >soporte@studybuddies.es</a>
 		</p>
 	</div>
 </footer>

@@ -40,10 +40,18 @@
     color: #F2F2F2;
 }
 
-.formRooms input,textarea, button{
+.formRooms input,textarea{
     border: none;
     padding: 1%;
     border-radius: 15px;
+}
+
+.formRooms textarea{
+    padding-bottom: 15%;
+}
+
+.formRooms input[type=text],textarea{
+    width: 80%;
 }
 
 .formRooms input,textarea::content{
@@ -63,63 +71,10 @@
     border: 2px solid #FFFFCC;
 }
 
-.formRooms a:hover{
+.formRooms input[type=submit]:hover{
     background-color: #FFFFCC;
     color: #20598B;
     transition: all .4s ease;  
-}
-
-.formRooms a,textarea{
-    border: none;
-    padding: 1%;
-    border-radius: 15px;
-}
-
-.formRooms a,textarea::content{
-    color: #a47cfc;
-    text-align: center;
-    font-weight: bold;
-}
-
-.formRooms a{
-    margin-top: 2%;
-    background-color: #20598B;
-    color: white;
-    font-size: large;
-    padding: 1.25%;
-    padding-left: 8%;
-    padding-right: 8%;
-    border: 2px solid #FFFFCC;
-}
-
-.formRooms a:hover{
-    background-color: #FFFFCC;
-    color: #20598B;
-    transition: all .4s ease;  
-}
-
-@media (max-width: 600px) {
-    .formRooms{
-        padding-top: 15%;
-    }
-}
-
-#footer .footer_image {
-    height: 24px;
-    width:24px;
-    text-align: center;
-    padding: 4px;
-}
-
-footer{
-    background: #eba144;
-    color: #fff;
-    padding: 12px;
-}
-
-.contenedor-textos p{
-    text-align: center;
-    font-size: 20px;
 }
 
 .formRooms input[type=button]{
@@ -134,25 +89,35 @@ footer{
       border: 2px solid #FFFFCC;
   }
   
-  .formRooms input[type=button]:hover{
+.formRooms input[type=button]:hover{
     background-color: #a47cfc;
     color: #F2F2F2;
     transition: all .4s ease;
   }
 
-  .button{
+.formRooms a{
     margin-top: 2%;
     background-color: #20598B;
     color: white;
     font-size: large;
-    padding: 1.25%;
-    width: auto;
+    padding: 1.5%;
+    padding-left: 8%;
+    padding-right: 8%;
     border: 2px solid #FFFFCC;
-    font-weight : bold;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
-.button:hover{
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
     transition: all .4s ease;  
 }
+
+@media (max-width: 600px) {
+    .formRooms{
+        padding-top: 15%;
+    }
+}
+

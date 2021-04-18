@@ -22,14 +22,16 @@
         <label for="fname">Descripción</label><br>
         <textarea id="description" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
       </div>
-      <div><input type=button value="VOLVER" onclick="history.back()"></div>
-      <div>
-        <br>
+      
+
+      <div class="align:center">
+        <div><input type=button value="VOLVER" onclick="history.back()"></div>
+        <button class="button" type=button value="VOLVER" (click)="getTutor()">MÁS DEL TUTOR</button><br>
+         <br>
         <a *ngIf= "paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}">ACCEDER A LA SALA</a>
         <br>
         <a *ngIf= "!paid" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
       </div>
-    </div>
   </form>
 </div>
 
