@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const USER_KEY = 'auth-user';
+const ROOM_KEY = 'room'
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class TokenStorageService {
   public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY)
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    console.log(user)
   }
 
   public getUser(): any {
@@ -27,4 +29,11 @@ export class TokenStorageService {
 
     return null;
   }
+  public saveRoom(guid: any, precio: any): void {
+    let room = { guid: guid, precio: precio }
+    window.sessionStorage.removeItem(ROOM_KEY)
+    window.sessionStorage.setItem(ROOM_KEY, JSON.stringify(room));
+  }
+
+
 }

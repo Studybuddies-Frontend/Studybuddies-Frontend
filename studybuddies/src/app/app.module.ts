@@ -36,6 +36,8 @@ import { RoleGuardService } from './services/role-guard.service';
 import { BaseURLInterceptorService } from './services/base-urlinterceptor.service';
 import { HTTPErrorInterceptorService } from './services/httperror-interceptor.service';
 import { NotAuthGuardService } from './services/not-auth-guard.service';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PaypalComponent } from './components/paypal/paypal.component';
 import { GeneralReportStudentComponent } from './components/student/general-report/general-report-student.component';
 import { MyclassesListStudentComponent } from './components/student/myclasses-list-student/myclasses-list-student.component';
 import { MyclassesListTutorComponent } from './components/tutor/myclasses-list-tutor/myclasses-list-tutor.component';
@@ -46,6 +48,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 
 
 const routes: Routes = [
+  { path: 'paypal/:price', component: PaypalComponent },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -137,6 +140,7 @@ const routes: Routes = [
     ErrorPageComponent,
     ConstructionPageComponent,
     LoginComponent,
+    PaypalComponent
     GeneralReportStudentComponent,
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
@@ -151,6 +155,7 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    NgxPayPalModule
     /* HttpClientTestingModule,
     RouterTestingModule,
     TranslateModule.forRoot({

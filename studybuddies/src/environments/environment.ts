@@ -9,6 +9,7 @@ export const environment = {
   rutaLogin: '/user/login',
   rutaRegister: '/user/register',
   rutaSalas: '/room',
+  rutaPayment: '/autorizar',
   baseURL: 'http://localhost:1739'
 };
 
