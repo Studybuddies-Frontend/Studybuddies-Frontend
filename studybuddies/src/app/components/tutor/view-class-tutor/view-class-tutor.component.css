@@ -63,7 +63,36 @@
     border: 2px solid #FFFFCC;
 }
 
-.formRooms input[type=submit]:hover{
+.formRooms a:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}
+
+.formRooms a,textarea{
+    border: none;
+    padding: 1%;
+    border-radius: 15px;
+}
+
+.formRooms a,textarea::content{
+    color: #a47cfc;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formRooms a{
+    margin-top: 2%;
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 2px solid #FFFFCC;
+}
+
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
     transition: all .4s ease;  
