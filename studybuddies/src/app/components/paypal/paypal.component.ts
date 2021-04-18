@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ICreateOrderRequest } from "ngx-paypal";
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from "src/app/services/auth.service";
+import {HttpClient} from "@angular/common/http";
+
 @Component({
   selector: "app-paypal",
   templateUrl: "./paypal.component.html",
@@ -14,12 +16,16 @@ export class PaypalComponent implements OnInit {
   totalPrice: string
   paid: boolean
   id_user_app = this.auth.getId();
+  URL_API: "http://46.101.34.232:1740/api/v1/demos/room";
 
-  constructor(private routes: ActivatedRoute, public auth: AuthService ) {
+  constructor(private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient) {
     this.totalPrice = this.routes.snapshot.params['price']
   }
 
   ngOnInit() {
+    this.pay();
+    this.back();
+    this.createPayment();
     this.payPalConfig = {
       currency: "EUR",
       clientId: "ATRvi--QaPw0iferJZWGLFkF_Z00JiIF3Z4SHPTqCB15aEvVyylQG_qy3LBJ3YBoC4SKNv21tL9hp2UJ",
@@ -40,7 +46,7 @@ export class PaypalComponent implements OnInit {
               },
               items: [
                 {
-                  name: "Enterprise Subscription",
+                  name: "STUDYBUDDIES",
                   quantity: "1",
                   category: "DIGITAL_GOODS",
                   unit_amount: {
@@ -70,14 +76,15 @@ export class PaypalComponent implements OnInit {
             "onApprove - you can get full order details inside onApprove: ",
             details
           );
+          this.paid = true;
+          
         });
       },
       onClientAuthorization: (data: any) => {
         console.log(
           "onClientAuthorization - you should probably inform your server about completed transaction at this point",
-          data
+          data, this.paid = true
         );
-        this.paid = true;
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
@@ -87,8 +94,11 @@ export class PaypalComponent implements OnInit {
       },
       onClick: (data: any, actions: any) => {
         console.log("onClick", data, actions);
-      }
+      },
+
     };
+    
+
   }
 
   pay() {
@@ -97,6 +107,15 @@ export class PaypalComponent implements OnInit {
 
   back(){
     this.showPaypalButtons = false;
+  }
+
+  createPayment(){
+    if(this.paid){
+      return this.http.post(this.URL_API, this.id_user_app);
+    }
+    else{
+      return 'Usuario sin pago';
+    }
   }
   
 }
