@@ -77,6 +77,7 @@ export class AuthService {
       descripcion: descripcion
     }
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
+  }
 
   public getId(): number {
     const user = window.sessionStorage.getItem('auth-user');
