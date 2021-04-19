@@ -17,8 +17,8 @@
           <input type="text" id="universidad" name="universidad" value="{{actualUser['universidad']}}" readonly=true><br><br>
           <label for="lname">Grado</label><br>
           <input type="text" id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
-          <label for="fname">Sobre mi</label><br>
-          <textarea style="height: 20%;" id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
+          <label for="fname" *ngIf="rol=='TUTOR'">Sobre mi</label><br>
+          <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
         </div>
         <div style="margin-top: 3.5%;"><a  target="_blank">EDITAR PERFIL</a></div>
         <div><input type=button value="VOLVER" onclick="history.back()"></div>

@@ -113,7 +113,7 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
-  { path: 'tutor/show/:id', component: ShowTutorComponent, canActivate: [RoleGuardService],},
+  { path: 'tutor/show/:id', component: ShowTutorComponent},
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
