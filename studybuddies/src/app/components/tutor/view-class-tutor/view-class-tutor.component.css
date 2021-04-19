@@ -23,6 +23,7 @@
     text-align: center;
     background-color: #20598B;
     background-size: cover;
+    text-transform: uppercase;
 }
 
 .row{
@@ -100,7 +101,10 @@
 
 @media (max-width: 600px) {
     .formRooms{
-        padding-top: 15%;
+        padding: 15% 0 15% 0;
+    }
+    .row{
+        border-radius: 0;
     }
 }
 
@@ -141,17 +145,36 @@ footer{
   }
 
   .button{
-    margin-top: 2%;
-    background-color: #20598B;
+    background-color: #eba144;
     color: white;
     font-size: large;
     padding: 1.25%;
-    width: auto;
+    padding-left: 4.5%;
+      padding-right: 4.5%;
     border: 2px solid #FFFFCC;
     font-weight : bold;
 }
 
 .button:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}
+
+.formRooms a{
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.5%;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    border: 2px solid #FFFFCC;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
     transition: all .4s ease;  

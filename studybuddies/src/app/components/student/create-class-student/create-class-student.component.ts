@@ -41,9 +41,6 @@ export class CreateClassStudentComponent implements OnInit {
     } else if( checkMismoDia && checkHoraPasada){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual"
       isCorrect = false;
-    } else if(desc.includes("joder")){
-      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual"
-      isCorrect = false;
     }else {
       isCorrect = true;
     }

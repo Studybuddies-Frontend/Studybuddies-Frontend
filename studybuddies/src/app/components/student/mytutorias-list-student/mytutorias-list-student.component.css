@@ -121,6 +121,8 @@ section{
   line-height: 1.42em;
   color:#0F2C45;
   background-color:#1F2739;
+  border-radius: 15px;
+  text-transform: uppercase;
 }
 
 .table h1 {
@@ -201,6 +203,7 @@ section{
   .containertable{
     width: 100%;
     margin: 0px;
+    border-radius: 0;
   }
 
   section{

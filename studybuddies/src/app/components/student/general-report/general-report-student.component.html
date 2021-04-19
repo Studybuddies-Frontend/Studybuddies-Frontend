@@ -2,10 +2,10 @@
   <form class="formRooms" #reportForm="ngForm" (ngSubmit)="reportForm.form.valid && createReport()"><div class="row"><h1 class="titulo">REPORTA UN ERROR</h1>
     <div class="col-lg">
       <br>
-      <label for="lname">Asunto</label><br>
+      <label for="lname">ASUNTO</label><br>
       <input type="text" id="asunto" name="asunto" [(ngModel)]="asunto" required><br>
       <br>
-      <label for="fname">Descripción</label><br>
+      <label for="fname">DESCRIPCIÓN</label><br>
       <textarea id="description" name="description" [(ngModel)]="description" required></textarea><br>
       <br>
       <br>    
