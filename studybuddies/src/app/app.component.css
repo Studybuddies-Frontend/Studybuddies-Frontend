@@ -48,8 +48,6 @@ div#navbarNav {
 .dropdown-menu{
     background-color: #20598B;
     border-radius: 15px;
-    width: 250px;
-    padding: 5%;
 }
 
 .dropdown-menu .nav-link{
@@ -95,9 +93,16 @@ footer a:hover{
     color:  darkred !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 950px) {
     .dropdown-menu{
-        width: initial;
+        width: 100%;
         padding: 2%;
+    }
+}
+
+@media (min-width: 951px) {
+    .dropdown-menu{
+        width: 250px;
+        padding: 5%;
     }
 }
