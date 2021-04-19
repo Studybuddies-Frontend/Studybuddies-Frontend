@@ -117,7 +117,10 @@
 
 @media (max-width: 600px) {
     .formRooms{
-        padding-top: 15%;
+        padding: 15% 0 90% 0;
+    }
+    .row{
+        border-radius: 0;
     }
 }
 

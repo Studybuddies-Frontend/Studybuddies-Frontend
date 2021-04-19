@@ -20,8 +20,7 @@
           <label for="fname" *ngIf="rol=='TUTOR'">Sobre mi</label><br>
           <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
         </div>
-        <div style="margin-top: 3.5%;"><a  target="_blank">EDITAR PERFIL</a></div>
-        <div><input type=button value="VOLVER" onclick="history.back()"></div>
+       <div><input type=button value="VOLVER" onclick="history.back()"></div>
       </div>
       <div class="row2" *ngIf="rol=='TUTOR'">
         <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>

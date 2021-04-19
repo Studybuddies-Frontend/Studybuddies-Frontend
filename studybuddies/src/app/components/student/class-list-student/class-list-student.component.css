@@ -37,10 +37,13 @@ padding-top: 85px;
   text-align: center;
   font-size: 16px;
   padding: 20px;
-  width: 70%;
+  width: 80%;
   transition: all 0.5s;
   margin: auto;
-  margin-bottom: 5px;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  border-radius: 15px;
+  border: 2px solid #EBA144;
 }
 
 .info-text{
@@ -140,6 +143,8 @@ section{
   line-height: 1.42em;
   color:#0F2C45;
   background-color:#1F2739;
+  border-radius: 15px;
+  text-transform: uppercase;
 }
 
 .table h1 {
@@ -220,6 +225,7 @@ section{
   .containertable{
     width: 100%;
     margin: 0px;
+    border-radius: 0;
   }
 
   section{
@@ -229,6 +235,11 @@ section{
 
   .esconder{
     display: none;
+  }
+
+  .info{
+    width: 98%;
+    margin-bottom: 8%;
   }
 }
 

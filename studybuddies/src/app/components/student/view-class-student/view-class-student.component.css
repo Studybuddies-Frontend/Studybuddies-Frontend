@@ -23,6 +23,7 @@
     text-align: center;
     background-color: #20598B;
     background-size: cover;
+    text-transform: uppercase;
 }
 
 .row{
@@ -71,7 +72,10 @@
 
 @media (max-width: 600px) {
     .formRooms{
-        padding-top: 15%;
+        padding: 15% 0 15% 0;
+    }
+    .row{
+        border-radius: 0;
     }
 }
 
