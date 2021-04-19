@@ -17,12 +17,15 @@ export class AppComponent implements OnInit{
   showStudentBoard = false;
   showTutorBoard = false;
   username?: string;
+  userId: number;
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router,) { }
+  constructor(private tokenStorageService: TokenStorageService, private router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
     console.log(this.isLoggedIn)
     console.log(this.tokenStorageService.getUser())
+    this.userId = this.getId();
+    console.log(this.userId)
     if(this.tokenStorageService.getUser()) {
       this.isLoggedIn = true
     }
@@ -44,4 +47,16 @@ export class AppComponent implements OnInit{
     this.tokenStorageService.signOut();
     this.router.navigate(["/"]);
   }
+
+  public getId(): number {
+    const user = window.sessionStorage.getItem('auth-user');
+    console.log(user)
+    if (user) {
+      let jsonUser = JSON.parse(user);
+      return jsonUser.id;
+    }
+
+    return 0;
+  }
+
 }

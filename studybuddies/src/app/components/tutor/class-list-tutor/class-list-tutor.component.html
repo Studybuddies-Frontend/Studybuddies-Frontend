@@ -1,50 +1,64 @@
 <body>
   <div class="div-all">
-    <section>
+    <div class="info">
+      <p class="info-text">
+        Aquí puedes encontrar las tutorías de Studybuddies. Una tutoría es una sala online
+        donde una persona que ya tiene aprobada esa asignatura ofrece una clase
+        particular a cambio de un precio entre 5 y 15€ por hora.
+        Ahora que ya sabes qué es una tutoría no dudes en entrar en una o crearlas si eres tutor.
+      </p>
+    </div>
 
+    <section>
       <table class="containertable">
         <thead>
           <tr>
             <th class="esconder">
-              <h1 class="table">Universidad</h1>
+              <h1 class="table">UNIVERSIDAD</h1>
             </th>
             <th>
-              <h1 class="table">Grado</h1>
+              <h1 class="table">GRADO</h1>
             </th>
             <th>
-              <h1 class="table">Asignatura</h1>
+              <h1 class="table">ASIGNATURA</h1>
             </th>
             <th class="esconder">
-              <h1 class="table">Descripción</h1>
+              <h1 class="table">DESCRIPCIÓN</h1>
             </th>
             <th>
-              <h1 class="table">Fecha</h1>
+              <h1 class="table">FECHA</h1>
             </th>
             <th class="esconder">
-              <h1 class="table">Hora inicio</h1>
+              <h1 class="table">HORA INICIO</h1>
             </th>
             <th class="esconder">
-              <h1 class="table">Hora fin</h1>
+              <h1 class="table">HORA FIN</h1>
+            </th>
+            <th class="esconder">
+              <h1 class="table">PRECIO POR HORA</h1>
             </th>
             <th>
-							<h1 class="table">Acciones</h1>
-						</th>
+              <h1 class="table">DETALLES</h1>
+            </th>
           </tr>
         </thead>
         <mat-spinner *ngIf="tutorias.length === 0"></mat-spinner>
         <tbody>
           <tr *ngFor="let room of tutorias">
-            <td class="esconder">{{room['university']}}</td>
-            <td>{{room['degree']}}</td>
-            <td>{{room['subject']}}</td>
-            <td class="esconder">{{room['description']}}</td>
-            <td>{{room['date']}}</td>
-            <td class="esconder">{{room['iTime']}}</td>
-            <td class="esconder">{{room['fTime']}}</td>
-            <td><a href="/tutor/classView/{{room['guid']}}">Ver detalles</a></td>
+            <td class="esconder">{{ room["university"] }}</td>
+            <td>{{ room["degree"] }}</td>
+            <td>{{ room["subject"] }}</td>
+            <td class="esconder">{{ room["description"] }}</td>
+            <td>{{ room["date"] }}</td>
+            <td class="esconder">{{ room["iTime"] }}</td>
+            <td class="esconder">{{ room["fTime"] }}</td>
+            <td class="esconder">{{ room["price_per_hour"] }} €</td>
+            <td>
+              <a href="/tutor/classView/{{ room['guid'] }}">Ver detalles</a>
+            </td>
           </tr>
         </tbody>
-      </table>  
+      </table>
     </section>
   </div>
 </body>

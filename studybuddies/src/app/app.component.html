@@ -1,49 +1,59 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #EBA144 ;" >
-    <div class="container">
         <a class="navbar-brand" href="#">
             <img src="../../../assets/logoSinFondo.png" style="width: 50px;">
             Studybuddies
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button  style="margin-right: 2%;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" *ngIf="isLoggedIn">
-                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
-                    <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio</a>
+                <li class="nav-item dropdown" *ngIf="showStudentBoard || showAdminBoard">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Salas de estudio
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" routerLink="/student/mine/{{userId}}" routerLinkActive="active">Mis Salas</a>
+                        <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
+                        <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Listar Salas de estudio</a>
+                    </div>
                 </li>
-                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
-                    <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías</a>
-                </li>
-                <li class="nav-item" *ngIf="showTutorBoard || showAdminBoard">
-                    <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Tutorías
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" *ngIf="showStudentBoard || showAdminBoard" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías pagadas</a>
+                        <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
+                        <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
+                        <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Listar Tutorías</a>
+                    </div>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="!isLoggedIn">
+            <ul style="padding-right: 1%;" class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="!isLoggedIn">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/login" routerLinkActive="active">Accede</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
+            <ul style="padding-right: 1%;" class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
                 <li class="nav-item">
-                    <a href="/constructionPage" class="nav-link" routerLink="constructionPage">{{ username }}</a>
+                    <a href="/perfil" class="nav-link" routerLink="perfil">Accede a tu perfil, {{ username }}</a>
+                </li>
+                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                    <a class="nav-link red" routerLink="/student/generalReport" routerLinkActive="active">¡Reporta un problema!</a>
                 </li>
                 <li class="nav-item">
                   <a href class="nav-link" (click)="logout()">Desconectate</a>
                 </li>
               </ul>
         </div>
-    </div>
 </nav>
 
 <router-outlet></router-outlet>
-
+<br>
 <footer id="contacto">
 	<div class="contenedor-textos">
-		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: soporte.studybuddies@gmail.com
+		<p class="parrafo">Si aún tienes alguna duda puedes contactar con nosotros en: <a href="mailto:soporte@studybuddies.es" >soporte@studybuddies.es</a>
 		</p>
 	</div>
 </footer>

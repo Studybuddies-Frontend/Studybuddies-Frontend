@@ -45,6 +45,17 @@ div#navbarNav {
 	text-align: center !important;
 }
 
+.dropdown-menu{
+    background-color: #20598B;
+    border-radius: 15px;
+}
+
+.dropdown-menu .nav-link{
+    margin: 2%;
+    color: #F2F2F2;
+    transition: all .1s ease;
+}
+
 #footer .footer_image {
     height: 24px;
     width:24px;
@@ -53,12 +64,45 @@ div#navbarNav {
 }
 
 footer{
-    background: #eba144;
+    background: #EBA144;
     color: #fff;
-    padding: 12px;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a{
+    color: black;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: darkred;
+    transition: all .4s ease;
+    font-style: italic;
+    font-weight: 500;
 }
 
 .contenedor-textos p{
         text-align: center;
         font-size: 20px;
+}
+
+.red{
+    color:  darkred !important;
+}
+
+@media (max-width: 950px) {
+    .dropdown-menu{
+        width: 100%;
+        padding: 2%;
+    }
+}
+
+@media (min-width: 951px) {
+    .dropdown-menu{
+        width: 250px;
+        padding: 5%;
+    }
 }

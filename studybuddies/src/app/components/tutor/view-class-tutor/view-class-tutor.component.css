@@ -23,6 +23,7 @@
     text-align: center;
     background-color: #20598B;
     background-size: cover;
+    text-transform: uppercase;
 }
 
 .row{
@@ -40,7 +41,7 @@
     color: #F2F2F2;
 }
 
-.formRooms input,textarea{
+.formRooms input,textarea, button{
     border: none;
     padding: 1%;
     border-radius: 15px;
@@ -63,7 +64,36 @@
     border: 2px solid #FFFFCC;
 }
 
-.formRooms input[type=submit]:hover{
+.formRooms a:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}
+
+.formRooms a,textarea{
+    border: none;
+    padding: 1%;
+    border-radius: 15px;
+}
+
+.formRooms a,textarea::content{
+    color: #a47cfc;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formRooms a{
+    margin-top: 2%;
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 2px solid #FFFFCC;
+}
+
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
     transition: all .4s ease;  
@@ -71,7 +101,10 @@
 
 @media (max-width: 600px) {
     .formRooms{
-        padding-top: 15%;
+        padding: 15% 0 15% 0;
+    }
+    .row{
+        border-radius: 0;
     }
 }
 
@@ -110,3 +143,39 @@ footer{
     color: #F2F2F2;
     transition: all .4s ease;
   }
+
+  .button{
+    background-color: #eba144;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 4.5%;
+      padding-right: 4.5%;
+    border: 2px solid #FFFFCC;
+    font-weight : bold;
+}
+
+.button:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}
+
+.formRooms a{
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.5%;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    border: 2px solid #FFFFCC;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.formRooms a:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}

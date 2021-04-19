@@ -3,6 +3,7 @@ import {RoomService} from "../../../services/class.service";
 import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-class-tutor',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CreateClassTutorComponent implements OnInit {
 
-  constructor(public roomService: RoomService, private router: Router) { }
+  constructor(public roomService: RoomService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -29,30 +30,57 @@ export class CreateClassTutorComponent implements OnInit {
     let checkHoraInicioMayorQueFin = parseInt(iDay[0]) > parseInt(fDay[0]) || parseInt(iDay[0])==parseInt(fDay[0]) && parseInt(iDay[1]) >= parseInt(fDay[1]);
     let checkDiaPasado = parseInt(date[0]) < now.getFullYear() || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) < now.getMonth()+1 || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) < now.getDate();
     
-    if (checkHoraInicioMayorQueFin) {
+    document.getElementById("formErrorDate")!.innerHTML = "";
+    document.getElementById("formErrorDay")!.innerHTML = "";
+    document.getElementById("formErrorMoney")!.innerHTML = "";
+    
+    if (checkDiaPasado) {
+      document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
       isCorrect = false;
-    } else if(checkDiaPasado){
+    } 
+    
+    if(checkHoraInicioMayorQueFin){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio";
       isCorrect = false;
-    } else if( checkMismoDia && checkHoraPasada){
+    } 
+    
+    if( checkMismoDia && checkHoraPasada){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual";
       isCorrect = false;
-    }else {
+    } 
+    
+    if( form.value.money <= 5){
+      document.getElementById("formErrorMoney")!.innerHTML = "El precio mínimo de la clase es de 5 euros";
+      isCorrect = false;
+    }
+
+    if( form.value.money >= 15){
+      document.getElementById("formErrorMoney")!.innerHTML = "El precio máximo de la clase es de 15 euros";
+      isCorrect = false;
+    }
+    
+    if(form.value.money >= 5 && form.value.money <= 15 && (!checkDiaPasado && !checkHoraInicioMayorQueFin || checkMismoDia && !checkHoraPasada)){
       isCorrect = true;
     }
+    
+    console.log(form.value.money);
+    console.log(isCorrect);
 
     return isCorrect;
   }
 
   createRoom(form: NgForm){
 
-    console.log(form.value.date);
-    console.log(form.value.iTime);
     /*
     let date = form.value.date.split("-");
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     */
+
+    let id_user_app = this.auth.getId();
+
     let room: Class = {
-      id_user : 0,
+      id_user : id_user_app,
       description : form.value.description,
       university : form.value.university,
       degree : form.value.degree,
@@ -72,10 +100,8 @@ export class CreateClassTutorComponent implements OnInit {
 
     };
     if(this.validate(form)){
+      form.resetForm();
       this.roomService.createRoom(room).subscribe(
-        res => {
-          form.reset();
-        },  
         err => console.error(err)
       );
 

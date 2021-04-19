@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <form class="formRooms" #reportForm="ngForm" (ngSubmit)="reportForm.form.valid && createReport()"><div class="row"><h1 class="titulo">REPORTA UN PROBLEMA</h1>
+    <div class="col-lg">
+      <br>
+      <label for="lname">ASUNTO</label><br>
+      <input type="text" id="asunto" name="asunto" [(ngModel)]="asunto" required><br>
+      <br>
+      <label for="fname">DESCRIPCIÓN</label><br>
+      <textarea id="description" name="description" [(ngModel)]="description" required></textarea><br>
+      <br>
+      <br>    
+    </div>
+    <div><input type=button value="VOLVER" onclick="location.href = 'student/classList'"></div>
+    <div style="margin-top: 3.5%;"><a (click)='navigateToList()' [href]='createReport()' target="_top">ENVIAR</a></div>
+    
+  </div>
+</form>
+</div>
