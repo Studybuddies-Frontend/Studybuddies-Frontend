@@ -48,7 +48,12 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 
 
 const routes: Routes = [
-  { path: 'paypal/:price', component: PaypalComponent },
+  {
+    path: 'paypal/:price', component: PaypalComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
     data: {
@@ -113,7 +118,7 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
-  { path: 'tutor/show/:id', component: ShowTutorComponent},
+  { path: 'tutor/show/:id', component: ShowTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },

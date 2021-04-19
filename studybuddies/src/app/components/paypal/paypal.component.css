@@ -91,6 +91,30 @@ padding-top: 85px;
   background-size: cover;
 }
 
+.formRooms input,textarea, button{
+  border: none;
+  padding: 1%;
+  border-radius: 15px;
+}
+
+.formRooms input[type=button]{
+  margin-top: 2%;
+  display: -ms-flexbox;
+    background-color: #1F3A68;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 2px solid #FFFFCC;
+}
+
+.formRooms input[type=button]:hover{
+  background-color: #a47cfc;
+  color: #F2F2F2;
+  transition: all .4s ease;
+}
+
 @media (max-width: 600px) {
   .formRooms{
       padding: 15% 0 15% 0;

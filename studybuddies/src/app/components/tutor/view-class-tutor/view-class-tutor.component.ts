@@ -17,12 +17,15 @@ export class ViewClassTutorComponent implements OnInit {
   authorised_users: string[];
   id_user_app: any;
   paid = false;
+  private role: string = '';
+  showTutorBoard = false;
+  
 
   constructor(
     private route: ActivatedRoute,
     private roomService: SalasService,
     private router: Router,
-    public tokenStorage: TokenStorageService, public auth: AuthService) {
+    public tokenStorageService: TokenStorageService, public auth: AuthService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +34,9 @@ export class ViewClassTutorComponent implements OnInit {
     this.getRoomByGuid();
     this.getAuthUsers();
     this.id_user_app = this.auth.getId();
+    const user = this.tokenStorageService.getUser();
+    this.role = user.role;
+    this.showTutorBoard = this.role == 'tutor';
     
   }
 
@@ -59,7 +65,7 @@ export class ViewClassTutorComponent implements OnInit {
 
   saveData() {
     this.reloadPage();
-    return this.tokenStorage.saveRoom(this.guid, this.actualRoom['price_per_hour']);
+    return this.tokenStorageService.saveRoom(this.guid, this.actualRoom['price_per_hour']);
   }
 
 

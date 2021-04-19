@@ -20,7 +20,6 @@ export class PaypalComponent implements OnInit {
   totalPrice: string
   paid: boolean
   id_user_app = this.auth.getId();
-  URL_API: "http://localhost:3000/api/v1/room/autorizar";
 
   constructor(public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
     this.totalPrice = this.routes.snapshot.params['price']
@@ -28,7 +27,6 @@ export class PaypalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.URL_API = "http://localhost:3000/api/v1/room/autorizar";
     this.showPaypalButtons = true;
     this.payPalConfig = {
       currency: "EUR",
@@ -117,26 +115,4 @@ export class PaypalComponent implements OnInit {
     };
 
   }
-  /* async createPayment() {
-    console.log("Autorizando")
-    if (this.paid) {
-      console.log(this.paid)
-      let room = window.sessionStorage.getItem('room');
-      if (room) {
-        let roomJSON = JSON.parse(room);
-        this.guid = roomJSON.guid;
-        this.totalPrice = roomJSON.price_per_hour;
-        this.paypalService.updateRoomPayment(this.guid, this.id_user_app).subscribe(
-          res => {
-            console.log("PAGO realizado con éxito.");
-          },
-          err => console.log(err)
-        )
-      }
-    }
-
-    else {
-      console.log('No h se ha realizado el pago')
-    }
-  } */
 }

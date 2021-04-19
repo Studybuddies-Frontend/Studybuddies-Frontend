@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Class } from "../models/class";
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
 
-  URL_API = "http://localhost:3000/api/v1/room/create";
+  
+  URL_API = `${environment.urlBackend}${environment.rutaSalas}/create`;
 
   selectedRoom: Class = {
     id_user : 0,

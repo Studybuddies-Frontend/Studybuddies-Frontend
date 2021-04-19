@@ -25,7 +25,6 @@ export class AppComponent implements OnInit{
     console.log(this.isLoggedIn)
     console.log(this.tokenStorageService.getUser())
     this.userId = this.getId();
-    console.log("asdasd")
     console.log(this.userId)
     if(this.tokenStorageService.getUser()) {
       this.isLoggedIn = true
