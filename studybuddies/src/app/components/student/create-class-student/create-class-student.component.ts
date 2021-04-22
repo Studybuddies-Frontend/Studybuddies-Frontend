@@ -4,6 +4,8 @@ import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
 import { AuthService } from "src/app/services/auth.service";
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -82,13 +84,20 @@ export class CreateClassStudentComponent implements OnInit {
     if(this.validate(form)){
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
-        res => {
-          form.reset();
+        res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
+            form.reset();
+          })
         },
         err => console.error(err)
+        
       );
 
-      this.router.navigate(["/student/classList"])
+      Swal.fire('Éxito', 'La sala se ha creado correctamente', 'success').then(function () {
+        window.location.href = "./student/classList";
+      })
+
+      //this.router.navigate(["/student/classList"])
     }
   }
 
