@@ -63,7 +63,7 @@ export class AuthService {
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
   }
 
-  registerTutor(username:string, password: string, confirmPassword: string, nombre: string, apellidos:string, email:string, universidad:string, grado:string, descripcion:string): Observable<any>{
+  registerTutor(username:string, password: string, confirmPassword: string, nombre: string, apellidos:string, email:string, universidad:string, grado:string, descripcion:string, telefono:string): Observable<any>{
     this.urlLogin = `${environment.urlBackend}${environment.rutaRegister}/tutor`
     let data = {
       username: username,
@@ -74,7 +74,8 @@ export class AuthService {
       email: email,
       universidad: universidad,
       grado: grado,
-      descripcion: descripcion
+      descripcion: descripcion,
+      telefono: telefono
     }
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
   }
