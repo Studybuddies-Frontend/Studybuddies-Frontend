@@ -146,7 +146,7 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
           window.location.href = "./login";
           window.location.reload();
         })
@@ -215,7 +215,7 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
           window.location.href = "./login";
           window.location.reload();
         })
