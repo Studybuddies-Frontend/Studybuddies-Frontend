@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   loginError = null;
   user: User = new User();
   logged = false;
+  checked = false;
 
   ngOnInit(): void {
     if (this.tokenStorage.getUser()) {
@@ -201,6 +202,10 @@ export class LoginComponent implements OnInit {
     }
     if (!this.descripcion) {
       Swal.fire('Error', 'Debe indicarse una descripcion', 'error')
+      return;
+    }
+    if (!this.checked) {
+      Swal.fire('Error', 'Debe marcar la casilla', 'error')
       return;
     }
 

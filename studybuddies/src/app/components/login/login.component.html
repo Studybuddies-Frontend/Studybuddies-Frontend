@@ -205,10 +205,19 @@
 							<label for="descripcion" class="label">Descripcion</label>
 							<textarea name="descripcion" [(ngModel)]="descripcion" type="text" class="form-control"
 								#descripcionField="ngModel" minlength="4" cols="40" rows="5"
-								[ngClass]="{ 'is-invalid': f.submitted && descripcionField.invalid }" required></textarea>
+								[ngClass]="{ 'is-invalid': f.submitted && descripcionField.invalid }"
+								required></textarea>
 							<div *ngIf="f.submitted && descripcionField.invalid" class="invalid-feedback">
 								La descripcion no es correcta
 							</div>
+						</div>
+						<div class="group">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+								[(ngModel)]="checked" #checkedField="ngModel"
+								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
+							<label class="form-check-label" for="flexCheckIndeterminate">Acepto que tengo los
+								suficientes conocimientos para registrarme como tutor
+							</label>
 						</div>
 						<div class="group">
 							<input type="submit" class="button" value="Registrarse">
