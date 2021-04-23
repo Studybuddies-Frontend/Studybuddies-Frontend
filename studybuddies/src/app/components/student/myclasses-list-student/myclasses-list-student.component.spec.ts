@@ -3,13 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyclassesListStudentComponent } from './myclasses-list-student.component';
 
+
 describe('MyclassesListStudentComponent', () => {
   let component: MyclassesListStudentComponent;
   let fixture: ComponentFixture<MyclassesListStudentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule,  ],
       declarations: [ MyclassesListStudentComponent ]
     })
     .compileComponents();

@@ -4,12 +4,13 @@ import { RoomService } from './class.service';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+
 describe('RoomService', () => {
   let service: RoomService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ]
+      imports: [ HttpClientTestingModule,  ]
     });
     service = TestBed.inject(RoomService);
   });

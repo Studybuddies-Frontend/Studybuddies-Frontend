@@ -13,7 +13,7 @@ describe('GeneralReportStudentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, FormsModule, RouterTestingModule],
+      imports: [ HttpClientTestingModule, FormsModule, RouterTestingModule, ],
       declarations: [ GeneralReportStudentComponent ]
     })
     .compileComponents();
