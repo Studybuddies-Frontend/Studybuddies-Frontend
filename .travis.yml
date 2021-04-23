@@ -10,10 +10,12 @@ install:
   - pip install codacy-coverage
 script:
   - npm update
-  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  # - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - ng test --single-run --code-coverage
   - npm run build
 after_success:
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r report.xml
+  # - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r report.xml
+  - npm run codacy
   
   
 
