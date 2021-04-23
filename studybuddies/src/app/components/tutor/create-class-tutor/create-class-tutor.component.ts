@@ -4,6 +4,8 @@ import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-create-class-tutor',
@@ -102,10 +104,17 @@ export class CreateClassTutorComponent implements OnInit {
     if(this.validate(form)){
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
+        res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
+            form.reset();
+          })
+        },
         err => console.error(err)
       );
 
-      this.router.navigate(["/tutor/classList"])
+      Swal.fire('Éxito', 'La tutoría se ha creado correctamente', 'success').then(function () {
+        window.location.href = "./tutor/classList";
+      })
     }
 
   }

@@ -148,14 +148,15 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        this.router.navigate(['/login'])
-        this.reloadPage();
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+          window.location.href = "./login";
+          window.location.reload();
+        })
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return ;
+      return;
     }
     );
   }
@@ -220,14 +221,15 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        this.router.navigate(['/login'])
-        this.reloadPage();
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+          window.location.href = "./login";
+          window.location.reload();
+        })
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return ;
+      return;
     }
     );
   }
