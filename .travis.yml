@@ -5,9 +5,13 @@ before_script:
   - npm install -g @angular/cli
   - npm install
   - cd studybuddies
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
 install:
   - pip install codacy-coverage
 script:
   - npm update
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run build
+after_success:
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
+
