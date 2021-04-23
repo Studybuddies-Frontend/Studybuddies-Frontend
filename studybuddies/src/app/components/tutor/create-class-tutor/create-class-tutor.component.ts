@@ -24,6 +24,10 @@ export class CreateClassTutorComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     let date = form.value.date.split("-");
+    let uni = form.value.university;
+    let deg = form.value.degree;
+    let sub = form.value.subject;
+    let des = form.value.description;
     let isCorrect;
     let now = new Date();
 
@@ -35,6 +39,10 @@ export class CreateClassTutorComponent implements OnInit {
     document.getElementById("formErrorDate")!.innerHTML = "";
     document.getElementById("formErrorDay")!.innerHTML = "";
     document.getElementById("formErrorMoney")!.innerHTML = "";
+    document.getElementById("formErrorUni")!.innerHTML = "";
+    document.getElementById("formErrorDeg")!.innerHTML = "";
+    document.getElementById("formErrorSub")!.innerHTML = "";
+    document.getElementById("formErrorDes")!.innerHTML = "";
     
     if (checkDiaPasado) {
       document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
@@ -51,12 +59,12 @@ export class CreateClassTutorComponent implements OnInit {
       isCorrect = false;
     } 
     
-    if( form.value.money <= 5){
+    if( form.value.money < 5){
       document.getElementById("formErrorMoney")!.innerHTML = "El precio mínimo de la clase es de 5 euros";
       isCorrect = false;
     }
 
-    if( form.value.money >= 15){
+    if( form.value.money > 15){
       document.getElementById("formErrorMoney")!.innerHTML = "El precio máximo de la clase es de 15 euros";
       isCorrect = false;
     }
@@ -64,12 +72,50 @@ export class CreateClassTutorComponent implements OnInit {
     if(form.value.money >= 5 && form.value.money <= 15 && (!checkDiaPasado && !checkHoraInicioMayorQueFin || checkMismoDia && !checkHoraPasada)){
       isCorrect = true;
     }
+
+    if(this.containsSpam(uni) || uni.includes("coño")){
+      document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(deg || uni.includes("coño"))){
+      document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(sub || uni.includes("coño"))){
+      document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(des || uni.includes("coño"))){
+      document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
+    }
     
     console.log(form.value.money);
     console.log(isCorrect);
 
     return isCorrect;
   }
+
+  containsSpam(str:string){
+    const spam = ["ostia", "joder", "puta", "viagra", "gilipollas", "cabron", "imbecil", "idiota", "subnormal", "maricon", "mierda"]
+    let isSpam = false;
+    str=str.toLowerCase();
+    str=this.removeAccents(str);
+
+    for(let i=0; i<spam.length; i++){
+      if(str.includes(spam[i])){
+        isSpam = true;
+      }
+    }
+    return isSpam;
+  }
+
+  removeAccents(str:string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  } 
 
   createRoom(form: NgForm){
 
