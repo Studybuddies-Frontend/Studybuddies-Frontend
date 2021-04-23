@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   universidad: '';
   grado: '';
   descripcion: '';
+  telefono: string = '';
   isLoggedIn = false;
   isLoginFailed = false;
   role = '';
@@ -209,7 +210,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion).subscribe(async response => {
+    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion,this.telefono).subscribe(async response => {
       /* this.tokenStorage.saveUser(response);
       this.isLoginFailed = false;
       this.isLoggedIn = true;
