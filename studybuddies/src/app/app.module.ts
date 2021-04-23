@@ -47,6 +47,7 @@ import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 
+
 const routes: Routes = [
   {
     path: 'paypal/:price', component: PaypalComponent, canActivate: [RoleGuardService],
@@ -150,7 +151,7 @@ const routes: Routes = [
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,

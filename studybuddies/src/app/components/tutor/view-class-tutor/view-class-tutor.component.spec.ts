@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ViewClassTutorComponent } from './view-class-tutor.component';
 
@@ -8,6 +10,7 @@ describe('ViewClassTutorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ RouterTestingModule, HttpClientTestingModule, ],
       declarations: [ ViewClassTutorComponent ]
     })
     .compileComponents();
