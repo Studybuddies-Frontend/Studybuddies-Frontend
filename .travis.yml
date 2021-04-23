@@ -14,7 +14,7 @@ script:
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
   - npm run build
 after_success:
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r studybuddies/coverage/studybuddies/index.html
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/studybuddies/index.html
   
   
   
