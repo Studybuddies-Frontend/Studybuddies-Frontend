@@ -213,7 +213,7 @@
 						</div>
 						<div class="group">
 							<label for="telefono" class="label">Teléfono</label>
-							<input name="grado" [(ngModel)]="telefono" type="tel" class="form-control"
+							<input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control"
 								#telefonoField="ngModel"
 								[ngClass]="{ 'is-invalid': f.submitted && telefonoField.invalid }">
 							<div *ngIf="f.submitted && telefonoField.invalid" class="invalid-feedback">
