@@ -7,6 +7,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { RoomService } from "src/app/services/class.service";
 import { Observable } from "rxjs";
 import { PaypalService } from "src/app/services/paypal.service";
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: "app-paypal",
@@ -96,6 +98,9 @@ export class PaypalComponent implements OnInit {
           this.totalPrice = roomJSON.price_per_hour;
           this.paypalService.updateRoomPayment(this.guid, this.id_user_app).subscribe(
             res => {
+              Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
+                window.location.href = "./tutor/classList";
+              })
               console.log("PAGO realizado con éxito.");
               console.log(res)
             },

@@ -19,14 +19,28 @@
           <input type="text" *ngIf="actualUser" id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
           <label for="fname" *ngIf="rol=='TUTOR'">Sobre mi</label><br>
           <textarea style="height: 20%;" *ngIf="rol=='TUTOR'"  id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
+          <label for="fname" *ngIf="rol=='TUTOR'">Teléfono</label><br>
+          <input *ngIf="rol=='TUTOR'" type="tel" id="telefono" name="telefono" value="{{actualUser['telefono']}}" readonly=true><br><br>
         </div>
        <div><input type=button value="VOLVER" onclick="history.back()"></div>
       </div>
-      <div class="row2" *ngIf="rol=='TUTOR'">
-        <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
-            <li *ngFor="let asignatura of actualAsignaturas">
-                {{asignatura}}
-            </li>
+      <div class="col-lg">
+        <label for="lname">Universidad</label><br>
+        <input type="text" id="universidad" name="universidad" value="{{actualUser['universidad']}}"
+          readonly=true><br><br>
+        <label for="lname">Grado</label><br>
+        <input type="text" id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
+        <label for="fname" *ngIf="rol=='TUTOR'">Sobre mi</label><br>
+        <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" id="descripcion" name="descripcion"
+          value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
       </div>
+      <div><input type=button value="VOLVER" onclick="history.back()"></div>
     </div>
+    <div class="row2" *ngIf="rol=='TUTOR'">
+      <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
+      <li *ngFor="let asignatura of actualAsignaturas">
+        {{asignatura}}
+      </li>
+    </div>
+  </div>
 </div>

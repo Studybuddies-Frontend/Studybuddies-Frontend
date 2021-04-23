@@ -34,12 +34,14 @@ export class LoginComponent implements OnInit {
   universidad: '';
   grado: '';
   descripcion: '';
+  telefono: string = '';
   isLoggedIn = false;
   isLoginFailed = false;
   role = '';
   loginError = null;
   user: User = new User();
   logged = false;
+  checked = false;
 
   ngOnInit(): void {
     if (this.tokenStorage.getUser()) {
@@ -146,14 +148,15 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        this.router.navigate(['/login'])
-        this.reloadPage();
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+          window.location.href = "./login";
+          window.location.reload();
+        })
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return ;
+      return;
     }
     );
   }
@@ -203,8 +206,12 @@ export class LoginComponent implements OnInit {
       Swal.fire('Error', 'Debe indicarse una descripcion', 'error')
       return;
     }
+    if (!this.checked) {
+      Swal.fire('Error', 'Debe marcar la casilla', 'error')
+      return;
+    }
 
-    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion).subscribe(async response => {
+    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion,this.telefono).subscribe(async response => {
       /* this.tokenStorage.saveUser(response);
       this.isLoginFailed = false;
       this.isLoggedIn = true;
@@ -214,14 +221,15 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        this.router.navigate(['/login'])
-        this.reloadPage();
-        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
+        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
+          window.location.href = "./login";
+          window.location.reload();
+        })
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return ;
+      return;
     }
     );
   }

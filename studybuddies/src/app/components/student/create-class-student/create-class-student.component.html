@@ -5,16 +5,19 @@
       
       <label for="lname">Universidad</label><br>
       <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university" #university="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && university.invalid }" required><br>
+      <span class="text-danger" id="formErrorUni"></span>
       <div [hidden]="university.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && university.invalid">La universidad no puede estar vacía</span>
       </div><br>
       <label for="lname">Grado</label><br>
       <input type="text" id="grade" name="degree" [(ngModel)]="roomService.selectedRoom.degree" #degree="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && degree.invalid }" required><br>
+      <span class="text-danger" id="formErrorDeg"></span>
       <div [hidden]="degree.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && degree.invalid">El grado no puede estar vacío</span>
       </div><br>
       <label for="lname">Asignatura</label><br>
       <input type="text" id="subjects" name="subject" [(ngModel)]="roomService.selectedRoom.subject" #subject="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && subject.invalid }" required><br>
+      <span class="text-danger" id="formErrorSub"></span>
       <div [hidden]="subject.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && subject.invalid">La asignatura no puede estar vacía</span>
       </div><br>
@@ -40,6 +43,7 @@
       </div><br>
       <label for="fname">Descripción</label><br>
       <textarea type="text" id="description" name="description" [(ngModel)]="roomService.selectedRoom.description" #description="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && description.invalid }" minlength="4" required></textarea><br>
+      <span class="text-danger" id="formErrorDes"></span>
       <div [hidden]="description.valid" class="text-danger">
         <span *ngIf="roomForm.submitted && description.errors?.required">La descripción no puede estar vacía</span>
         <span *ngIf="roomForm.submitted  && description.errors?.minlength">La descripción es demasiado corta</span>

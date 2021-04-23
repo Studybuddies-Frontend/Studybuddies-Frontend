@@ -4,6 +4,8 @@ import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
 import { AuthService } from "src/app/services/auth.service";
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -23,7 +25,10 @@ export class CreateClassStudentComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     let date = form.value.date.split("-");
-    let desc = form.value.description;
+    let uni = form.value.university;
+    let deg = form.value.degree;
+    let sub = form.value.subject;
+    let des = form.value.description;
     let isCorrect;
     let now = new Date();
 
@@ -32,21 +37,68 @@ export class CreateClassStudentComponent implements OnInit {
     let checkHoraInicioMayorQueFin = parseInt(iDay[0]) > parseInt(fDay[0]) || parseInt(iDay[0])==parseInt(fDay[0]) && parseInt(iDay[1]) >= parseInt(fDay[1]);
     let checkDiaPasado = parseInt(date[0]) < now.getFullYear() || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) < now.getMonth()+1 || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) < now.getDate();
     
-    if ( checkDiaPasado) {
-      document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada"
+    document.getElementById("formErrorDate")!.innerHTML = "";
+    document.getElementById("formErrorDay")!.innerHTML = "";
+    document.getElementById("formErrorUni")!.innerHTML = "";
+    document.getElementById("formErrorDeg")!.innerHTML = "";
+    document.getElementById("formErrorSub")!.innerHTML = "";
+    document.getElementById("formErrorDes")!.innerHTML = "";
+
+    if (checkDiaPasado) {
+      document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
       isCorrect = false;
-    } else if(checkHoraInicioMayorQueFin){
-      document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio"
+    } 
+    
+    if(checkMismoDia && checkHoraPasada){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio";
       isCorrect = false;
-    } else if( checkMismoDia && checkHoraPasada){
-      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual"
+    } 
+    
+    if( checkHoraInicioMayorQueFin ){
+      document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual";
       isCorrect = false;
-    }else {
-      isCorrect = true;
+    } 
+
+    if(this.containsSpam(uni) || uni.includes("coño")){
+      document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(deg || uni.includes("coño"))){
+      document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(sub || uni.includes("coño"))){
+      document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(des || uni.includes("coño"))){
+      document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
     }
 
     return isCorrect;
   }
+
+  containsSpam(str:string){
+    const spam = ["ostia", "joder", "puta", "viagra", "gilipollas", "cabron", "imbecil", "idiota", "subnormal", "maricon", "mierda"]
+    let isSpam = false;
+    str=str.toLowerCase();
+    str=this.removeAccents(str);
+
+    for(let i=0; i<spam.length; i++){
+      if(str.includes(spam[i])){
+        isSpam = true;
+      }
+    }
+    return isSpam;
+  }
+
+  removeAccents(str:string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  } 
 
   createRoom(form: NgForm){
 
@@ -82,13 +134,20 @@ export class CreateClassStudentComponent implements OnInit {
     if(this.validate(form)){
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
-        res => {
-          form.reset();
+        res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
+            form.reset();
+          })
         },
         err => console.error(err)
+        
       );
 
-      this.router.navigate(["/student/classList"])
+      Swal.fire('Éxito', 'La sala se ha creado correctamente', 'success').then(function () {
+        window.location.href = "./student/classList";
+      })
+
+      //this.router.navigate(["/student/classList"])
     }
   }
 
