@@ -9,5 +9,5 @@ install:
   - pip install codacy-coverage
 script:
   - npm update
-  - npm run test-headless
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run build
