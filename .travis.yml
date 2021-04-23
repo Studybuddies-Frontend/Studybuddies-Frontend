@@ -11,7 +11,7 @@ install:
 script:
   - npm update
   # - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - ng test --code-coverage
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
   - npm run build
 after_success:
   # - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r report.xml
