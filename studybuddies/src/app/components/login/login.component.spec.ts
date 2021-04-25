@@ -11,13 +11,14 @@ import {TranslateMessageFormatCompiler} from "ngx-translate-messageformat-compil
 import { FormsModule } from '@angular/forms';
 
 
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports : [ HttpClientTestingModule, RouterTestingModule, FormsModule,
+      imports : [ HttpClientTestingModule, RouterTestingModule, FormsModule, 
         TranslateModule.forRoot({
           loader:{
             provide:TranslateLoader,

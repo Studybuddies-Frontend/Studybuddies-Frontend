@@ -46,7 +46,7 @@ import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.com
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { ClassFilterPipe } from './pipes/class-filter.pipe';
-
+import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
 
 const routes: Routes = [
   {
@@ -120,6 +120,7 @@ const routes: Routes = [
     }
   },
   { path: 'tutor/show/:id', component: ShowTutorComponent },
+  { path: 'tutores', component: ListTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -152,7 +153,8 @@ const routes: Routes = [
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
     PerfilUsuarioComponent,
-    ClassFilterPipe
+    ClassFilterPipe,
+    ListTutorComponent
   ],
   imports: [
     BrowserModule,
