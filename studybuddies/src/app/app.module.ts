@@ -45,9 +45,8 @@ import { MytutoriasListStudentComponent } from './components/student/mytutorias-
 import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { ClassFilterPipe } from './pipes/class-filter.pipe';
 import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
-
-
 
 const routes: Routes = [
   {
@@ -154,6 +153,7 @@ const routes: Routes = [
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
     PerfilUsuarioComponent,
+    ClassFilterPipe,
     ListTutorComponent
   ],
   imports: [

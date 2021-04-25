@@ -9,7 +9,12 @@
         tengas.
       </p>
     </div>
-
+    
+    <section>
+      <form class= "my-2 my-lg-0 w-75 text-align:center">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar tutoría..." [(ngModel)]="search">
+      </form>
+    </section>
 
     <section>
       <table class="containertable">
@@ -43,7 +48,7 @@
         </thead>
         <mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
         <tbody>
-          <tr *ngFor="let room of rooms">
+          <tr *ngFor="let room of (rooms | classFilter:search)">
             <td class="esconder">{{ room["university"] }}</td>
             <td>{{ room["degree"] }}</td>
             <td>{{ room["subject"] }}</td>

@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MyclassesListTutorComponent implements OnInit {
   userId: number;
   rooms = [];
+  search: string;
 
   constructor(
     public roomService: SalasService,

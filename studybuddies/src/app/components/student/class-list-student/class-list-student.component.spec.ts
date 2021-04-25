@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ClassListStudentComponent } from './class-list-student.component';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ClassFilterPipe } from '../../../pipes/class-filter.pipe';
+
 
 
 describe('ClassListStudentComponent', () => {
@@ -11,8 +13,8 @@ describe('ClassListStudentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClassListStudentComponent,  ],
-      imports: [ HttpClientTestingModule, ]
+      declarations: [ ClassListStudentComponent,ClassFilterPipe ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   });
