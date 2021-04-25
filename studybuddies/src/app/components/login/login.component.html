@@ -1,249 +1,192 @@
 <body>
-	<br><br>
-	<div class="login-wrap">
-		<div class="login-html">
-			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar
+    <br><br>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar
 				Sesión</label>
-			<input id="tab-2" type="radio" name="tab" class="sign-up-alumno"><label for="tab-2" class="tab">Registrarse
+            <input id="tab-2" type="radio" name="tab" class="sign-up-alumno"><label for="tab-2" class="tab">Registrarse
 				como alumno</label>
-			<input id="tab-3" type="radio" name="tab" class="sign-up-tutor"><label for="tab-3" class="tab">Registrarse
+            <input id="tab-3" type="radio" name="tab" class="sign-up-tutor"><label for="tab-3" class="tab">Registrarse
 				como tutor</label>
-			<div class="login-form">
-				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
-					(ngSubmit)="f.form.valid && login()">
-					<div class="sign-in-htm">
-						<div class="group">
-							<label for="user" class="label">Nombre de Usuario</label>
-							<input name="username" [(ngModel)]="username" type="text" class="form-control"
-								#usernameField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
-							<div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
-								El nombre de usuario no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="pass" class="label">Contraseña</label>
-							<input name="password" [(ngModel)]="password" type="password" class="form-control"
-								(keydown.enter)="f.ngSubmit.emit()" #passwordField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
-							<div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
-								La contraseña no es correcta
-							</div>
-						</div>
-						<!-- <div class="group">
+            <div class="login-form">
+                <form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm" (ngSubmit)="f.form.valid && login()">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="user" class="label">Nombre de Usuario</label>
+                            <input name="username" [(ngModel)]="username" type="text" class="form-control" #usernameField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
+                            <div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
+                                El nombre de usuario no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Contraseña</label>
+                            <input name="password" [(ngModel)]="password" type="password" class="form-control" (keydown.enter)="f.ngSubmit.emit()" #passwordField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
+                            <div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
+                                La contraseña no es correcta
+                            </div>
+                        </div>
+                        <!-- <div class="group">
 							<input id="check" type="checkbox" class="check" checked>
 							<label for="check"><span class="icon"></span> Mantener mi sesión iniciada</label>
 						</div> -->
-						<div class="group">
-							<input type="submit" class="button" value="Iniciar sesión">
-						</div>
-						<div class="hr"></div>
-						<!-- <div class="foot-lnk">
+                        <div class="group">
+                            <input type="submit" class="button" value="Iniciar sesión">
+                        </div>
+                        <div class="hr"></div>
+                        <!-- <div class="foot-lnk">
 							<a href="#forgot">¿Olvidaste tu contraseña?</a>
 						</div> -->
-					</div>
-				</form>
-				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
-					(ngSubmit)="f.form.valid && registerAlumno()">
-					<div class="sign-up-alumno-htm">
-						<div class="group">
-							<label for="user" class="label">Usuario</label>
-							<input name="username" [(ngModel)]="username" type="text" class="form-control"
-								#usernameField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
-							<div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
-								El nombre de usuario no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="pass" class="label">Contraseña</label>
-							<input name="password" [(ngModel)]="password" type="password" class="form-control"
-								#passwordField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
-							<div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
-								La contraseña no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="confirmPass" class="label">Repetir contraseña</label>
-							<input name="confirmPassword" [(ngModel)]="confirmPassword" type="password"
-								class="form-control" #confirmPasswordField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && confirmPasswordField.invalid }" required>
-							<div *ngIf="f.submitted && confirmPasswordField.invalid" class="invalid-feedback">
-								La contraseña no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="nombre" class="label">Nombre</label>
-							<input name="nombre" [(ngModel)]="nombre" type="text" class="form-control"
-								#nombreField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreField.invalid }"
-								required>
-							<div *ngIf="f.submitted && nombreField.invalid" class="invalid-feedback">
-								El nombre no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="apellidos" class="label">Apellidos</label>
-							<input name="apellidos" [(ngModel)]="apellidos" type="text" class="form-control"
-								#apellidosField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && apellidosField.invalid }" required>
-							<div *ngIf="f.submitted && apellidosField.invalid" class="invalid-feedback">
-								Los apellidos no son correctos
-							</div>
-						</div>
-						<div class="group">
-							<label for="email" class="label">Email</label>
-							<input name="email" [(ngModel)]="email" type="email" class="form-control"
-								#emailField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && emailField.invalid && emailField.touched}"
-								required>
-							<div *ngIf="f.submitted && emailField.invalid" class="invalid-feedback">
-								El email no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="universidad" class="label">Universidad</label>
-							<input name="universidad" [(ngModel)]="universidad" type="text" class="form-control"
-								#universidadField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && universidadField.invalid }" required>
-							<div *ngIf="f.submitted && universidadField.invalid" class="invalid-feedback">
-								La universidad no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="grado" class="label">Grado</label>
-							<input name="grado" [(ngModel)]="grado" type="text" class="form-control"
-								#gradoField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gradoField.invalid }"
-								required>
-							<div *ngIf="f.submitted && gradoField.invalid" class="invalid-feedback">
-								El grado no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<input type="submit" class="button" value="Registrarse">
-						</div>
-						<div class="hr"></div>
-					</div>
-				</form>
-				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
-					(ngSubmit)="f.form.valid && registerTutor()">
-					<div class="sign-up-tutor-htm">
-						<div class="group">
-							<label for="user" class="label">Usuario</label>
-							<input name="username" [(ngModel)]="username" type="text" class="form-control"
-								#usernameField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
-							<div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
-								El nombre de usuario no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="pass" class="label">Contraseña</label>
-							<input name="password" [(ngModel)]="password" type="password" class="form-control"
-								#passwordField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
-							<div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
-								La contraseña no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="confirmPass" class="label">Repetir contraseña</label>
-							<input name="confirmPassword" [(ngModel)]="confirmPassword" type="password"
-								class="form-control" #confirmPasswordField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && confirmPasswordField.invalid }" required>
-							<div *ngIf="f.submitted && confirmPasswordField.invalid" class="invalid-feedback">
-								La contraseña no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="nombre" class="label">Nombre</label>
-							<input name="nombre" [(ngModel)]="nombre" type="text" class="form-control"
-								#nombreField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreField.invalid }"
-								required>
-							<div *ngIf="f.submitted && nombreField.invalid" class="invalid-feedback">
-								El nombre no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="apellidos" class="label">Apellidos</label>
-							<input name="apellidos" [(ngModel)]="apellidos" type="text" class="form-control"
-								#apellidosField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && apellidosField.invalid }" required>
-							<div *ngIf="f.submitted && apellidosField.invalid" class="invalid-feedback">
-								Los apellidos no son correctos
-							</div>
-						</div>
-						<div class="group">
-							<label for="email" class="label">Email</label>
-							<input name="email" [(ngModel)]="email" type="email" class="form-control"
-								#emailField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && emailField.invalid && emailField.touched}"
-								required>
-							<div *ngIf="f.submitted && emailField.invalid" class="invalid-feedback">
-								El email no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="universidad" class="label">Universidad</label>
-							<input name="universidad" [(ngModel)]="universidad" type="text" class="form-control"
-								#universidadField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && universidadField.invalid }" required>
-							<div *ngIf="f.submitted && universidadField.invalid" class="invalid-feedback">
-								La universidad no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="grado" class="label">Grado</label>
-							<input name="grado" [(ngModel)]="grado" type="text" class="form-control"
-								#gradoField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gradoField.invalid }"
-								required>
-							<div *ngIf="f.submitted && gradoField.invalid" class="invalid-feedback">
-								El grado no es correcto
-							</div>
-						</div>
-						<div class="group">
-							<label for="descripcion" class="label">Descripcion</label>
-							<textarea name="descripcion" [(ngModel)]="descripcion" type="text" class="form-control"
-								#descripcionField="ngModel" minlength="4" cols="40" rows="5"
-								[ngClass]="{ 'is-invalid': f.submitted && descripcionField.invalid }"
-								required></textarea>
-							<div *ngIf="f.submitted && descripcionField.invalid" class="invalid-feedback">
-								La descripcion no es correcta
-							</div>
-						</div>
-						<div class="group">
-							<label for="telefono" class="label">Teléfono</label>
-							<input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control"
-								#telefonoField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && telefonoField.invalid }">
-							<div *ngIf="f.submitted && telefonoField.invalid" class="invalid-feedback">
-								El teléfono debe contener 9 dígitos
-							</div>
-						</div>
-						<div class="group">
-							<label for="telefono" class="label">Teléfono</label>
-							<input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control"
-								#telefonoField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && telefonoField.invalid }">
-							<div *ngIf="f.submitted && telefonoField.invalid" class="invalid-feedback">
-								El teléfono debe contener 9 dígitos
-							</div>
-						</div>
-						<div class="group">
-							<input name="checkbox"class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
-								[(ngModel)]="checked" #checkedField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
-							<label class="form-check-label" for="flexCheckIndeterminate">Acepto que tengo los
+                    </div>
+                </form>
+                <form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm" (ngSubmit)="f.form.valid && registerAlumno()">
+                    <div class="sign-up-alumno-htm">
+                        <div class="group">
+                            <label for="user" class="label">Usuario</label>
+                            <input name="username" [(ngModel)]="username" type="text" class="form-control" #usernameField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
+                            <div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
+                                El nombre de usuario no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Contraseña</label>
+                            <input name="password" [(ngModel)]="password" type="password" class="form-control" #passwordField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
+                            <div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
+                                La contraseña no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="confirmPass" class="label">Repetir contraseña</label>
+                            <input name="confirmPassword" [(ngModel)]="confirmPassword" type="password" class="form-control" #confirmPasswordField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPasswordField.invalid }" required>
+                            <div *ngIf="f.submitted && confirmPasswordField.invalid" class="invalid-feedback">
+                                La contraseña no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="nombre" class="label">Nombre</label>
+                            <input name="nombre" [(ngModel)]="nombre" type="text" class="form-control" #nombreField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreField.invalid }" required>
+                            <div *ngIf="f.submitted && nombreField.invalid" class="invalid-feedback">
+                                El nombre no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="apellidos" class="label">Apellidos</label>
+                            <input name="apellidos" [(ngModel)]="apellidos" type="text" class="form-control" #apellidosField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellidosField.invalid }" required>
+                            <div *ngIf="f.submitted && apellidosField.invalid" class="invalid-feedback">
+                                Los apellidos no son correctos
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="email" class="label">Email</label>
+                            <input name="email" [(ngModel)]="email" type="email" class="form-control" #emailField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailField.invalid && emailField.touched}" required>
+                            <div *ngIf="f.submitted && emailField.invalid" class="invalid-feedback">
+                                El email no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="universidad" class="label">Universidad</label>
+                            <input name="universidad" [(ngModel)]="universidad" type="text" class="form-control" #universidadField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadField.invalid }" required>
+                            <div *ngIf="f.submitted && universidadField.invalid" class="invalid-feedback">
+                                La universidad no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="grado" class="label">Grado</label>
+                            <input name="grado" [(ngModel)]="grado" type="text" class="form-control" #gradoField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gradoField.invalid }" required>
+                            <div *ngIf="f.submitted && gradoField.invalid" class="invalid-feedback">
+                                El grado no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Registrarse">
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+                </form>
+                <form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm" (ngSubmit)="f.form.valid && registerTutor()">
+                    <div class="sign-up-tutor-htm">
+                        <div class="group">
+                            <label for="user" class="label">Usuario</label>
+                            <input name="username" [(ngModel)]="username" type="text" class="form-control" #usernameField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usernameField.invalid }" required>
+                            <div *ngIf="f.submitted && usernameField.invalid" class="invalid-feedback">
+                                El nombre de usuario no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Contraseña</label>
+                            <input name="password" [(ngModel)]="password" type="password" class="form-control" #passwordField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passwordField.invalid }" required>
+                            <div *ngIf="f.submitted && passwordField.invalid" class="invalid-feedback">
+                                La contraseña no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="confirmPass" class="label">Repetir contraseña</label>
+                            <input name="confirmPassword" [(ngModel)]="confirmPassword" type="password" class="form-control" #confirmPasswordField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPasswordField.invalid }" required>
+                            <div *ngIf="f.submitted && confirmPasswordField.invalid" class="invalid-feedback">
+                                La contraseña no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="nombre" class="label">Nombre</label>
+                            <input name="nombre" [(ngModel)]="nombre" type="text" class="form-control" #nombreField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreField.invalid }" required>
+                            <div *ngIf="f.submitted && nombreField.invalid" class="invalid-feedback">
+                                El nombre no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="apellidos" class="label">Apellidos</label>
+                            <input name="apellidos" [(ngModel)]="apellidos" type="text" class="form-control" #apellidosField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellidosField.invalid }" required>
+                            <div *ngIf="f.submitted && apellidosField.invalid" class="invalid-feedback">
+                                Los apellidos no son correctos
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="email" class="label">Email</label>
+                            <input name="email" [(ngModel)]="email" type="email" class="form-control" #emailField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailField.invalid && emailField.touched}" required>
+                            <div *ngIf="f.submitted && emailField.invalid" class="invalid-feedback">
+                                El email no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="universidad" class="label">Universidad</label>
+                            <input name="universidad" [(ngModel)]="universidad" type="text" class="form-control" #universidadField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadField.invalid }" required>
+                            <div *ngIf="f.submitted && universidadField.invalid" class="invalid-feedback">
+                                La universidad no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="grado" class="label">Grado</label>
+                            <input name="grado" [(ngModel)]="grado" type="text" class="form-control" #gradoField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gradoField.invalid }" required>
+                            <div *ngIf="f.submitted && gradoField.invalid" class="invalid-feedback">
+                                El grado no es correcto
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="descripcion" class="label">Descripcion</label>
+                            <textarea name="descripcion" [(ngModel)]="descripcion" type="text" class="form-control" #descripcionField="ngModel" minlength="4" cols="40" rows="5" [ngClass]="{ 'is-invalid': f.submitted && descripcionField.invalid }" required></textarea>
+                            <div *ngIf="f.submitted && descripcionField.invalid" class="invalid-feedback">
+                                La descripcion no es correcta
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label for="telefono" class="label">Teléfono</label>
+                            <input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control" #telefonoField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefonoField.invalid }">
+                            <div *ngIf="f.submitted && telefonoField.invalid" class="invalid-feedback">
+                                El teléfono debe contener 9 dígitos
+                            </div>
+                        </div>
+                        <div class="group">
+                            <input name="checkbox" class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" [(ngModel)]="checked" #checkedField="ngModel" [ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
+                            <label class="form-check-label" for="flexCheckIndeterminate">Acepto que tengo los
 								suficientes conocimientos para registrarme como tutor
 							</label>
-						</div>
-					</div>
-					<div class="group">
-						<input type="submit" class="button" value="Registrarse">
-					</div>
-					<div class="hr"></div>
-				</form>
-			</div>
-		</div>
-	</div>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Registrarse">
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
