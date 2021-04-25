@@ -45,6 +45,7 @@ import { MytutoriasListStudentComponent } from './components/student/mytutorias-
 import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
 
 
 
@@ -120,6 +121,7 @@ const routes: Routes = [
     }
   },
   { path: 'tutor/show/:id', component: ShowTutorComponent },
+  { path: 'tutores', component: ListTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -152,6 +154,7 @@ const routes: Routes = [
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
     PerfilUsuarioComponent,
+    ListTutorComponent
   ],
   imports: [
     BrowserModule,
