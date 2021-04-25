@@ -26,8 +26,8 @@ export class MyclassesListTutorComponent implements OnInit {
   getMyRooms() {
     this.roomService.getMyRooms(this.userId).subscribe((res: any) => {
       console.log(res);
-      console.log(res.salasEstudio);
-      this.rooms = res.salasEstudio.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
+      console.log(res.tutorias);
+      this.rooms = res.tutorias.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
     });
   }
 
