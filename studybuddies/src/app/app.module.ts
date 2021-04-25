@@ -48,6 +48,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
 
 
+
 const routes: Routes = [
   {
     path: 'paypal/:price', component: PaypalComponent, canActivate: [RoleGuardService],

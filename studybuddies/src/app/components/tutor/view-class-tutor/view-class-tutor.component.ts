@@ -35,7 +35,6 @@ export class ViewClassTutorComponent implements OnInit {
     this.getAuthUsers();
     this.id_user_app = this.auth.getId();
     const user = this.tokenStorageService.getUser();
-    this.role = user.role;
     this.showTutorBoard = this.role == 'tutor';
     
   }
