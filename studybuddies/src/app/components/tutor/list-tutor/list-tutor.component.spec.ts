@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListTutorComponent } from './list-tutor.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TutorFilterPipe } from '../../../pipes/tutor-filter.pipe';
+
 
 
 describe('ListTutorComponent', () => {
@@ -10,7 +12,7 @@ describe('ListTutorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListTutorComponent ],
+      declarations: [ ListTutorComponent, TutorFilterPipe ],
       imports: [ HttpClientTestingModule]
     })
     .compileComponents();

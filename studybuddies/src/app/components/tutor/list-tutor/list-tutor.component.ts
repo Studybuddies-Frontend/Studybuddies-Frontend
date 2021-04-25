@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTutorComponent implements OnInit {
   tutores = [];
+  search: string;
 
   constructor(public tutorService: TutorService) {}
 
