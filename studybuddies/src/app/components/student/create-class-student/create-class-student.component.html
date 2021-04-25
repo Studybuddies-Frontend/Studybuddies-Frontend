@@ -1,8 +1,10 @@
 <div class="container-fluid">
   <form class="formRooms" #roomForm="ngForm" (ngSubmit)="roomForm.form.valid && createRoom(roomForm)"><div class="row"><h1 class="titulo">CREA UNA SALA DE ESTUDIO</h1>
-     <div class="col-lg">
+  <p class="info-text">
+    Desde aquí tendrás la posibilidad de crear una sala a la que se podrá unir toda persona que esté interesado en este tema.		</p>
+        <br>
+    <div class="col-lg">
       <input type="hidden" id="id_user" name="id_user" [(ngModel)]="roomService.selectedRoom.id_user">
-      
       <label for="lname">Universidad</label><br>
       <input type="text" id="university" name="university" [(ngModel)]="roomService.selectedRoom.university" #university="ngModel" [ngClass]="{ 'is-invalid': roomForm.submitted && university.invalid }" required><br>
       <span class="text-danger" id="formErrorUni"></span>
