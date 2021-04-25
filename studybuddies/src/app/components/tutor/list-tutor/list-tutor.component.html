@@ -8,6 +8,12 @@
     </div>
 
     <section>
+      <form class= "my-2 my-lg-0 w-75 text-align:center">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar tutores..." [(ngModel)]="search">
+      </form>
+    </section>
+
+    <section>
       <table class="containertable">
         <thead>
           <tr>
@@ -30,7 +36,7 @@
         </thead>
         <div class=empty *ngIf="tutores.length === 0"> No hay tutores actualmente. </div>
         <tbody>
-          <tr *ngFor="let tutor of tutores">
+          <tr *ngFor="let tutor of (tutores | tutorFilter:search)">
             <td>{{ tutor["nombre"] }}</td>
             <td>{{ tutor["universidad"] }}</td>
             <td>{{ tutor["email"] }}</td>
@@ -42,5 +48,16 @@
         </tbody>
       </table>
     </section>
+
+    <section>
+      <div class="row animated fadeIn fast w-75" *ngIf="(tutores | tutorFilter:search).length < 1">
+        <div class="col-md-12">
+          <div class="alert alert-info" role="alert">
+            No existen resultados para esta búsqueda
+          </div>
+        </div>
+      </div>
+    </section>  
+
   </div>
 </body>
