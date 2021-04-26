@@ -49,4 +49,9 @@ export class SalasService {
     let url = this.urlRooms + `/${guid}`;
     return this.http.get(url, { headers: this.httpHeaders });
   }
+
+  getAuthorizedUsers(guid:any): Observable<any>{
+    let url = this.urlRooms +  `/usuariosAutorizados/${guid}`;
+    return this.http.get(url, { headers: this.httpHeaders });
+  }
 }
