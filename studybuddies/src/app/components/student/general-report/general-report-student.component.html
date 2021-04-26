@@ -1,7 +1,10 @@
 <div class="container-fluid">
   <form class="formRooms" #reportForm="ngForm" (ngSubmit)="reportForm.form.valid && createReport()"><div class="row"><h1 class="titulo">REPORTA UN PROBLEMA</h1>
+    <br>
     <div class="col-lg">
-      <br>
+      <p class="info-text">
+      Desde aquí podrás enviar un problema que hayas tenido en la aplicación o un error que hayas encontrado.
+      Nuestro equipo de soporte contactará contigo si fuese necesario.		</p>
       <label for="lname">ASUNTO</label><br>
       <input type="text" id="asunto" name="asunto" [(ngModel)]="asunto" required><br>
       <br>

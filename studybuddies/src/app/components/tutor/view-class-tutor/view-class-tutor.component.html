@@ -2,6 +2,9 @@
     <div class="formUser">
         <div class="row">
             <h1 class="titulo">DETALLES DE LA SALA</h1>
+               <p class="info-text">
+                 Estos son los detalles de la sala que has seleccionado.
+               </p>
             <div class="col-lg">
                 <label for="lname">Universidad</label><br>
                 <input type="text" *ngIf="actualRoom" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
@@ -22,7 +25,6 @@
                 <label for="fname">Descripción</label><br>
                 <textarea id="description" *ngIf="actualRoom" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
             </div>
-
 
             <div class="align:center">
                 <input type=button value="VOLVER" onclick="history.back()">

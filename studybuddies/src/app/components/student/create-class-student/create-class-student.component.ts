@@ -29,8 +29,10 @@ export class CreateClassStudentComponent implements OnInit {
     let deg = form.value.degree;
     let sub = form.value.subject;
     let des = form.value.description;
-    let isCorrect;
+    let isCorrect = true;
     let now = new Date();
+
+    
 
     let checkMismoDia = parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) == now.getDate();
     let checkHoraPasada = parseInt(iDay[0]) < now.getHours() || parseInt(iDay[0])==now.getHours() && parseInt(iDay[1]) < now.getMinutes();
@@ -132,20 +134,22 @@ export class CreateClassStudentComponent implements OnInit {
     };
 
     if(this.validate(form)){
+      console.log(room)
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
         res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Éxito', 'La sala se ha creado correctamente', 'success').then(function () {
+            window.location.href = "./student/classList";
+          })
+        },
+        err => {
+          console.error(err)
           Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
             form.reset();
           })
-        },
-        err => console.error(err)
+        } 
         
       );
-
-      Swal.fire('Éxito', 'La sala se ha creado correctamente', 'success').then(function () {
-        window.location.href = "./student/classList";
-      })
 
       //this.router.navigate(["/student/classList"])
     }

@@ -1,7 +1,11 @@
 <div class="container-fluid">
+	
   <div class="formUser">
     <div class="row">
       <h1 class="titulo">DETALLES DEL {{rol}} </h1><br>
+      <p class="info-text">
+        Desde esta página podrás acceder a la aplicación o registrarte en ella. No dudes en hacerlo.
+      </p>
       <!--habria que poner un if segun el rol (?)-->
       <div class="col-lg">
         <label for="lname">Nombre</label><br>
@@ -24,7 +28,7 @@
         <label for="lname">Grado</label><br>
         <input type="text" *ngIf="actualUser" id="grado" name="grado" value="{{actualUser['grado']}}"
           readonly=true><br><br>
-        <label for="fname" *ngIf="rol=='TUTOR'">Sobre mi</label><br>
+        <label for="fname" *ngIf="rol=='TUTOR'">Sobre mí</label><br>
         <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" id="descripcion" name="descripcion"
           value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
         <label for="fname" *ngIf="rol=='TUTOR'">Teléfono</label><br>

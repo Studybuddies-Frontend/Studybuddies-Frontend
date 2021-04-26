@@ -25,7 +25,7 @@ export class SalasService {
   }
 
   public getMyRooms(id: any) {
-    let url = this.urlRooms + `/mine/${id}`;
+    let url = this.urlRooms + `/tutor/mine/${id}`;
     return this.http.get(url, { headers: this.httpHeaders });
   }
 
