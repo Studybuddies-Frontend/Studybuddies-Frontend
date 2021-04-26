@@ -48,6 +48,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { ClassFilterPipe } from './pipes/class-filter.pipe';
 import { TutorFilterPipe } from './pipes/tutor-filter.pipe';
 import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
+import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
 
 const routes: Routes = [
   {
@@ -109,6 +110,12 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/transformToTutor', component: TransformToTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
@@ -156,7 +163,8 @@ const routes: Routes = [
     PerfilUsuarioComponent,
     ClassFilterPipe,
     TutorFilterPipe,
-    ListTutorComponent
+    ListTutorComponent,
+    TransformToTutorComponent
   ],
   imports: [
     BrowserModule,
