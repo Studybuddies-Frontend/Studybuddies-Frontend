@@ -69,22 +69,22 @@ export class CreateClassTutorComponent implements OnInit {
       isCorrect = false;
     }
 
-    if(this.containsSpam(uni) || uni.includes("coño")){
+    if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
       document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(deg || uni.includes("coño"))){
+    if(this.containsSpam(deg) || deg.toLowerCase().includes("coño") ||  deg.toLowerCase().includes("cóño") ||  deg.toLowerCase().includes("cóñó") ||  deg.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(sub || uni.includes("coño"))){
+    if(this.containsSpam(sub) || sub.toLowerCase().includes("coño") ||  sub.toLowerCase().includes("cóño") ||  sub.toLowerCase().includes("cóñó") ||  sub.toLowerCase().includes("coñó")){
       document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(des || uni.includes("coño"))){
+    if(this.containsSpam(des) || des.toLowerCase().includes("coño") ||  des.toLowerCase().includes("cóño") ||  des.toLowerCase().includes("cóñó") ||  des.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
