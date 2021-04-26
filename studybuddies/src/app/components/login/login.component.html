@@ -9,6 +9,7 @@
 			<input id="tab-3" type="radio" name="tab" class="sign-up-tutor"><label for="tab-3" class="tab">Registrarse
 				como tutor</label>
 			<div class="login-form">
+				<!-- Login -->
 				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
 					(ngSubmit)="f.form.valid && login()">
 					<div class="sign-in-htm">
@@ -30,10 +31,11 @@
 								La contraseña no es correcta
 							</div>
 						</div>
-						<!-- <div class="group">
-							<input id="check" type="checkbox" class="check" checked>
-							<label for="check"><span class="icon"></span> Mantener mi sesión iniciada</label>
-						</div> -->
+						<div class="group">
+							<input class="form-check-input" type="checkbox" value="" id="checkSaveSession"
+								(change)="sessionCheck()">
+							<label for="saveSession">  Mantener mi sesión iniciada</label>
+						</div>
 						<div class="group">
 							<input type="submit" class="button" value="Iniciar sesión">
 						</div>
@@ -43,6 +45,7 @@
 						</div> -->
 					</div>
 				</form>
+				<!-- Registro de alumno -->
 				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
 					(ngSubmit)="f.form.valid && registerAlumno()">
 					<div class="sign-up-alumno-htm">
@@ -125,6 +128,7 @@
 						<div class="hr"></div>
 					</div>
 				</form>
+				<!-- Registro de tutor -->
 				<form class="form-horizontal m-t-20" *ngIf="!isLoggedIn" id="idloginform" name="loginform" #f="ngForm"
 					(ngSubmit)="f.form.valid && registerTutor()">
 					<div class="sign-up-tutor-htm">
@@ -221,15 +225,6 @@
 							</div>
 						</div>
 						<div class="group">
-							<label for="telefono" class="label">Teléfono</label>
-							<input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control"
-								#telefonoField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && telefonoField.invalid }">
-							<div *ngIf="f.submitted && telefonoField.invalid" class="invalid-feedback">
-								El teléfono debe contener 9 dígitos
-							</div>
-						</div>
-						<div class="group">
 							<input name="checkbox"class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
 								[(ngModel)]="checked" #checkedField="ngModel"
 								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
@@ -237,11 +232,13 @@
 								suficientes conocimientos para registrarme como tutor
 							</label>
 						</div>
+						<div class="group">
+							<input type="submit" class="button" value="Registrarse">
+						</div>
+						<div class="hr"></div>
 					</div>
-					<div class="group">
-						<input type="submit" class="button" value="Registrarse">
-					</div>
-					<div class="hr"></div>
+					
+					
 				</form>
 			</div>
 		</div>

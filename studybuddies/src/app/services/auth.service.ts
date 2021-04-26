@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   })
   private urlLogin: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
 
   getUrl(){
     return this.urlLogin
@@ -33,15 +34,14 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    return window.sessionStorage.getItem('auth-user') != null
+    return this.tokenStorage.getUser() != null 
   }
 
   public getRole(): string {
-    const user = window.sessionStorage.getItem('auth-user');
+    let user = this.tokenStorage.getUser();
     console.log(user)
     if (user) {
-      let jsonUser = JSON.parse(user);
-      return jsonUser.role;
+      return user.role;
     }
 
     return '';
@@ -81,11 +81,10 @@ export class AuthService {
   }
 
   public getId(): number {
-    const user = window.sessionStorage.getItem('auth-user');
+    let user = this.tokenStorage.getUser();
     console.log(user)
     if (user) {
-      let jsonUser = JSON.parse(user);
-      return jsonUser.id;
+      return user.id;
     }
 
     return 0;

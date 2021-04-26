@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   logged = false;
   checked = false;
+  saveSession = false;
 
   ngOnInit(): void {
     if (this.tokenStorage.getUser()) {
@@ -58,14 +59,21 @@ export class LoginComponent implements OnInit {
     if (!this.password) {
       Swal.fire('Login', 'Debe indicar una contraseña', 'error')
     }
+    console.log(`Save Session: ${this.saveSession}`)
 
     this.authService.login(this.username, this.password).subscribe(async response => {
-      this.tokenStorage.saveUser(response);
+      
+      if(!this.saveSession) {
+        this.tokenStorage.saveUser(response);
+      } else {
+        this.tokenStorage.saveUserLocalStorage(response)
+      }      
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.role = response.role
       await this.router.navigate([''])
       this.reloadPage();
+      
     }, err => {
       this.isLoginFailed = true;
       Swal.fire('Login', 'Credenciales incorrectas', 'error')
@@ -77,7 +85,7 @@ export class LoginComponent implements OnInit {
     window.location.reload()
   }
 
-  log_in(): void {
+  /* log_in(): void {
     this.loginError = null;
 
     this.loginService.storeToken(this.user)
@@ -94,7 +102,7 @@ export class LoginComponent implements OnInit {
         if (error.status == 401)
           this.loginError = error.status;
       });
-  }
+  } */
 
   registerAlumno() {
     if (!this.username) {
@@ -232,6 +240,14 @@ export class LoginComponent implements OnInit {
       return;
     }
     );
+  }
+
+  sessionCheck() {
+    if(this.saveSession) {
+      this.saveSession = false
+    } else {
+      this.saveSession = true
+    }
   }
 
 
