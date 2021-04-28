@@ -39,7 +39,7 @@ export class PerfilUsuarioComponent implements OnInit {
     return 0;
   }
 
-  private getUserByGuid() {
+  public getUserByGuid() {
     this.userService.getUserByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualUser = res;
@@ -47,7 +47,7 @@ export class PerfilUsuarioComponent implements OnInit {
       })
   }
 
-  private getAsignaturasByTutor(){
+  public getAsignaturasByTutor(){
     this.userService.getAsignaturaByIdTutor(this.guid)
       .subscribe((res: any) => {
         this.actualAsignaturas = res.asignaturas;

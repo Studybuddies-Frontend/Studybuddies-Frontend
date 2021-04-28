@@ -12,7 +12,7 @@ describe('PerfilUsuarioComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ RouterTestingModule, HttpClientTestingModule,  ],
-      declarations: [ PerfilUsuarioComponent ]
+      declarations: [ PerfilUsuarioComponent]
     })
     .compileComponents();
   });
@@ -26,4 +26,21 @@ describe('PerfilUsuarioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('getId', () => {
+    component.getId();
+    expect(component.getId).toBeTruthy();
+  });
+
+  it('getUserByGuid', () => {
+    component.getUserByGuid();
+    expect(component.getUserByGuid).toBeTruthy();
+  });
+
+  it('getAsignaturasByTutor', () => {
+    component.getAsignaturasByTutor();
+    expect(component.getAsignaturasByTutor).toBeTruthy();
+  });
+
+ 
 });

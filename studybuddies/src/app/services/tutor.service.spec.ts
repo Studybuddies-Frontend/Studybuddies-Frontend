@@ -1,27 +1,27 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { UserService } from './user.service';
+import { TutorService } from './tutor.service';
 
-describe('UserService', () => {
-  let service: UserService;
+describe('TutorService', () => {
+  let service: TutorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
-    service = TestBed.inject(UserService);
+    service = TestBed.inject(TutorService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getUserByGuid', () => {
-    expect(service.getUserByGuid(0)).toBeTruthy();
+  it('getTutorById', () => {
+    expect(service.getTutorById(0)).toBeTruthy();
   });
 
-  it('getAsignaturaByIdTutor', () => {
-    expect(service.getAsignaturaByIdTutor(0)).toBeTruthy();
+  it('getTutores', () => {
+    expect(service.getTutores()).toBeTruthy();
   });
 });

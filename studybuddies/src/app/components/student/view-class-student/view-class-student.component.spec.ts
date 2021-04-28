@@ -26,4 +26,14 @@ describe('ViewClassStudentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
+  it('getRoomByGuid', () => {
+    component.getRoomByGuid()
+    expect(component.getRoomByGuid).toBeTruthy();
+  });
 });

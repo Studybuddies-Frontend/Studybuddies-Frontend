@@ -41,7 +41,7 @@ export class ViewClassTutorComponent implements OnInit {
 
   }
 
-  private getRoomByGuid() {
+  public getRoomByGuid() {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualRoom = res.room[0];
@@ -49,7 +49,7 @@ export class ViewClassTutorComponent implements OnInit {
       })
   }
 
-  private getAuthorizedUsers() {
+  public getAuthorizedUsers() {
     this.roomService.getAuthorizedUsers(this.guid)
       .subscribe((res: any) => {
         this.actualAuthorizedUsers = res.usuarios_autorizados;
@@ -58,7 +58,7 @@ export class ViewClassTutorComponent implements OnInit {
       })
   }
 
-  private getAuthUsers() {
+  public getAuthUsers() {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.authorised_users = res.room[0].authorised_users;

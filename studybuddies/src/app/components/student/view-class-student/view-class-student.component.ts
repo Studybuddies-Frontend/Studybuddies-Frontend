@@ -20,7 +20,7 @@ export class ViewClassStudentComponent implements OnInit {
     this.getRoomByGuid();
   }
 
-  private getRoomByGuid() {
+  public getRoomByGuid() {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualRoom = res.room[0];
