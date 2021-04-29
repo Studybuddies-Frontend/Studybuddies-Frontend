@@ -28,7 +28,7 @@ export class CreateClassTutorComponent implements OnInit {
     let deg = form.value.degree;
     let sub = form.value.subject;
     let des = form.value.description;
-    let isCorrect;
+    let isCorrect = true;
     let now = new Date();
 
     let checkMismoDia = parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) == now.getDate();
@@ -68,27 +68,23 @@ export class CreateClassTutorComponent implements OnInit {
       document.getElementById("formErrorMoney")!.innerHTML = "El precio máximo de la clase es de 15 euros";
       isCorrect = false;
     }
-    
-    if(form.value.money >= 5 && form.value.money <= 15 && (!checkDiaPasado && !checkHoraInicioMayorQueFin || checkMismoDia && !checkHoraPasada)){
-      isCorrect = true;
-    }
 
-    if(this.containsSpam(uni) || uni.includes("coño")){
+    if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
       document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(deg || uni.includes("coño"))){
+    if(this.containsSpam(deg) || deg.toLowerCase().includes("coño") ||  deg.toLowerCase().includes("cóño") ||  deg.toLowerCase().includes("cóñó") ||  deg.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(sub || uni.includes("coño"))){
+    if(this.containsSpam(sub) || sub.toLowerCase().includes("coño") ||  sub.toLowerCase().includes("cóño") ||  sub.toLowerCase().includes("cóñó") ||  sub.toLowerCase().includes("coñó")){
       document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(des || uni.includes("coño"))){
+    if(this.containsSpam(des) || des.toLowerCase().includes("coño") ||  des.toLowerCase().includes("cóño") ||  des.toLowerCase().includes("cóñó") ||  des.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
@@ -100,7 +96,7 @@ export class CreateClassTutorComponent implements OnInit {
   }
 
   containsSpam(str:string){
-    const spam = ["ostia", "joder", "puta", "viagra", "gilipollas", "cabron", "imbecil", "idiota", "subnormal", "maricon", "mierda"]
+    const spam = ["hostia", "ostia", "joder", "puta", "viagra", "gilipollas", "cabron", "imbecil", "idiota", "subnormal", "maricon", "mierda"]
     let isSpam = false;
     str=str.toLowerCase();
     str=this.removeAccents(str);
@@ -151,16 +147,19 @@ export class CreateClassTutorComponent implements OnInit {
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
         res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Éxito', 'La tutoría se ha creado correctamente', 'success').then(function () {
+            window.location.href = "./tutor/classList";
+          })
+        },
+        err => {
+          console.error(err)
           Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
             form.reset();
           })
-        },
-        err => console.error(err)
+        }
       );
 
-      Swal.fire('Éxito', 'La tutoría se ha creado correctamente', 'success').then(function () {
-        window.location.href = "./tutor/classList";
-      })
+      
     }
 
   }

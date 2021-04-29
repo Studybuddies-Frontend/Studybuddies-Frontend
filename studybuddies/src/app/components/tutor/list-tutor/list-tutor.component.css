@@ -3,32 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body{
-    font-family: 'Raleway', sans-serif;
-    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    overflow: auto;
+  font-family: 'Raleway', sans-serif;
+  background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
 .div-all{
 padding-top: 85px;
 }
-
-/*Botón entrar*/
 
 .info{
   display: block;
@@ -50,8 +44,9 @@ padding-top: 85px;
 
 .info-text{
   color: #FFFFFF;
-  font-size: 20px;
 }
+
+/*Botón entrar*/
 
 .entrar{
   display: block;
@@ -237,21 +232,16 @@ section{
   .esconder{
     display: none;
   }
-}
-.info{
-	display: block;
-	border-radius: 4px;
-	background-color: #0F2C45;
-	border: none;
-	color: #FFFFFF;
-	text-align: center;
-	font-size: 16px;
-	padding: 20px;
-	width: 80%;
-	transition: all 0.5s;
-	margin: auto;
-	margin-bottom: 2%;
-	margin-top: 1%;
-	border-radius: 15px;
-	border: 2px solid #EBA144;
+
+  .info{
+    width: 98%;
+    margin-bottom: 8%;
   }
+}
+
+/*@media (max-width: 550px){
+
+  Qué hacer con el botón de crear salas?
+  La tabla se deja que se mueva a izda y dcha y ya?
+
+}*/

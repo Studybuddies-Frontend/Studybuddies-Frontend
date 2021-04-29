@@ -4,6 +4,7 @@ export const environment = {
   urlBackend: 'http://localhost:3000/api/v2',
   rutaLogin: '/user/login',
   rutaRegister: '/user/register',
+  rutaTransform: '/user/transform',
   rutaSalas: '/room',
   rutaPayment: '/autorizar',
   baseURL: 'http://localhost:1739'

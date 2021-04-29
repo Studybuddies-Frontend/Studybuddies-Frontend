@@ -30,4 +30,13 @@ export class UserService {
     let url = this.urlTutor + `/asignaturas` + `/${guid}`
     return this.http.get(url, { headers: this.httpHeaders })
   }
+
+  upgradeTutor(descripcion: string, telefono: string, id: number){
+    let url = `${environment.urlBackend}${environment.rutaTransform}/${id}`
+    let data = {
+      descripcion: descripcion,
+      telefono: telefono
+    }
+    return this.http.post(url, data, {headers: this.httpHeaders})
+  }
 }

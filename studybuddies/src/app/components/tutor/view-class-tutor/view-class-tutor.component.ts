@@ -15,6 +15,7 @@ export class ViewClassTutorComponent implements OnInit {
 
   guid!: string;
   actualRoom!: any;
+  actualAuthorizedUsers!: any;
   authorised_users: string[];
   id_user_app: any;
   paid = false;
@@ -34,6 +35,7 @@ export class ViewClassTutorComponent implements OnInit {
     this.guid = this.route.snapshot.params['guid']
     this.getRoomByGuid();
     this.getAuthUsers();
+    this.getAuthorizedUsers();
     this.id_user_app = this.auth.getId();
     const user = this.tokenStorageService.getUser();
     this.showTutorBoard = this.role == 'tutor';
@@ -48,11 +50,20 @@ export class ViewClassTutorComponent implements OnInit {
       })
   }
 
+  private getAuthorizedUsers() {
+    this.roomService.getAuthorizedUsers(this.guid)
+      .subscribe((res: any) => {
+        this.actualAuthorizedUsers = res.usuarios_autorizados;
+        
+        console.log(this.actualAuthorizedUsers)
+      })
+  }
+
   private getAuthUsers() {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.authorised_users = res.room[0].authorised_users;
-        if(this.authorised_users.includes(this.id_user_app) || res.room[0].id_user == this.id_user_app){
+        if (this.authorised_users.includes(this.id_user_app) || res.room[0].id_user == this.id_user_app) {
           this.paid = true;
         }
       })
@@ -69,7 +80,7 @@ export class ViewClassTutorComponent implements OnInit {
   }
 
 
-  public getTutor(){
+  public getTutor() {
     this.router.navigateByUrl(`/tutor/show/${this.actualRoom.id_user}`);
   }
 

@@ -45,8 +45,10 @@ import { MytutoriasListStudentComponent } from './components/student/mytutorias-
 import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
-
-
+import { ClassFilterPipe } from './pipes/class-filter.pipe';
+import { TutorFilterPipe } from './pipes/tutor-filter.pipe';
+import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
+import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
 
 const routes: Routes = [
   {
@@ -108,6 +110,12 @@ const routes: Routes = [
     }
   },
   {
+    path: 'student/transformToTutor', component: TransformToTutorComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
+  },
+  {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
@@ -120,6 +128,7 @@ const routes: Routes = [
     }
   },
   { path: 'tutor/show/:id', component: ShowTutorComponent },
+  { path: 'tutores', component: ListTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -151,7 +160,11 @@ const routes: Routes = [
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    ClassFilterPipe,
+    TutorFilterPipe,
+    ListTutorComponent,
+    TransformToTutorComponent
   ],
   imports: [
     BrowserModule,
