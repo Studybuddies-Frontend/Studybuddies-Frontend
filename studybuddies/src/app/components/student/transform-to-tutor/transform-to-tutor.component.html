@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <form class="formRooms" #upgradeForm="ngForm" (ngSubmit)="upgradeForm.form.valid && upgradeTutor(upgradeForm)"><div class="row"><h1 class="titulo">TRANSFORMATE EN TUTOR</h1>
+  <p class="info-text">
+    Desde aquí puedes transformarte en tutor</p>
+        <br>
+    <div class="col-lg">
+
+      <label for="descripcion" class="label">Descripción</label>
+                            <textarea name="descripcion" [(ngModel)]="descripcion" type="text" class="form-control" #descripcionField="ngModel" minlength="4" cols="40" rows="5" [ngClass]="{ 'is-invalid': upgradeForm.submitted && descripcionField.invalid }" required></textarea>
+                            <div *ngIf="upgradeForm.submitted && descripcionField.invalid" class="invalid-feedback">
+                                La descripcion no es correcta
+                            </div>
+      <br>                        
+      <label for="telefono" class="label">Teléfono</label>
+                            <input name="telefono" [(ngModel)]="telefono" type="tel" class="form-control" #telefonoField="ngModel" [ngClass]="{ 'is-invalid': upgradeForm.submitted && telefonoField.invalid }">
+                            <div *ngIf="upgradeForm.submitted && telefonoField.invalid" class="invalid-feedback">
+                                El teléfono debe contener 9 dígitos
+                            </div>
+      <br>                         
+        <input name="checkbox" class="form-check-input" type="checkbox" value="" 
+        id="flexCheckIndeterminate" [(ngModel)]="checked" #checkedField="ngModel" 
+        [ngClass]="{ 'is-invalid': upgradeForm.submitted && checkedField.invalid }" required>                             
+        &nbsp;<label class="form-check-label" for="flexCheckIndeterminate">
+          Acepto que tengo los suficientes conocimientos para registrarme como tutor             
+        </label>                         
+    </div><br>
+    <div><input type=button value="VOLVER" onclick="location.href = 'index'"></div>
+    <div><input type="submit" value="CONVIERTETE EN TUTOR" ng-click="submitted=true"></div>
+    
+  </div>
+</form>
+</div>

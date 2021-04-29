@@ -30,8 +30,9 @@ export class UserService {
     let url = this.urlTutor + `/asignaturas` + `/${guid}`
     return this.http.get(url, { headers: this.httpHeaders })
   }
+  
   getActualizarPerfil(guid:any, username:any, nombre: any, apellidos:string, email:string, universidad:string, grado:string, descripcion:string, telefono:string): Observable<any>{
-    let url = this.urlUser + `/update`
+    let url = this.urlUser + /update
     let data = {
       id:guid,
       username: username,
@@ -46,4 +47,12 @@ export class UserService {
     return this.http.post(url, data, {headers: this.httpHeaders})
   }
   
+  upgradeTutor(descripcion: string, telefono: string, id: number){
+    let url = ${environment.urlBackend}${environment.rutaTransform}/${id}
+    let data = {
+      descripcion: descripcion,
+      telefono: telefono
+    }
+    return this.http.post(url, data, {headers: this.httpHeaders})
+  }
 }
