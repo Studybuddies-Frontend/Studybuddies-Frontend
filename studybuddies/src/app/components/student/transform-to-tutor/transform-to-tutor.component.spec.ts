@@ -3,8 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TransformToTutorComponent } from './transform-to-tutor.component';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('TransformToTutorComponent', () => {
@@ -13,7 +11,7 @@ describe('TransformToTutorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, FormsModule, RouterTestingModule],
+      imports: [ HttpClientTestingModule, ],
       declarations: [ TransformToTutorComponent ]
     })
     .compileComponents();
