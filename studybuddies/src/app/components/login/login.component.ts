@@ -146,6 +146,7 @@ export class LoginComponent implements OnInit {
       console.log(response)
       if (response.result == 0) {
         Swal.fire('Error', response.mensaje, 'error')
+        console.log(response.mensaje)
       }
       if (response.result == 1) {
         Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
