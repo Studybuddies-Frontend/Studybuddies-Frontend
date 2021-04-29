@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomService } from "../../../services/class.service";
 import { NgForm } from "@angular/forms";
-import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
 import { AuthService } from "src/app/services/auth.service";
 import Swal from 'sweetalert2'
 import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { AppComponent } from 'src/app/app.component';
 
@@ -25,7 +21,6 @@ export class TransformToTutorComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private tokenStorage: TokenStorageService,
-    private loginService: LoginService,
     private appComponent: AppComponent
   ) { }
 
