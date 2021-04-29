@@ -1,5 +1,16 @@
 <body>
   <div class="div-all">
+    <div class="info">
+      <p class="info-text">
+        Estas son las tutorías que has creado tú. Para que tengas un fácil acceso a ellas.
+      </p>
+    </div>
+    <section>
+      <form class= "my-2 my-lg-0 w-75 text-align:center">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar tutoría..." [(ngModel)]="search">
+      </form>
+    </section>
+
     <section>
       <table class="containertable">
         <thead>
@@ -30,9 +41,8 @@
             </th>
           </tr>
         </thead>
-        <mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
         <tbody>
-          <tr *ngFor="let room of rooms">
+          <tr *ngFor="let room of (rooms | classFilter:search)">
             <td class="esconder">{{ room["university"] }}</td>
             <td>{{ room["degree"] }}</td>
             <td>{{ room["subject"] }}</td>
@@ -46,6 +56,18 @@
           </tr>
         </tbody>
       </table>
+      <div class="info" *ngIf="rooms.length === 0"><p class="info-text">No tienes tutorías propías todavía. Crea tus tutorías <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">aquí</a></p></div>
     </section>
+
+    <section>
+      <div class="row animated fadeIn fast w-75" *ngIf="(rooms | classFilter:search).length <1">
+        <div class="col-md-12">
+          <div class="alert alert-info" role="alert">
+            No existen resultados para esta búsqueda
+          </div>
+        </div>
+      </div>
+    </section>  
+
   </div>
 </body>

@@ -11,6 +11,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class MytutoriasListStudentComponent implements OnInit {
   userId: number;
   rooms = [];
+  search: string;
 
   constructor(
     public roomService: SalasService,

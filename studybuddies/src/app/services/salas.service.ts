@@ -29,6 +29,11 @@ export class SalasService {
     return this.http.get(url, { headers: this.httpHeaders });
   }
 
+  public getMyTutorias(id: any) {
+    let url = this.urlRooms + `/tutor/mine/${id}`;
+    return this.http.get(url, { headers: this.httpHeaders });
+  }
+
   public getSalasEstudioActivas() {
     let url = this.urlRooms + `/student/all`;
     return this.http.get(url, { headers: this.httpHeaders });
@@ -47,6 +52,16 @@ export class SalasService {
 
   getRoomByGuid(guid: any): Observable<any> {
     let url = this.urlRooms + `/${guid}`;
+    return this.http.get(url, { headers: this.httpHeaders });
+  }
+
+  deleteRooms(guid: any): Observable<any> {
+    let url = this.urlRooms + `/delete/${guid}`;
+     return this.http.delete(url, { headers: this.httpHeaders });
+  }
+
+  getAuthorizedUsers(guid:any): Observable<any>{
+    let url = this.urlRooms +  `/usuariosAutorizados/${guid}`;
     return this.http.get(url, { headers: this.httpHeaders });
   }
 }

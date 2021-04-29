@@ -16,7 +16,7 @@ export class ShowTutorComponent implements OnInit {
 
   constructor(  private tutorService: TutorService,
     private userService: UserService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
     }
 
   ngOnInit(): void {

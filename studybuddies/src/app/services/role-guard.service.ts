@@ -18,6 +18,8 @@ export class RoleGuardService {
       return false;
     } else if(this.auth.getRole() == 'admin') {
       return true;
+    } else if(this.auth.getRole() == 'tutor') {
+      return true;
     } else if(this.auth.getRole() !== expectedRole ) {
       this.router.navigate([''])
       return false;

@@ -2,6 +2,9 @@
   <form class="formRooms">
     <div class="row">
       <h1 class="titulo">DETALLES DE LA SALA</h1><br>
+      <p class="info-text">
+        Estos son los detalles de la sala que has seleccionado.
+      </p>
       <div class="col-lg">
         <label for="lname">Universidad</label><br>
         <input type="text" *ngIf="actualRoom" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
@@ -22,6 +25,7 @@
       </div>
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
       <div style="margin-top: 3.5%;"><a *ngIf="actualRoom" href="http://{{actualRoom['room_url']}}" target="_blank">UNIRSE</a></div>
+      <div style="margin-top: 3.5%;"><a *ngIf="actualRoom && (actualRoom.id_user==userId)" (click)="deleteRoom()" >BORRAR SALA</a></div>
     </div>
   </form>
 </div>

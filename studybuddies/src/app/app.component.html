@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" *ngIf="isLoggedIn">
-                <li class="nav-item dropdown" *ngIf="showStudentBoard || showAdminBoard">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Salas de estudio
                     </a>
@@ -23,11 +23,17 @@
                       Tutorías
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" *ngIf="showStudentBoard || showAdminBoard" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías pagadas</a>
+                        <a class="nav-link" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías pagadas</a>
                         <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
                         <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
                         <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Listar Tutorías</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/tutores" routerLinkActive="active">Tutores</a>
+                </li>
+                <li class="nav-item" *ngIf="showStudentBoard">
+                    <a class="nav-link" routerLink="/student/transformToTutor" routerLinkActive="active">¡Conviertete en tutor!</a>
                 </li>
             </ul>
             <ul style="padding-right: 1%;" class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="!isLoggedIn">
@@ -39,7 +45,7 @@
                 <li class="nav-item">
                     <a href="/perfil" class="nav-link" routerLink="perfil">Accede a tu perfil, {{ username }}</a>
                 </li>
-                <li class="nav-item" *ngIf="showStudentBoard || showAdminBoard">
+                <li class="nav-item">
                     <a class="nav-link red" routerLink="/student/generalReport" routerLinkActive="active">¡Reporta un problema!</a>
                 </li>
                 <li class="nav-item">
