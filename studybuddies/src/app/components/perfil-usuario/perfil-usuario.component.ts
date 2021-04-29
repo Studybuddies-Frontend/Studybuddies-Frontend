@@ -38,7 +38,6 @@ export class PerfilUsuarioComponent implements OnInit {
     this.getUserByGuid();
     this.getAsignaturasByTutor();
     this.rol = this.auth.getRole().toUpperCase();
-    this.actualUser.grado = "hola" ;
   }
 
   public getId(): number {
@@ -98,14 +97,23 @@ export class PerfilUsuarioComponent implements OnInit {
       return;
     }
     this.userService.getActualizarPerfil(this.guid,this.actualUser.username,this.actualUser.nombre,this.actualUser.apellidos,this.actualUser.email,this.actualUser.universidad,this.actualUser.grado,this.actualUser.descripcion,this.actualUser.telefono).subscribe(async response => {
-      Swal.fire('Éxito', 'Se ha actualizado tu perfil con éxito', 'success')
+      console.log(response)
+      if (response.result == 0) {
+        Swal.fire('Error', response.mensaje, 'error')
+      }
+      if (response.result == 1) {
+        Swal.fire('Éxito', 'Se ha editado el usuario con éxito', 'success').then(function () {
+          window.location.reload();
+        })
+      }
     }, err => {
       console.log(err)
-      Swal.fire('Error', 'Se ha producido un error cambiando tu perfil', 'error')
+      Swal.fire('Error', 'Se ha producido un error editando el usuario', 'error')
       return;
-    })
+    }
+    );
+  }
 
-}
 
 
 
