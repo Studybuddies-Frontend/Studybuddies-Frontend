@@ -12,6 +12,7 @@ export class TokenStorageService {
 
   signOut(): void {
     window.sessionStorage.clear();
+    window.localStorage.clear();
   }
 
   public saveUser(user: any): void {
@@ -20,13 +21,18 @@ export class TokenStorageService {
     console.log(user)
   }
 
+  public saveUserLocalStorage(user:any): void {
+    window.localStorage.removeItem(USER_KEY)
+    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+    console.log(user)
+  }
+
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
+    const user = window.sessionStorage.getItem(USER_KEY) || window.localStorage.getItem(USER_KEY);
     console.log(user)
     if (user) {
       return JSON.parse(user);
     }
-
     return null;
   }
   public saveRoom(guid: any, precio: any): void {

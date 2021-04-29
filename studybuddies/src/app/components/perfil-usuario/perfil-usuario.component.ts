@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from "src/app/services/auth.service";
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ResourceLoader } from '@angular/compiler';
@@ -22,7 +23,8 @@ export class PerfilUsuarioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private tokenStorage: TokenStorageService) { }
 
     username = '';
     nombre: '';
@@ -38,14 +40,14 @@ export class PerfilUsuarioComponent implements OnInit {
     this.getUserByGuid();
     this.getAsignaturasByTutor();
     this.rol = this.auth.getRole().toUpperCase();
+    console.log("ROLE: "  + this.auth.getRole().toUpperCase())
   }
 
   public getId(): number {
-    const user = window.sessionStorage.getItem('auth-user');
-    console.log(user)
+    let user = this.tokenStorage.getUser();
     if (user) {
-      let jsonUser = JSON.parse(user);
-      return jsonUser.id;
+      console.log(user)
+      return user.id;
     }
 
     return 0;

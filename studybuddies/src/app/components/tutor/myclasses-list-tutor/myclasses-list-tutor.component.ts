@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalasService } from 'src/app/services/salas.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-myclasses-list-tutor',
@@ -14,7 +15,8 @@ export class MyclassesListTutorComponent implements OnInit {
 
   constructor(
     public roomService: SalasService,
-    public authService: AuthService
+    public authService: AuthService,
+    private tokenStorage: TokenStorageService
   ) {}
 
   ngOnInit(): void {
@@ -32,11 +34,10 @@ export class MyclassesListTutorComponent implements OnInit {
   }
 
   public getId(): number {
-    const user = window.sessionStorage.getItem('auth-user');
+    let user = this.tokenStorage.getUser();
     console.log(user);
     if (user) {
-      let jsonUser = JSON.parse(user);
-      return jsonUser.id;
+      return user.id;
     }
 
     return 0;
