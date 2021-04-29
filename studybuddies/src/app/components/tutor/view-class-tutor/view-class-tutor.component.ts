@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SalasService } from 'src/app/services/salas.service';
 import { TokenStorageService } from '../../../services/token-storage.service';
 import { AuthService } from "src/app/services/auth.service";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ViewClassTutorComponent implements OnInit {
   paid = false;
   private role: string = '';
   showTutorBoard = false;
-  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -29,14 +30,14 @@ export class ViewClassTutorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.guid = this.route.snapshot.params['guid']
     this.getRoomByGuid();
     this.getAuthUsers();
     this.id_user_app = this.auth.getId();
     const user = this.tokenStorageService.getUser();
     this.showTutorBoard = this.role == 'tutor';
-    
+
   }
 
   private getRoomByGuid() {
@@ -71,4 +72,20 @@ export class ViewClassTutorComponent implements OnInit {
   public getTutor(){
     this.router.navigateByUrl(`/tutor/show/${this.actualRoom.id_user}`);
   }
+
+  public deleteRoom() {
+    console.log("hola")
+    console.log(this.guid)
+    this.roomService.deleteRooms(this.guid).subscribe(
+      res => {
+        Swal.fire('Éxito', 'La tutoría se ha borrado correctamente".', 'success').then(function () {
+          window.location.href = "./tutor/classList";
+        })
+        console.log("Tutoría borrada con éxito.");
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+  }
+
 }

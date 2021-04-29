@@ -151,7 +151,7 @@ const routes: Routes = [
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
-    PerfilUsuarioComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -49,4 +49,10 @@ export class SalasService {
     let url = this.urlRooms + `/${guid}`;
     return this.http.get(url, { headers: this.httpHeaders });
   }
+
+  deleteRooms(guid: any): Observable<any> {
+    let url = this.urlRooms + `/delete/${guid}`;
+     return this.http.delete(url, { headers: this.httpHeaders });
+  }
+
 }

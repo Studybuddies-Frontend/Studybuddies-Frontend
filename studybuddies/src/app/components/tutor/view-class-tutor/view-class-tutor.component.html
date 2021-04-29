@@ -33,6 +33,10 @@
         <br><br>
         <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA SALA</a>
         <a *ngIf="!paid && !showTutorBoard && actualRoom" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+        <br><br>
+        <a *ngIf="actualRoom && (actualRoom.id_user==id_user_app) && actualRoom.authorised_users.length==0" (click)="deleteRoom()" >BORRAR SALA</a>
+        <br><br>
+        <p *ngIf="actualRoom.authorised_users.length!=0">*No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
       </div>
     </div>
   </form>
