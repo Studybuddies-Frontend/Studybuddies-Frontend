@@ -32,7 +32,7 @@ export class UserService {
   }
   
   getActualizarPerfil(guid:any, username:any, nombre: any, apellidos:string, email:string, universidad:string, grado:string, descripcion:string, telefono:string): Observable<any>{
-    let url = this.urlUser + /update
+    let url = this.urlUser + `/update`
     let data = {
       id:guid,
       username: username,
