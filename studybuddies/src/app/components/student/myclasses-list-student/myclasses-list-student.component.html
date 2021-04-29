@@ -43,7 +43,6 @@
 						</th>
 					</tr>
 				</thead>
-				<mat-spinner *ngIf="rooms.length === 0"></mat-spinner>
 				<tbody>
 					<tr *ngFor="let room of (rooms | classFilter:search)" >
 						<td class="esconder">{{room['university']}}</td>
@@ -57,7 +56,7 @@
 					</tr>
 				</tbody>
 			</table>
-
+      <div class="info" *ngIf="rooms.length === 0"><p class="info-text">No tienes salas propías todavía. Crea tus salas de estudio <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">aquí</a></p></div>
 		</section>
 
 		<section>

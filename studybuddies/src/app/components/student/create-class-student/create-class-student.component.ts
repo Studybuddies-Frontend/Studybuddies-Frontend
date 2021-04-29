@@ -38,7 +38,7 @@ export class CreateClassStudentComponent implements OnInit {
     let checkHoraPasada = parseInt(iDay[0]) < now.getHours() || parseInt(iDay[0])==now.getHours() && parseInt(iDay[1]) < now.getMinutes();
     let checkHoraInicioMayorQueFin = parseInt(iDay[0]) > parseInt(fDay[0]) || parseInt(iDay[0])==parseInt(fDay[0]) && parseInt(iDay[1]) >= parseInt(fDay[1]);
     let checkDiaPasado = parseInt(date[0]) < now.getFullYear() || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) < now.getMonth()+1 || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) < now.getDate();
-    
+
     document.getElementById("formErrorDate")!.innerHTML = "";
     document.getElementById("formErrorDay")!.innerHTML = "";
     document.getElementById("formErrorUni")!.innerHTML = "";
@@ -49,17 +49,17 @@ export class CreateClassStudentComponent implements OnInit {
     if (checkDiaPasado) {
       document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
       isCorrect = false;
-    } 
-    
+    }
+
     if(checkMismoDia && checkHoraPasada){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio";
       isCorrect = false;
-    } 
-    
+    }
+
     if( checkHoraInicioMayorQueFin ){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual";
       isCorrect = false;
-    } 
+    }
 
     if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
       document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
@@ -100,7 +100,7 @@ export class CreateClassStudentComponent implements OnInit {
 
   removeAccents(str:string) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  } 
+  }
 
   createRoom(form: NgForm){
 
