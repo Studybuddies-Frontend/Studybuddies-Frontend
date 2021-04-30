@@ -102,7 +102,7 @@ export class CreateClassTutorComponent implements OnInit {
     str=this.removeAccents(str);
 
     for(let i=0; i<spam.length; i++){
-      if(str.includes(spam[i])){
+      if(spam.indexOf(str) > -1){
         isSpam = true;
       }
     }
