@@ -49,6 +49,21 @@
     background-size: cover;
 }
 
+.noback {
+    padding: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    background-image: none;
+    border-radius: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
 footer {
     background: #eba144;
     color: #fff;

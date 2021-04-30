@@ -18,6 +18,7 @@ export class PerfilUsuarioComponent implements OnInit {
   actualUser!: any;
   actualAsignaturas: any[]= [];
   rol!:any;
+  puntos: any;
 
 
   constructor(
@@ -37,9 +38,11 @@ export class PerfilUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.guid = this.getId();
+    this.puntos = this.tokenStorage.getUser().puntos;
     this.getUserByGuid();
     this.getAsignaturasByTutor();
     this.rol = this.auth.getRole().toUpperCase();
+    console.log(this.puntos)
     console.log("ROLE: "  + this.auth.getRole().toUpperCase())
   }
 
