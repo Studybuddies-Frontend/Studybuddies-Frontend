@@ -49,6 +49,7 @@ import { ClassFilterPipe } from './pipes/class-filter.pipe';
 import { TutorFilterPipe } from './pipes/tutor-filter.pipe';
 import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
 import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
+import { GdprComponent } from './gdpr/gdpr.component';
 
 const routes: Routes = [
   {
@@ -131,6 +132,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
+  { path: 'useConditions', component: GdprComponent },
   { path: '**', redirectTo: '' }
 
 
@@ -161,7 +163,8 @@ const routes: Routes = [
     ClassFilterPipe,
     TutorFilterPipe,
     ListTutorComponent,
-    TransformToTutorComponent
+    TransformToTutorComponent,
+    GdprComponent
   ],
   imports: [
     BrowserModule,

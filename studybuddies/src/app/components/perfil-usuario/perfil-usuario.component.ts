@@ -93,6 +93,10 @@ export class PerfilUsuarioComponent implements OnInit {
       Swal.fire('Error', 'Este email no es valido', 'error')
       return;
     }
+    if (!this.actualUser.telefono.match("[0-9]{9}") && !(this.actualUser.telefono == '')) {
+      Swal.fire('Error', 'El teléfono debe contener 9 dígitos', 'error')
+      return;
+    }
     if (!this.actualUser.universidad) {
       Swal.fire('Error', 'Debe indicarse una Universidad', 'error')
       return;
