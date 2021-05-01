@@ -56,9 +56,9 @@ describe('LoginComponent', () => {
     expect(component.login).toBeTruthy();
   });
 
-  it('log_in', () => {
-    component.log_in();
-    expect(component.log_in).toBeTruthy();
+  it('login', () => {
+    component.login();
+    expect(component.login).toBeTruthy();
   });
 
   it('registerAlumno', () => {
