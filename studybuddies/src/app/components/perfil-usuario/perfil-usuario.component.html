@@ -15,29 +15,29 @@
         <br><br>  
         <label for="lname">Nombre de usuario</label><br>
         <input type="text" *ngIf="actualUser" id="username"  name="username" [(ngModel)]="actualUser.username" value="{{actualUser['username']}}"><br><br>
-        <label for="lname">Correo de contacto</label><br>
-        <input type="text" *ngIf="actualUser" id="email" name="email" [(ngModel)]="actualUser.email" value="{{actualUser['email']}}"><br><br>
+        <label for="fname" *ngIf="rol=='TUTOR'">Sobre mí</label><br>
+        <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" [(ngModel)]="actualUser.descripcion" id="descripcion" name="descripcion"
+          value="{{actualUser['descripcion']}}"></textarea><br><br>
       </div>
       <div class="col-lg">  
         <label for="lname">Universidad</label><br>
         <input type="text" *ngIf="actualUser" id="universidad" name="universidad" [(ngModel)]="actualUser.universidad" value="{{actualUser['universidad']}}" ><br><br>
         <label for="lname">Grado</label><br>
         <input type="text" *ngIf="actualUser" id="grado" name="grado"  [(ngModel)]="actualUser.grado" value="{{actualUser['grado']}}" ><br><br>
-        <label for="fname" *ngIf="rol=='TUTOR'">Sobre mí</label><br>
-        <textarea style="height: 20%;" *ngIf="rol=='TUTOR'" [(ngModel)]="actualUser.descripcion" id="descripcion" name="descripcion"
-          value="{{actualUser['descripcion']}}"></textarea><br><br>
+        <label for="lname">Correo de contacto</label><br>
+        <input type="text" *ngIf="actualUser" id="email" name="email" [(ngModel)]="actualUser.email" value="{{actualUser['email']}}"><br><br>
         <label for="fname" *ngIf="rol=='TUTOR'">Teléfono</label><br>
         <input *ngIf="rol=='TUTOR'" type="tel" id="telefono" name="telefono" [(ngModel)]="actualUser.telefono" value="{{actualUser['telefono']}}"><br><br>
       </div>
+      <div><a type="submit" (click)="actualizarPerfil(perfilForm)"> ACTUALIZAR PERFIL</a></div>
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
-    <div class="row2" *ngIf="rol=='TUTOR'">
-      <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
-      <li *ngFor="let asignatura of actualAsignaturas">
-        {{asignatura}}
-      </li>
-    </div>
-      <a type="submit" (click)="actualizarPerfil(perfilForm)"> ACTUALIZAR PERFIL</a>
     </div>
   </form>
+  <div class="row2" *ngIf="rol=='TUTOR'">
+    <h1 class="titulo"> ASIGNATURA IMPARTIDAS </h1><br>
+    <li *ngFor="let asignatura of actualAsignaturas">
+      {{asignatura}}
+    </li>
+  </div>
     </div>
   </div>
