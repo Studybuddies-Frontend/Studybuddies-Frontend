@@ -38,7 +38,7 @@ export class CreateClassStudentComponent implements OnInit {
     let checkHoraPasada = parseInt(iDay[0]) < now.getHours() || parseInt(iDay[0])==now.getHours() && parseInt(iDay[1]) < now.getMinutes();
     let checkHoraInicioMayorQueFin = parseInt(iDay[0]) > parseInt(fDay[0]) || parseInt(iDay[0])==parseInt(fDay[0]) && parseInt(iDay[1]) >= parseInt(fDay[1]);
     let checkDiaPasado = parseInt(date[0]) < now.getFullYear() || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) < now.getMonth()+1 || parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) < now.getDate();
-    
+
     document.getElementById("formErrorDate")!.innerHTML = "";
     document.getElementById("formErrorDay")!.innerHTML = "";
     document.getElementById("formErrorUni")!.innerHTML = "";
@@ -49,34 +49,34 @@ export class CreateClassStudentComponent implements OnInit {
     if (checkDiaPasado) {
       document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
       isCorrect = false;
-    } 
-    
+    }
+
     if(checkMismoDia && checkHoraPasada){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio";
       isCorrect = false;
-    } 
-    
+    }
+
     if( checkHoraInicioMayorQueFin ){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual";
       isCorrect = false;
-    } 
+    }
 
-    if(this.containsSpam(uni) || uni.includes("coño")){
+    if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
       document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(deg || uni.includes("coño"))){
+    if(this.containsSpam(deg) || deg.toLowerCase().includes("coño") ||  deg.toLowerCase().includes("cóño") ||  deg.toLowerCase().includes("cóñó") ||  deg.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(sub || uni.includes("coño"))){
+    if(this.containsSpam(sub) || sub.toLowerCase().includes("coño") ||  sub.toLowerCase().includes("cóño") ||  sub.toLowerCase().includes("cóñó") ||  sub.toLowerCase().includes("coñó")){
       document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
       isCorrect = false;
     }
 
-    if(this.containsSpam(des || uni.includes("coño"))){
+    if(this.containsSpam(des) || des.toLowerCase().includes("coño") ||  des.toLowerCase().includes("cóño") ||  des.toLowerCase().includes("cóñó") ||  des.toLowerCase().includes("coñó")){
       document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
@@ -91,7 +91,7 @@ export class CreateClassStudentComponent implements OnInit {
     str=this.removeAccents(str);
 
     for(let i=0; i<spam.length; i++){
-      if(str.includes(spam[i])){
+      if(spam.indexOf(str) > -1){
         isSpam = true;
       }
     }
@@ -100,7 +100,7 @@ export class CreateClassStudentComponent implements OnInit {
 
   removeAccents(str:string) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  } 
+  }
 
   createRoom(form: NgForm){
 
