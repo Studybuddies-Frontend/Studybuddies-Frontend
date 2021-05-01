@@ -26,4 +26,15 @@ describe('ClassListTutorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
+  it('getTutorias', () => {
+    component.getTutorias()
+    expect(component.getTutorias).toBeTruthy();
+  });
+  
 });

@@ -26,4 +26,20 @@ describe('CreateClassTutorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
+  it('containsSpam', () => {
+    component.containsSpam("hola")
+    expect(component.containsSpam).toBeTruthy();
+  });
+
+  it('removeAccents', () => {
+    component.removeAccents("hola")
+    expect(component.removeAccents).toBeTruthy();
+  });
+
 });

@@ -26,4 +26,20 @@ describe('MytutoriasListStudentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
+  it('getMyTutorias', () => {
+    component.getMyTutorias()
+    expect(component.getMyTutorias).toBeTruthy();
+  });
+
+  it('getId', () => {
+    component.getId()
+    expect(component.getId).toBeTruthy();
+  });
+
 });

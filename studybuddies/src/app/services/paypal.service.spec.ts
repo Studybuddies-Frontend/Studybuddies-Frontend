@@ -19,4 +19,8 @@ describe('PaypalService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('updateRoomPayment', () => {
+    expect(service.updateRoomPayment("hola", 0)).toBeTruthy();
+  });
 });
