@@ -28,17 +28,14 @@ describe('PerfilUsuarioComponent', () => {
   });
 
   it('getId', () => {
-    component.getId();
     expect(component.getId).toBeTruthy();
   });
 
   it('getUserByGuid', () => {
-    component.getUserByGuid();
     expect(component.getUserByGuid).toBeTruthy();
   });
 
   it('getAsignaturasByTutor', () => {
-    component.getAsignaturasByTutor();
     expect(component.getAsignaturasByTutor).toBeTruthy();
   });
 
