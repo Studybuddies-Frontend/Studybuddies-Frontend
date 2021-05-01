@@ -17,8 +17,8 @@ export class PerfilUsuarioComponent implements OnInit {
   guid!: number;
   actualUser!: any;
   actualAsignaturas: any[]= [];
-  rol!:any;
   puntos: number;
+  rol!: string;
 
 
   constructor(
@@ -56,15 +56,15 @@ export class PerfilUsuarioComponent implements OnInit {
     return 0;
   }
 
-  public getUserByGuid() {
+
+  public getUserByGuid(): any {
     this.userService.getUserByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualUser = res;
         console.log(this.actualUser)
       })
   }
-
-  public getAsignaturasByTutor(){
+  public getAsignaturasByTutor(): any{
     this.userService.getAsignaturaByIdTutor(this.guid)
       .subscribe((res: any) => {
         this.actualAsignaturas = res.asignaturas;
@@ -118,8 +118,6 @@ export class PerfilUsuarioComponent implements OnInit {
     }
     );
   }
-
-
 
 
 }

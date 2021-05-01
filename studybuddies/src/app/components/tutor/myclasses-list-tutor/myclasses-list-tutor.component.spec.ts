@@ -29,4 +29,19 @@ describe('MyclassesListTutorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
+  it('getMyRooms', () => {
+    component.getMyRooms()
+    expect(component.getMyRooms).toBeTruthy();
+  });
+
+  it('getId', () => {
+    component.getId()
+    expect(component.getId).toBeTruthy();
+  });
 });

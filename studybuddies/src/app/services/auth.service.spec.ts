@@ -20,4 +20,32 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('getUrl', () => {
+    expect(service.getUrl()).toBe('');
+  });
+
+  it('login', () => {
+    expect(service.login("hola", "hola")).toBeTruthy();
+  });
+
+  it('isAuthenticated', () => {
+    expect(service.isAuthenticated()).toBeFalsy();
+  });
+
+  it('getRole', () => {
+    expect(service.getRole()).toBe('');
+  });
+
+  it('registerAlumno', () => {
+    expect(service.registerAlumno("hola", "hola", "hola", "hola", "hola", "hola@hola.hola", "hola", "hola")).toBeTruthy();
+  });
+
+  it('registerTutor', () => {
+    expect(service.registerTutor("hola", "hola", "hola", "hola", "hola", "hola@hola.hola", "hola", "hola", "hola", "hola")).toBeTruthy();
+  });
+
+  it('getId', () => {
+    expect(service.getId()).toBe(0);
+  });
 });

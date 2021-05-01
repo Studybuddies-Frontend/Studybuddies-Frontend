@@ -26,4 +26,34 @@ describe('ViewClassTutorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ngOnInit', () => {
+    component.ngOnInit()
+    expect(component.ngOnInit).toBeTruthy();
+  });
+  
+  it('getRoomByGuid', () => {
+    component.getRoomByGuid()
+    expect(component.getRoomByGuid).toBeTruthy();
+  });
+
+  it('getAuthorizedUsers', () => {
+    component.getAuthorizedUsers()
+    expect(component.getAuthorizedUsers).toBeTruthy();
+  });
+
+  it('getAuthUsers', () => {
+    component.getAuthUsers()
+    expect(component.getAuthUsers).toBeTruthy();
+  });
+
+  /*it('saveData', () => {
+    component.saveData()
+    expect(component.saveData).toBeTruthy();
+  });*/
+
+  //gettutor da problemas
+
+
+
 });

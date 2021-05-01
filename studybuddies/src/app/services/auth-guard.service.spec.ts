@@ -17,4 +17,9 @@ describe('AuthGuardService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  /*
+  it('canActivate', () => {
+    expect(service.canActivate()).toBeTruthy();
+  });*/
 });

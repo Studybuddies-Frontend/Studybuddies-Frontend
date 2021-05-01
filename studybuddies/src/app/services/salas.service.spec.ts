@@ -18,4 +18,33 @@ describe('SalasService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('getRooms', () => {
+    expect(service.getRooms()).toBeTruthy();
+  });
+
+  it('getMyRooms', () => {
+    expect(service.getMyRooms(0)).toBeTruthy();
+  });
+
+  it('getSalasEstudioActivas', () => {
+    expect(service.getSalasEstudioActivas()).toBeTruthy();
+  });
+
+  it('getTutoriasActivas', () => {
+    expect(service.getTutoriasActivas()).toBeTruthy();
+  });
+
+  it('getMyTutoriasAuth', () => {
+    expect(service.getMyTutoriasAuth(0)).toBeTruthy();
+  });
+
+  it('getRoomByGuid', () => {
+    expect(service.getRoomByGuid(0)).toBeTruthy();
+  });
+
+  it('getAuthorizedUsers', () => {
+    expect(service.getAuthorizedUsers(0)).toBeTruthy();
+  });
+
 });
