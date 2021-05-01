@@ -49,17 +49,6 @@
     background-size: cover;
 }
 
-footer {
-    background: #eba144;
-    color: #fff;
-    padding: 12px;
-}
-
-.contenedor-textos p {
-    text-align: center;
-    font-size: 20px;
-}
-
 .button {
     background-color: #eba144;
     color: white;
@@ -138,13 +127,6 @@ textarea::content {
     .row2 {
         border-radius: 0px;
     }
-}
-
-#footer .footer_image {
-    height: 24px;
-    width: 24px;
-    text-align: center;
-    padding: 4px;
 }
 
 .formUser input[type=button] {

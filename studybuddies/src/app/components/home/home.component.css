@@ -55,14 +55,6 @@
     left: 0;
     width: 100%;
 }
-
-#footer .footer_image {
-    height: 24px;
-    width:24px;
-    text-align: center;
-    padding: 4px;
-}
-
 /* Estilos generales */
 
 .contenedor,
@@ -209,20 +201,6 @@
 
 .last-section .contenedor-textos-main{
     width: 40%;
-}
-
-
-/* footer */
-
-footer{
-    background: #eba144;
-    color: #fff;
-    padding: 12px;
-}
-
-.contenedor-textos p{
-        text-align: center;
-        font-size: 20px;
 }
 
 @media screen and (max-width:1024px){

@@ -93,11 +93,6 @@
     transition: all .4s ease;  
 }
 
-.contenedor-textos p{
-    text-align: center;
-    font-size: 20px;
-}
-
 .formUser input[type=button]{
     margin-top: 2%;
     display: -ms-flexbox;
@@ -136,6 +131,7 @@
     transition: all .4s ease;  
 }
 .info-text{
+    text-transform: initial;
 	display: block;
 	border-radius: 4px;
 	background-color: #0F2C45;
