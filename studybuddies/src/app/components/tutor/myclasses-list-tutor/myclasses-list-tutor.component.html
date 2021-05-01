@@ -6,7 +6,7 @@
       </p>
     </div>
     <section>
-      <form class= "my-2 my-lg-0 w-75 text-align:center">
+      <form class= "my-2 my-lg-0 w-75 buscar">
         <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar tutoría..." [(ngModel)]="search">
       </form>
     </section>
@@ -56,7 +56,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="info" *ngIf="rooms.length === 0"><p class="info-text">No tienes tutorías propías todavía. Crea tus tutorías <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">aquí</a></p></div>
+      <div class="info" *ngIf="rooms.length === 0"><p class="info-text">No tienes tutorías propías todavía. Crea tus tutorías <a routerLink="/tutor/createClass" routerLinkActive="active">aquí</a></p></div>
     </section>
 
     <section>
