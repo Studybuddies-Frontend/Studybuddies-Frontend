@@ -50,6 +50,7 @@ import { TutorFilterPipe } from './pipes/tutor-filter.pipe';
 import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
 import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
 import { GdprComponent } from './gdpr/gdpr.component';
+import { MytutorsComponent } from './components/tutor/mytutors/mytutors.component';
 
 const routes: Routes = [
   {
@@ -127,6 +128,7 @@ const routes: Routes = [
   },
   { path: 'tutor/show/:id', component: ShowTutorComponent },
   { path: 'tutores', component: ListTutorComponent },
+  { path: 'misTutores', component: MytutorsComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
@@ -164,7 +166,8 @@ const routes: Routes = [
     TutorFilterPipe,
     ListTutorComponent,
     TransformToTutorComponent,
-    GdprComponent
+    GdprComponent,
+    MytutorsComponent
   ],
   imports: [
     BrowserModule,

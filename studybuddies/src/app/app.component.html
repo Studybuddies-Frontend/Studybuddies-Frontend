@@ -29,9 +29,15 @@
                         <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Listar Tutorías</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tutores
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="nav-link" routerLink="/tutores" routerLinkActive="active">Tutores</a>
-                </li>
+                    <a class="nav-link" routerLink="/misTutores" routerLinkActive="active">Mis tutores</a>
+                  </div>
+              </li>
                 <li class="nav-item" *ngIf="showStudentBoard">
                     <a class="nav-link" routerLink="/student/transformToTutor" routerLinkActive="active">¡Conviertete en tutor!</a>
                 </li>
