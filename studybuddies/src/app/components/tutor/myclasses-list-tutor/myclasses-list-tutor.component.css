@@ -23,7 +23,15 @@ body{
     background-attachment: fixed;
     overflow: auto;
 }
-
+.alert.alert-info{
+  text-align: center;
+    justify-content: center;
+    background-color: #fafafa;
+    margin: 6rem;
+    margin-top: -1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+}
 .div-all{
 padding-top: 85px;
 }

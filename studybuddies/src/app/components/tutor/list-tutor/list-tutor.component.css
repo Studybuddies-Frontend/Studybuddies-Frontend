@@ -8,6 +8,15 @@
   box-sizing: border-box;
 }
 
+.alert.alert-info{
+  text-align: center;
+    justify-content: center;
+    background-color: #fafafa;
+    margin: 6rem;
+    margin-top: -1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+}
 body{
   font-family: 'Raleway', sans-serif;
   background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../../../assets/back.jpg");

@@ -88,7 +88,15 @@ padding-top: 85px;
   right: 0;
 }
 
-
+.alert.alert-info{
+  text-align: center;
+    justify-content: center;
+    background-color: #fafafa;
+    margin: 6rem;
+    margin-top: -1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+}
 /*Boton crear sala */
 .list-button {
   display: block;

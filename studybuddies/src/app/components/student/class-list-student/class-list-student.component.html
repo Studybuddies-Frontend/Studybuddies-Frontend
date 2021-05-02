@@ -65,12 +65,9 @@
     </section>
 
     <section>
-      <div class="row animated fadeIn fast w-75" *ngIf="(rooms | classFilter:search).length <1 && search != null && search != ''">
-        <div class="col-md-12">
-          <div class="alert alert-info" role="alert">
+      <div class="alert alert-info" role="alert" *ngIf="(rooms | classFilter:search).length <1 && search != null && search != ''">
+          
             No existen resultados para esta búsqueda
-          </div>
-        </div>
       </div>
     </section> 
   </div>

@@ -41,7 +41,7 @@ export class TransformToTutorComponent implements OnInit {
       Swal.fire('Error', 'Debe indicarse una descripcion', 'error')
       return;
     }
-    if (!this.checked) {
+    if (!this.checked)  {
       Swal.fire('Error', 'Debe marcar la casilla', 'error')
       return;
     }
@@ -49,6 +49,7 @@ export class TransformToTutorComponent implements OnInit {
       Swal.fire('Error', 'El teléfono debe contener 9 dígitos', 'error')
       return;
     }
+    
 
     this.userService.upgradeTutor(this.descripcion, this.telefono, this.authService.getId()).subscribe(async response => {
       Swal.fire('Éxito', 'Se ha cambiado tu rol con éxito', 'success')
