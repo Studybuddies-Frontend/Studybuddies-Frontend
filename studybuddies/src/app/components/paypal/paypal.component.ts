@@ -111,7 +111,6 @@ export class PaypalComponent implements OnInit {
               console.log("PAGO realizado con éxito.");
               this.user.puntos += 1;
               this.tokenStorageService.saveUser(this.user);
-              console.log(res)
             },
             err => console.log(err)
           )

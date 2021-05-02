@@ -46,7 +46,6 @@ export class SalasService {
 
   public getMyTutoriasAuth(id: any) {
     let url = this.urlRooms + `/Tmine/${id}`;
-    console.log(url)
     return this.http.get(url, { headers: this.httpHeaders });
   }
 

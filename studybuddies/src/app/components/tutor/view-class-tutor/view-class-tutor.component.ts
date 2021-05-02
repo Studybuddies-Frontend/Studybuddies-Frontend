@@ -45,7 +45,6 @@ export class ViewClassTutorComponent implements OnInit {
     if(this.tokenStorageService.getUser()){
       this.puntos = this.tokenStorageService.getUser().puntos;
     }
-    console.log(this.user)
     this.showTutorBoard = this.role == 'tutor';
 
   }
@@ -54,7 +53,6 @@ export class ViewClassTutorComponent implements OnInit {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualRoom = res.room[0];
-        console.log(this.actualRoom)
       })
   }
 
@@ -62,8 +60,6 @@ export class ViewClassTutorComponent implements OnInit {
     this.roomService.getAuthorizedUsers(this.guid)
       .subscribe((res: any) => {
         this.actualAuthorizedUsers = res.usuarios_autorizados;
-        
-        console.log(this.actualAuthorizedUsers)
       })
   }
 
@@ -93,14 +89,12 @@ export class ViewClassTutorComponent implements OnInit {
   }
 
   public deleteRoom() {
-    console.log(this.guid)
     this.roomService.deleteRooms(this.guid).subscribe(
       res => {
         Swal.fire('Éxito', 'La tutoría se ha borrado correctamente".', 'success').then(function () {
           window.location.href = "./tutor/classList";
         })
         console.log("Tutoría borrada con éxito.");
-        console.log(res)
       },
       err => console.log(err)
     )
@@ -115,7 +109,6 @@ export class ViewClassTutorComponent implements OnInit {
         console.log("PAGO realizado con éxito.");
         this.user.puntos -= 15;
         this.tokenStorageService.saveUser(this.user);
-        console.log(res);
       },
       err => console.log(err)
     )

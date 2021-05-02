@@ -21,7 +21,6 @@ export class MytutoriasListStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.getId();
-    console.log(this.userId);
     this.getMyTutorias();
   }
 
@@ -29,8 +28,6 @@ export class MytutoriasListStudentComponent implements OnInit {
 
   getMyTutorias() {
     this.roomService.getMyTutoriasAuth(this.userId).subscribe((res: any) => {
-      console.log(res);
-      console.log(res.salasEstudio);
       this.rooms = res.salasEstudio.sort(
         (a: { date: Date }, b: { date: Date }) => (a.date > b.date ? 1 : -1)
       );
@@ -39,7 +36,6 @@ export class MytutoriasListStudentComponent implements OnInit {
 
   public getId(): number {
     let user = this.tokenStorage.getUser();
-    console.log(user);
     if (user) {
       return user.id;
     }

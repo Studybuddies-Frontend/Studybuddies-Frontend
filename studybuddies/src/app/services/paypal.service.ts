@@ -14,7 +14,6 @@ export class PaypalService {
     this.urlLogin = `${environment.urlBackend}${environment.rutaSalas}${environment.rutaPayment}`
     let roomData = { guid: guid, id_user: id_user, free }
     let respuesta = this.http.post(this.urlLogin, roomData);
-    console.log(respuesta)
     return respuesta;
   }
 }

@@ -22,7 +22,6 @@ export class UserService {
 
   getUserByGuid(guid:any): Observable<any> {
     let url = this.urlUser + `/${guid}`
-    console.log(url)
     return this.http.get(url, { headers: this.httpHeaders })
   }
 

@@ -44,14 +44,12 @@ export class PerfilUsuarioComponent implements OnInit {
     this.getUserByGuid();
     this.getAsignaturasByTutor();
     this.rol = this.auth.getRole().toUpperCase();
-    console.log(this.puntos)
     console.log("ROLE: "  + this.auth.getRole().toUpperCase())
   }
 
   public getId(): number {
     let user = this.tokenStorage.getUser();
     if (user) {
-      console.log(user)
       return user.id;
     }
 
@@ -63,14 +61,12 @@ export class PerfilUsuarioComponent implements OnInit {
     this.userService.getUserByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualUser = res;
-        console.log(this.actualUser)
       })
   }
   public getAsignaturasByTutor(): any{
     this.userService.getAsignaturaByIdTutor(this.guid)
       .subscribe((res: any) => {
         this.actualAsignaturas = res.asignaturas;
-        console.log(this.actualAsignaturas)
       })
   }
 

@@ -21,7 +21,6 @@ export class ClassListStudentComponent implements OnInit {
   getRooms() {
     this.roomService.getSalasEstudioActivas()
       .subscribe((res: any)=> {
-        console.log(res.salasEstudio)
         console.log(window.sessionStorage.getItem('auth-user'))
         this.rooms = res.salasEstudio.sort((a: { date: Date; }, b: { date: Date; }) => (a.date > b.date) ? 1 : -1);
       })
