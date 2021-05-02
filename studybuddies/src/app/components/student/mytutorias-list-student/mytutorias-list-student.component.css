@@ -30,29 +30,6 @@ padding-top: 85px;
 
 /*Botón entrar*/
 
-.info{
-  display: block;
-  border-radius: 4px;
-  background-color: #0F2C45;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 16px;
-  padding: 20px;
-  width: 80%;
-  transition: all 0.5s;
-  margin: auto;
-  margin-bottom: 2%;
-  margin-top: 1%;
-  border-radius: 15px;
-  border: 2px solid #EBA144;
-}
-
-.info-text{
-  color: #FFFFFF;
-  font-size: 20px;
-}
-
 .entrar{
   display: block;
   border-radius: 4px;
@@ -238,20 +215,3 @@ section{
     display: none;
   }
 }
-.info{
-	display: block;
-	border-radius: 4px;
-	background-color: #0F2C45;
-	border: none;
-	color: #FFFFFF;
-	text-align: center;
-	font-size: 16px;
-	padding: 20px;
-	width: 80%;
-	transition: all 0.5s;
-	margin: auto;
-	margin-bottom: 2%;
-	margin-top: 1%;
-	border-radius: 15px;
-	border: 2px solid #EBA144;
-  }

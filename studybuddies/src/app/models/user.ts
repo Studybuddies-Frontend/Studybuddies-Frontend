@@ -1,13 +1,12 @@
 export class User {
 
-    constructor(username='', password='', nombre='', apellidos='',email='', puntos=0, tutor=false){
+    constructor(username='', password='', nombre='', apellidos='',email='', tutor=false){
         this.username = username;
         this.password = password;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.tutor = tutor;
-        this.puntos=puntos;
     }
     username: string;
     password: string;
@@ -15,5 +14,4 @@ export class User {
     apellidos: string;
     email: string;
     tutor: boolean;
-    puntos:number
 }

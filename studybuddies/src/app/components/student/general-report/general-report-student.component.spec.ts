@@ -4,7 +4,6 @@ import { GeneralReportStudentComponent } from './general-report-student.componen
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('GeneralReportStudentComponent', () => {
@@ -13,7 +12,7 @@ describe('GeneralReportStudentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, FormsModule, RouterTestingModule, ],
+      imports: [ HttpClientTestingModule, FormsModule],
       declarations: [ GeneralReportStudentComponent ]
     })
     .compileComponents();
@@ -28,20 +27,4 @@ describe('GeneralReportStudentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('ngOnInit ', () => {
-    component.ngOnInit();
-    expect(component.ngOnInit).toBeTruthy();
-  });
-
-  it('createReport ', () => {
-    component.createReport();
-    expect(component.createReport).toBeTruthy();
-  });
-
-  it('navigateToList ', () => {
-    component.navigateToList();
-    expect(component.navigateToList).toBeTruthy();
-  });
-
 });

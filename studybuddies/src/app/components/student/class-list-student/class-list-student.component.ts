@@ -9,7 +9,6 @@ import { SalasService } from 'src/app/services/salas.service';
 export class ClassListStudentComponent implements OnInit {
 
   rooms = []
-  search: string;
 
   constructor(public roomService: SalasService) {
   }

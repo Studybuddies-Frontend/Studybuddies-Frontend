@@ -45,15 +45,14 @@ import { MytutoriasListStudentComponent } from './components/student/mytutorias-
 import { ShowTutorComponent } from './components/tutor/show-tutor/show-tutor.component';
 import { CommonModule } from '@angular/common';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
-import { ClassFilterPipe } from './pipes/class-filter.pipe';
-import { TutorFilterPipe } from './pipes/tutor-filter.pipe';
-import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.component';
-import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
-import { GdprComponent } from './gdpr/gdpr.component';
+
 
 const routes: Routes = [
   {
-    path: 'paypal/:price', component: PaypalComponent
+    path: 'paypal/:price', component: PaypalComponent, canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'alumno'
+    }
   },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
@@ -108,12 +107,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'student/transformToTutor', component: TransformToTutorComponent, canActivate: [RoleGuardService],
-    data: {
-      expectedRole: 'alumno'
-    }
-  },
-  {
     path: 'tutor/createClass', component: CreateClassTutorComponent, canActivate: [RoleGuardService],
     data: {
       expectedRole: 'tutor'
@@ -126,13 +119,11 @@ const routes: Routes = [
     }
   },
   { path: 'tutor/show/:id', component: ShowTutorComponent },
-  { path: 'tutores', component: ListTutorComponent },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'constructionPage', component: ConstructionPageComponent },
-  { path: 'useConditions', component: GdprComponent },
   { path: '**', redirectTo: '' }
 
 
@@ -159,12 +150,7 @@ const routes: Routes = [
     MyclassesListStudentComponent,
     MyclassesListTutorComponent,
     MytutoriasListStudentComponent,
-    PerfilUsuarioComponent,
-    ClassFilterPipe,
-    TutorFilterPipe,
-    ListTutorComponent,
-    TransformToTutorComponent,
-    GdprComponent
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

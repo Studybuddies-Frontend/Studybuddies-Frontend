@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SalasService } from 'src/app/services/salas.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-myclasses-list-student',
@@ -11,12 +10,10 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class MyclassesListStudentComponent implements OnInit {
   userId: number;
   rooms = [];
-  search: string;
 
   constructor(
     public roomService: SalasService,
-    public authService: AuthService,
-    private tokenStorage: TokenStorageService
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -34,10 +31,11 @@ export class MyclassesListStudentComponent implements OnInit {
   }
 
   public getId(): number {
-    let user = this.tokenStorage.getUser();
+    const user = window.sessionStorage.getItem('auth-user');
     console.log(user);
     if (user) {
-      return user.id;
+      let jsonUser = JSON.parse(user);
+      return jsonUser.id;
     }
 
     return 0;
