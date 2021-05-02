@@ -28,8 +28,6 @@ body{
 padding-top: 85px;
 }
 
-/*Botón entrar*/
-
 .info{
   display: block;
   border-radius: 4px;
@@ -50,8 +48,9 @@ padding-top: 85px;
 
 .info-text{
   color: #FFFFFF;
-  font-size: 20px;
 }
+
+/*Botón entrar*/
 
 .entrar{
   display: block;
@@ -209,12 +208,41 @@ section{
   padding-right: 10px;
 }
 
-.containertable tr:hover{
-   background-color: #20598B;
-   color: white;
--webkit-box-shadow: 0 6px 6px -6px #0E1119;
-	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
-	        box-shadow: 0 6px 6px -6px #0E1119;
+.buscar{
+  margin: auto;
+}
+
+.buscar input{
+  padding: 0.5%;
+  border-radius: 15px;
+  background-color: #F2F2F2;
+  border: 2px solid #EBA144;
+}
+
+.buscar input::content, input::placeholder{
+  color: #a47cfc;
+}
+
+.containertable tbody a{
+  color: #a47cfc;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.containertable tbody a:hover{
+  color: #0F2C45;
+  font-size: large;
+}
+
+.info a{
+  color: #a47cfc;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.info a:hover{
+  color: #EBA144;
+  font-style: italic;
 }
 
 @media (max-width: 800px) {
@@ -237,21 +265,16 @@ section{
   .esconder{
     display: none;
   }
-}
-.info{
-	display: block;
-	border-radius: 4px;
-	background-color: #0F2C45;
-	border: none;
-	color: #FFFFFF;
-	text-align: center;
-	font-size: 16px;
-	padding: 20px;
-	width: 80%;
-	transition: all 0.5s;
-	margin: auto;
-	margin-bottom: 2%;
-	margin-top: 1%;
-	border-radius: 15px;
-	border: 2px solid #EBA144;
+
+  .info{
+    width: 98%;
+    margin-bottom: 8%;
   }
+}
+
+/*@media (max-width: 550px){
+
+  Qué hacer con el botón de crear salas?
+  La tabla se deja que se mueva a izda y dcha y ya?
+
+}*/

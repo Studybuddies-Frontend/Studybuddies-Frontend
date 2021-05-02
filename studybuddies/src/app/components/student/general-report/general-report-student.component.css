@@ -124,18 +124,20 @@
     }
 }
 .info-text{
-	display: block;
+    text-transform: initial;
+	display: inline-block;
 	border-radius: 4px;
 	background-color: #0F2C45;
 	border: none;
 	color: #FFFFFF;
-	text-align: justify;
+	text-align: center;
 	font-size: 16px;
 	padding: 20px;
-	width: 80%;
+	width: 100%;
 	transition: all 0.5s;
 	margin: auto;
 	margin-bottom: 2%;
+	margin-top: 1%;
 	border-radius: 15px;
 	border: 2px solid #EBA144;
   }

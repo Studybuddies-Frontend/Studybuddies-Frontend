@@ -79,24 +79,6 @@
     }
 }
 
-#footer .footer_image {
-    height: 24px;
-    width:24px;
-    text-align: center;
-    padding: 4px;
-}
-
-footer{
-    background: #eba144;
-    color: #fff;
-    padding: 12px;
-}
-
-.contenedor-textos p{
-    text-align: center;
-    font-size: 20px;
-}
-
 .formRooms input[type=button]{
     margin-top: 2%;
     display: -ms-flexbox;
@@ -135,6 +117,7 @@ footer{
     transition: all .4s ease;  
 }
 .info-text{
+    text-transform: initial;
 	display: block;
 	border-radius: 4px;
 	background-color: #0F2C45;
