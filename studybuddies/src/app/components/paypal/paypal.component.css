@@ -20,6 +20,7 @@ body{
     background-position: center;
     background-attachment: fixed;
     overflow: auto;
+    padding-bottom: 90%;
 }
 
 .div-all{

@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <div class="formUser">
+        <form class="formRooms">
         <div class="row">
             <h1 class="titulo">DETALLES DE LA SALA</h1>
                <p class="info-text">
@@ -35,28 +36,34 @@
             </div>
 
             <div class="align:center">
-                <input type=button value="VOLVER" onclick="history.back()">
-                <br><br>
-                <button class="button" type=button value="VOLVER" (click)="getTutor()">MÁS DEL TUTOR</button><br>
-                <br><br>
-                <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA SALA</a>
-                <a *ngIf="!paid && actualRoom && this.puntos < 10 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+              
+                <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA
+                    SALA</a>
+                <br>
+                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+                <br>
                 <div *ngIf="this.puntos >= 15" class="row noback"> 
                     <div class="col-6">
-                        <a *ngIf="!paid && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+                        <a *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
                     </div>
                 <div class="col-6">
                     <a class="pointer" *ngIf="!paid && actualRoom" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
                 </div>
                 </div>
                 <br><br>
-                <a *ngIf="actualRoom && (actualRoom.id_user==id_user_app) && actualRoom.authorised_users.length==0" (click)="deleteRoom()">BORRAR SALA</a>
-                <br><br>
-                <p *ngIf="actualRoom && actualRoom.authorised_users.length!=0">*No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
+                <button class="button" (click)="getTutor()">MÁS DEL TUTOR</button>
+                
+                <button class="button" *ngIf="actualRoom && (actualRoom.id_user==id_user_app) && actualRoom.authorised_users.length==0" (click)="deleteRoom()">BORRAR SALA</button>
+                <br>
+                <input type=button value="VOLVER" onclick="history.back()">
+                <br>
+                <p style="margin-top: 5%" *ngIf="actualRoom && actualRoom.authorised_users.length!=0">*No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
+
             </div>
         </div>
+    </form>
         <div class="row2">
-            <h1 class="titulo"> ASISTENTES </h1><br>
+            <h1 class="titulo"> TODOS LOS ASISTENTES </h1><br>
             <li *ngFor="let users of actualAuthorizedUsers">
                 {{users.username}} - {{users.email}}
             </li>

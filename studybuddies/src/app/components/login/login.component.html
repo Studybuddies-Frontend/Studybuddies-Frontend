@@ -1,9 +1,7 @@
 <body>
     <div class="login-wrap">
         <div class="login-html">
-            <p class="info-text">
-                Desde esta página podrás acceder a la aplicación o registrarte en ella. No dudes en hacerlo.
-            </p>
+			<br>
             <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar
 				Sesión</label>
             <input id="tab-2" type="radio" name="tab" class="sign-up-alumno"><label for="tab-2" class="tab">Registrarse
@@ -35,7 +33,7 @@
 						</div>
 						<div class="group">
 							<input class="form-check-input" type="checkbox" value="" id="checkSaveSession"
-								(change)="sessionCheck()">
+								(change)="sessionCheck()">&nbsp;
 							<label for="saveSession">  Mantener mi sesión iniciada</label>
 						</div>
 						<div class="group">
@@ -127,7 +125,7 @@
 						<div class="group">
 							<input name="checkbox"class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
 								[(ngModel)]="checked" #checkedField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
+								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>&nbsp;
 							<label class="form-check-label" for="flexCheckIndeterminate"><a href="/useConditions">He leído y acepto las condiciones de uso</a>  
 							</label>
 						</div>
@@ -236,7 +234,7 @@
 						<div class="group">
 							<input name="checkbox"class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
 								[(ngModel)]="checked" #checkedField="ngModel"
-								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>
+								[ngClass]="{ 'is-invalid': f.submitted && checkedField.invalid }" required>&nbsp;
 							<label class="form-check-label" for="flexCheckIndeterminate">He leído y acepto las <a href="/useConditions">condiciones de uso</a>  
 							</label>
 						</div>

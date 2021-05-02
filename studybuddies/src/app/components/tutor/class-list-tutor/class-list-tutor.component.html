@@ -10,7 +10,7 @@
     </div>
 
     <section>
-      <form class= "my-2 my-lg-0 w-75 text-align:center">
+      <form class= "my-2 my-lg-0 w-75 buscar">
         <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar tutoría..." [(ngModel)]="search">
       </form>
     </section>
@@ -64,11 +64,11 @@
           </tr>
         </tbody>
       </table>
-      <div class="info" *ngIf="tutorias.length === 0"><p class="info-text">No hay ninguna tutoría creada todavía. Puedes crear una tutoría si eres tutor <a class="nav-link" routerLink="/tutor/createClass" routerLinkActive="active">aquí</a></p></div>
+      <div class="info" *ngIf="tutorias.length === 0"><p class="info-text">No hay ninguna tutoría creada todavía. Puedes crear una tutoría si eres tutor <a routerLink="/tutor/createClass" routerLinkActive="active">aquí</a></p></div>
     </section>
 
     <section>
-      <div class="row animated fadeIn fast w-75" *ngIf="(tutorias | classFilter:search).length <1">
+      <div class="row animated fadeIn fast w-75" *ngIf="(tutorias | classFilter:search).length <1 && search != null && search != ''">
         <div class="col-md-12">
           <div class="alert alert-info" role="alert">
             No existen resultados para esta búsqueda
