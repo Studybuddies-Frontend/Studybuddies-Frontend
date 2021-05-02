@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class AuthService {
   })
   private urlLogin: string = '';
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
+  constructor(private http: HttpClient) {}
 
   getUrl(){
     return this.urlLogin
@@ -34,14 +33,15 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    return this.tokenStorage.getUser() != null 
+    return window.sessionStorage.getItem('auth-user') != null
   }
 
   public getRole(): string {
-    let user = this.tokenStorage.getUser();
+    const user = window.sessionStorage.getItem('auth-user');
     console.log(user)
     if (user) {
-      return user.role;
+      let jsonUser = JSON.parse(user);
+      return jsonUser.role;
     }
 
     return '';
@@ -63,7 +63,7 @@ export class AuthService {
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
   }
 
-  registerTutor(username:string, password: string, confirmPassword: string, nombre: string, apellidos:string, email:string, universidad:string, grado:string, descripcion:string, telefono:string): Observable<any>{
+  registerTutor(username:string, password: string, confirmPassword: string, nombre: string, apellidos:string, email:string, universidad:string, grado:string, descripcion:string): Observable<any>{
     this.urlLogin = `${environment.urlBackend}${environment.rutaRegister}/tutor`
     let data = {
       username: username,
@@ -74,17 +74,17 @@ export class AuthService {
       email: email,
       universidad: universidad,
       grado: grado,
-      descripcion: descripcion,
-      telefono: telefono
+      descripcion: descripcion
     }
     return this.http.post(this.urlLogin, data, {headers: this.httpHeaders})
   }
 
   public getId(): number {
-    let user = this.tokenStorage.getUser();
+    const user = window.sessionStorage.getItem('auth-user');
     console.log(user)
     if (user) {
-      return user.id;
+      let jsonUser = JSON.parse(user);
+      return jsonUser.id;
     }
 
     return 0;

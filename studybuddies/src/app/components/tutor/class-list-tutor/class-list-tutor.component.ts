@@ -8,7 +8,6 @@ import { SalasService } from 'src/app/services/salas.service';
 })
 export class ClassListTutorComponent implements OnInit {
   tutorias = [];
-  search: string;
 
   constructor(public roomService: SalasService) {}
 

@@ -1,132 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
-* {
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.titulo {
+.titulo{
     font-family: 'Titillium Web', serif;
     color: #F2F2F2;
-    font-size: 22px;
-    margin-right: 15px;
-    padding-bottom: 5px;
-    margin: 0 15px 10px 0;
-    display: inline-block;
-    border-bottom: 2px solid #20598B;
+    font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid #20598B;
 }
 
-.formUser {
-    padding: 5% 0% 20% 0%;
+.formRooms{
+    padding: 5% 20% 20% 20%;
     text-align: center;
     background-color: #20598B;
     background-size: cover;
-    color: #eba144;
+    text-transform: uppercase;
 }
 
-.row {
-    padding: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40, 57, 101, .9) 100%), url("/../../assets/back.jpg");
-    border-radius: 15px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
-}
-
-.row2 {
-    text-align: center;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40, 57, 101, .9) 100%), url("/../../assets/back.jpg");
+.row{
+    padding: 5%;
+    background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40,57,101,.9) 100%), url("../../../../assets/back.jpg");
     border-radius: 15px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.noback {
-    padding: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
-    background-image: none;
-    border-radius: 0px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
-}
-
-.pointer{
-    cursor: pointer;
-}
-
-footer {
-    background: #eba144;
-    color: #fff;
-    padding: 12px;
-}
-
-.contenedor-textos p {
-    text-align: center;
-    font-size: 20px;
-}
-
-.button {
-    background-color: #eba144;
-    color: white;
-    font-size: large;
-    padding: 1.25%;
-    padding-left: 4.5%;
-    padding-right: 4.5%;
-    border: 2px solid #FFFFCC;
-    font-weight: bold;
-    border-radius: 15px;
-}
-
-.button:hover {
-    background-color: #FFFFCC;
-    color: #20598B;
-    transition: all .4s ease;
-}
-
-.formUser {
-    padding: 5% 0% 20% 0%;
-    text-align: center;
-    background-color: #20598B;
-    background-size: cover;
-    color: #eba144;
-}
-
-.formUser label {
+.formRooms label{
     margin-bottom: 2%;
     font-family: 'Titillium Web', serif;
     font-size: larger;
     color: #F2F2F2;
 }
 
-.formUser input,
-textarea {
+.formRooms input,textarea, button{
     border: none;
     padding: 1%;
     border-radius: 15px;
 }
 
-.formUser input,
-textarea::content {
+.formRooms input,textarea::content{
     color: #a47cfc;
     text-align: center;
     font-weight: bold;
 }
 
-.formUser {
-    display: flex;
-}
-
-.formUser input[type=submit] {
+.formRooms input[type=submit]{
     margin-top: 2%;
     background-color: #20598B;
     color: white;
@@ -137,83 +64,118 @@ textarea::content {
     border: 2px solid #FFFFCC;
 }
 
-.formUser input[type=submit]:hover {
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
-    transition: all .4s ease;
+    transition: all .4s ease;  
+}
+
+.formRooms a,textarea{
+    border: none;
+    padding: 1%;
+    border-radius: 15px;
+}
+
+.formRooms a,textarea::content{
+    color: #a47cfc;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formRooms a{
+    margin-top: 2%;
+    background-color: #20598B;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border: 2px solid #FFFFCC;
+}
+
+.formRooms a:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
 }
 
 @media (max-width: 600px) {
-    .formUser {
-        padding-top: 15%;
+    .formRooms{
+        padding: 15% 0 15% 0;
     }
-    .row {
-        border-radius: 0px;
-    }
-    .row2 {
-        border-radius: 0px;
+    .row{
+        border-radius: 0;
     }
 }
 
 #footer .footer_image {
     height: 24px;
-    width: 24px;
+    width:24px;
     text-align: center;
     padding: 4px;
 }
 
-.formUser input[type=button] {
-    margin-top: 2%;
-    display: -ms-flexbox;
-    background-color: #1F3A68;
-    color: white;
-    font-size: large;
-    padding: 1.25%;
-    padding-left: 8%;
-    padding-right: 8%;
-    border: 2px solid #FFFFCC;
+footer{
+    background: #eba144;
+    color: #fff;
+    padding: 12px;
 }
 
-.formUser input[type=button]:hover {
+.contenedor-textos p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.formRooms input[type=button]{
+    margin-top: 2%;
+    display: -ms-flexbox;
+      background-color: #1F3A68;
+      color: white;
+      font-size: large;
+      padding: 1.25%;
+      padding-left: 8%;
+      padding-right: 8%;
+      border: 2px solid #FFFFCC;
+  }
+  
+  .formRooms input[type=button]:hover{
     background-color: #a47cfc;
     color: #F2F2F2;
     transition: all .4s ease;
+  }
+
+  .button{
+    background-color: #eba144;
+    color: white;
+    font-size: large;
+    padding: 1.25%;
+    padding-left: 4.5%;
+      padding-right: 4.5%;
+    border: 2px solid #FFFFCC;
+    font-weight : bold;
 }
 
-.formUser a {
-    margin-top: 2%;
+.button:hover{
+    background-color: #FFFFCC;
+    color: #20598B;
+    transition: all .4s ease;  
+}
+
+.formRooms a{
     background-color: #20598B;
     color: white;
     font-size: large;
     padding: 1.5%;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
     border: 2px solid #FFFFCC;
     border-radius: 12px;
     text-decoration: none;
     font-weight: bolder;
 }
 
-.formUser a:hover {
+.formRooms a:hover{
     background-color: #FFFFCC;
     color: #20598B;
-    transition: all .4s ease;
+    transition: all .4s ease;  
 }
-
-.info-text{
-	display: block;
-	border-radius: 4px;
-	background-color: #0F2C45;
-	border: none;
-	color: #FFFFFF;
-	text-align: center;
-	font-size: 16px;
-	padding: 20px;
-	width: 100%;
-	transition: all 0.5s;
-	margin: auto;
-	margin-bottom: 2%;
-	margin-top: 1%;
-	border-radius: 15px;
-	border: 2px solid #EBA144;
-  }

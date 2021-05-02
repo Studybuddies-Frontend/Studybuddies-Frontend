@@ -34,15 +34,12 @@ export class LoginComponent implements OnInit {
   universidad: '';
   grado: '';
   descripcion: '';
-  telefono: string = '';
   isLoggedIn = false;
   isLoginFailed = false;
   role = '';
   loginError = null;
   user: User = new User();
   logged = false;
-  checked = false;
-  saveSession = false;
 
   ngOnInit(): void {
     if (this.tokenStorage.getUser()) {
@@ -59,21 +56,14 @@ export class LoginComponent implements OnInit {
     if (!this.password) {
       Swal.fire('Login', 'Debe indicar una contraseña', 'error')
     }
-    console.log(`Save Session: ${this.saveSession}`)
 
     this.authService.login(this.username, this.password).subscribe(async response => {
-      
-      if(!this.saveSession) {
-        this.tokenStorage.saveUser(response);
-      } else {
-        this.tokenStorage.saveUserLocalStorage(response)
-      }      
+      this.tokenStorage.saveUser(response);
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.role = response.role
       await this.router.navigate([''])
       this.reloadPage();
-      
     }, err => {
       this.isLoginFailed = true;
       Swal.fire('Login', 'Credenciales incorrectas', 'error')
@@ -85,7 +75,7 @@ export class LoginComponent implements OnInit {
     window.location.reload()
   }
 
-  /* log_in(): void {
+  log_in(): void {
     this.loginError = null;
 
     this.loginService.storeToken(this.user)
@@ -102,7 +92,7 @@ export class LoginComponent implements OnInit {
         if (error.status == 401)
           this.loginError = error.status;
       });
-  } */
+  }
 
   registerAlumno() {
     if (!this.username) {
@@ -154,18 +144,16 @@ export class LoginComponent implements OnInit {
       console.log(response)
       if (response.result == 0) {
         Swal.fire('Error', response.mensaje, 'error')
-        console.log(response.mensaje)
       }
       if (response.result == 1) {
-        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
-          window.location.href = "./login";
-          window.location.reload();
-        })
+        this.router.navigate(['/login'])
+        this.reloadPage();
+        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return;
+      return ;
     }
     );
   }
@@ -215,12 +203,8 @@ export class LoginComponent implements OnInit {
       Swal.fire('Error', 'Debe indicarse una descripcion', 'error')
       return;
     }
-    if (!this.checked) {
-      Swal.fire('Error', 'Debe marcar la casilla', 'error')
-      return;
-    }
 
-    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion,this.telefono).subscribe(async response => {
+    this.authService.registerTutor(this.username, this.password, this.confirmPassword, this.nombre, this.apellidos, this.email, this.universidad, this.grado, this.descripcion).subscribe(async response => {
       /* this.tokenStorage.saveUser(response);
       this.isLoginFailed = false;
       this.isLoggedIn = true;
@@ -230,25 +214,16 @@ export class LoginComponent implements OnInit {
         Swal.fire('Error', response.mensaje, 'error')
       }
       if (response.result == 1) {
-        Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
-          window.location.href = "./login";
-          window.location.reload();
-        })
+        this.router.navigate(['/login'])
+        this.reloadPage();
+        Swal.fire('Exito', 'Se ha realizado el registro con éxito', 'success') 
       }
     }, err => {
       console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
-      return;
+      return ;
     }
     );
-  }
-
-  sessionCheck() {
-    if(this.saveSession) {
-      this.saveSession = false
-    } else {
-      this.saveSession = true
-    }
   }
 
 
