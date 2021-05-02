@@ -21,6 +21,6 @@ describe('PaypalService', () => {
   });
 
   it('updateRoomPayment', () => {
-    expect(service.updateRoomPayment("hola", 0)).toBeTruthy();
+    expect(service.updateRoomPayment("hola", 0,true)).toBeTruthy();
   });
 });

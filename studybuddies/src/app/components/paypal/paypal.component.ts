@@ -8,6 +8,7 @@ import { RoomService } from "src/app/services/class.service";
 import { Observable } from "rxjs";
 import { PaypalService } from "src/app/services/paypal.service";
 import Swal from 'sweetalert2'
+import { TokenStorageService } from "src/app/services/token-storage.service";
 
 
 @Component({
@@ -22,13 +23,19 @@ export class PaypalComponent implements OnInit {
   totalPrice: string
   paid: boolean
   id_user_app = this.auth.getId();
+  puntos: number = 0;
+  user: any;
 
-  constructor(public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
+  constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
     this.totalPrice = this.routes.snapshot.params['price']
     this.auth.getId()
   }
 
   ngOnInit() {
+    this.user = this.tokenStorageService.getUser();
+    if(this.user){
+      this.puntos = this.tokenStorageService.getUser().puntos;
+    }
     this.showPaypalButtons = true;
     this.payPalConfig = {
       currency: "EUR",
@@ -96,12 +103,14 @@ export class PaypalComponent implements OnInit {
           let roomJSON = JSON.parse(room);
           this.guid = roomJSON.guid;
           this.totalPrice = roomJSON.price_per_hour;
-          this.paypalService.updateRoomPayment(this.guid, this.id_user_app).subscribe(
+          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, false).subscribe(
             res => {
               Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
                 window.location.href = "./tutor/classList";
               })
               console.log("PAGO realizado con éxito.");
+              this.user.puntos += 1;
+              this.tokenStorageService.saveUser(this.user);
               console.log(res)
             },
             err => console.log(err)

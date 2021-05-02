@@ -53,10 +53,7 @@ import { GdprComponent } from './gdpr/gdpr.component';
 
 const routes: Routes = [
   {
-    path: 'paypal/:price', component: PaypalComponent, canActivate: [RoleGuardService],
-    data: {
-      expectedRole: 'alumno'
-    }
+    path: 'paypal/:price', component: PaypalComponent
   },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],

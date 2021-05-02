@@ -52,6 +52,21 @@
     
 }
 
+.noback {
+    padding: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    background-image: none;
+    border-radius: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
 .formUser label{
     margin-bottom: 2%;
     font-family: 'Titillium Web', serif;
