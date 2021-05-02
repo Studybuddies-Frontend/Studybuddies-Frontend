@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TutorFilterPipe } from 'src/app/pipes/tutor-filter.pipe';
 
 import { MytutorsComponent } from './mytutors.component';
 
@@ -8,7 +10,8 @@ describe('MytutorsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MytutorsComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ MytutorsComponent, TutorFilterPipe ]
     })
     .compileComponents();
   });
@@ -21,5 +24,15 @@ describe('MytutorsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('getId', () => {
+    component.getId()
+    expect(component.getId).toBeTruthy();
+  });
+
+  it('getMyTutores', () => {
+    component.getMyTutores()
+    expect(component.getMyTutores).toBeTruthy();
   });
 });
