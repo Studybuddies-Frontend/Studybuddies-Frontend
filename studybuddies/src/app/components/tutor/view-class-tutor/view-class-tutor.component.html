@@ -3,11 +3,11 @@
         <form class="formRooms">
         <div class="row">
             <h1 class="titulo">DETALLES DE LA SALA</h1>
-               <p class="info-text">
+               <p *ngIf="paid"class="info-text">
                 Estos son los detalles de la sala que has seleccionado.
                </p>
                <br>
-               <p class="info-text">
+               <p *ngIf="!paid" class="info-text">
                 Recuerda que obtienes un studypoint por cada clase pagada, ¡si llegas a 15 podrás acceder gratis a la sala que tu quieras!
                </p>
             <div class="col-lg">
@@ -39,7 +39,6 @@
               
                 <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA
                     SALA</a>
-                <br>
                 <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['price_per_hour']}}" (click)="saveData()">ACCEDER AL PAGO</a>
                 <br>
                 <div *ngIf="this.puntos >= 15" class="row noback"> 
@@ -50,10 +49,10 @@
                     <a class="pointer" *ngIf="!paid && actualRoom" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
                 </div>
                 </div>
-                <br><br>
+                <br>
                 <button class="button" (click)="getTutor()">MÁS DEL TUTOR</button>
                 
-                <button class="button" *ngIf="actualRoom && (actualRoom.id_user==id_user_app) && actualRoom.authorised_users.length==0" (click)="deleteRoom()">BORRAR SALA</button>
+                <button class="button" style="cursor: pointer;" *ngIf="actualRoom && (actualRoom.id_user==id_user_app) && actualRoom.authorised_users.length==0" (click)="deleteRoom()">BORRAR SALA</button>
                 <br>
                 <input type=button value="VOLVER" onclick="history.back()">
                 <br>

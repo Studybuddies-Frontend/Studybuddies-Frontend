@@ -245,6 +245,16 @@ section{
   font-style: italic;
 }
 
+.alert.alert-info{
+  text-align: center;
+    justify-content: center;
+    background-color: #fafafa;
+    margin: 6rem;
+    margin-top: -1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+}
+
 @media (max-width: 800px) {
 .containertable td:nth-child(7),
 .containertable th:nth-child(7) { display: none; }
@@ -269,7 +279,9 @@ section{
   .info{
     width: 98%;
     margin-bottom: 8%;
-  }
+  } 
+
+
 }
 
 /*@media (max-width: 550px){
