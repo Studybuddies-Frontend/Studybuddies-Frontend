@@ -11,7 +11,6 @@ export class TutorFilterPipe implements PipeTransform {
 
     searchValue = searchValue.trim();
     searchValue = removeAccents(searchValue);
-    console.log(searchValue)
 
     return value.filter((v:any) => 
     removeAccents(v.universidad).toLowerCase().indexOf(searchValue.toLowerCase()) > -1 ||

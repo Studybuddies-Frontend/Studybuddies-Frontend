@@ -1,118 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.titulo{
-    font-family: 'Titillium Web', serif;
-    color: #F2F2F2;
-    font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid #20598B;
+.titulo {
+  font-family: 'Titillium Web', serif;
+  color: #f2f2f2;
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid #20598b;
 }
 
-.formRooms{
-    padding: 5% 20% 20% 20%;
-    text-align: center;
-    background-color: #20598B;
-    background-size: cover;
-    text-transform: uppercase;
+.formRooms {
+  padding: 5% 20% 20% 20%;
+  text-align: center;
+  background-color: #20598b;
+  background-size: cover;
+  text-transform: uppercase;
 }
 
-.formRooms .form-control::content{
-    color: #a47cfc;
+.formRooms .form-control::content {
+  color: #a47cfc;
 }
 
-.row{
-    padding: 5%;
-    background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40,57,101,.9) 100%), url("../../../../assets/back.jpg");
-    border-radius: 15px;
-    background-repeat: no-repeat;
-    background-size: cover;
+.row {
+  padding: 5%;
+  background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40, 57, 101, 0.9) 100%), url("../../../../assets/back.jpg");
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.formRooms label{
-    margin-bottom: 2%;
-    font-family: 'Titillium Web', serif;
-    font-size: larger;
-    color: #F2F2F2;
+.formRooms label {
+  margin-bottom: 2%;
+  font-family: 'Titillium Web', serif;
+  font-size: larger;
+  color: #f2f2f2;
 }
 
-.formRooms input,textarea{
-    border: none;
-    padding: 1%;
-    border-radius: 15px;
+.formRooms input,
+textarea {
+  border: none;
+  padding: 1%;
+  border-radius: 15px;
 }
 
-.formRooms input,textarea::content{
-    color: #a47cfc;
-    text-align: center;
-    font-weight: bold;
+.formRooms input,
+textarea::content {
+  color: #a47cfc;
+  text-align: center;
+  font-weight: bold;
 }
 
-.formRooms input[type=submit]{
-    margin-top: 2%;
-    background-color: #20598B;
-    color: white;
-    font-size: large;
-    padding: 1.25%;
-    border: 2px solid #FFFFCC;
+.formRooms input[type=submit] {
+  margin-top: 2%;
+  background-color: #20598b;
+  color: white;
+  font-size: large;
+  padding: 1.25%;
+  border: 2px solid #ffc;
 }
 
-.formRooms input[type=submit]:hover{
-    background-color: #FFFFCC;
-    color: #20598B;
-    transition: all .4s ease;  
+.formRooms input[type=submit]:hover {
+  background-color: #ffc;
+  color: #20598b;
+  transition: all 0.4s ease;
 }
 
-.formRooms input[type=button]{
-    margin-top: 2%;
-    display: -ms-flexbox;
-      background-color: #1F3A68;
-      color: white;
-      font-size: large;
-      padding: 1.25%;
-      padding-left: 8%;
-      padding-right: 8%;
-      border: 2px solid #FFFFCC;
-  }
-  
-.formRooms input[type=button]:hover{
-    background-color: #a47cfc;
-    color: #F2F2F2;
-    transition: all .4s ease;
-  }
+.formRooms input[type=button] {
+  margin-top: 2%;
+  display: -ms-flexbox;
+  background-color: #1f3a68;
+  color: white;
+  font-size: large;
+  padding: 1.25%;
+  padding-left: 8%;
+  padding-right: 8%;
+  border: 2px solid #ffc;
+}
+
+.formRooms input[type=button]:hover {
+  background-color: #a47cfc;
+  color: #f2f2f2;
+  transition: all 0.4s ease;
+}
 
 @media (max-width: 600px) {
-    .formRooms{
-        padding: 15% 0 15% 0;
-    }
-    .row{
-        border-radius: 0;
-    }
-}
-.info-text{
-    text-transform: initial;
-	display: inline-block;
-	border-radius: 4px;
-	background-color: #0F2C45;
-	border: none;
-	color: #FFFFFF;
-	text-align: center;
-	font-size: 16px;
-	padding: 20px;
-	width: 100%;
-	transition: all 0.5s;
-	margin: auto;
-	margin-bottom: 2%;
-	margin-top: 1%;
-	border-radius: 15px;
-	border: 2px solid #EBA144;
+  .formRooms {
+    padding: 15% 0 15% 0;
   }
+
+  .row {
+    border-radius: 0;
+  }
+}
+
+.info-text {
+  text-transform: initial;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #0f2c45;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 100%;
+  transition: all 0.5s;
+  margin: auto;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  border-radius: 15px;
+  border: 2px solid #eba144;
+}

@@ -88,10 +88,6 @@ export class CreateClassTutorComponent implements OnInit {
       document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
       isCorrect = false;
     }
-    
-    console.log(form.value.money);
-    console.log(isCorrect);
-
     return isCorrect;
   }
 

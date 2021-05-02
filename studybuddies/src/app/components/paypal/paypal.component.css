@@ -1,40 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    font-family: 'Raleway', sans-serif;
-    background-color: #20598B;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    overflow: auto;
-    padding-bottom: 90%;
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #20598b;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
+  padding-bottom: 90%;
 }
 
-.div-all{
-padding-top: 85px;
+.div-all {
+  padding-top: 85px;
 }
 
-/*Botón entrar*/
 
-.entrar{
+/* Botón entrar */
+
+.entrar {
   display: block;
   border-radius: 4px;
-  background-color: #0F2C45;
+  background-color: #0f2c45;
   border: none;
-  color: #FFFFFF;
+  color: #fff;
   text-align: center;
   font-size: 12px;
   padding: 10px;
@@ -44,83 +45,82 @@ padding-top: 85px;
   margin: auto;
 }
 
-.titulo{
+.titulo {
   font-family: 'Titillium Web', serif;
-  color: #F2F2F2;
-  font-size:22px;
-  margin-right:15px;
-  padding-bottom:5px;
-  margin:0 15px 10px 0;
-  display:inline-block;
-  border-bottom:2px solid #20598B;
+  color: #f2f2f2;
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid #20598b;
   margin-bottom: 5%;
 }
 
-.entrar span{
+.entrar span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-
-.entrar:hover span{
-
+.entrar:hover span {
   padding-top: 3px;
   padding-bottom: 3px;
-
-
 }
 
-.entrar:hover span:after{
+.entrar:hover span::after {
   opacity: 1;
   right: 0;
 }
 
-.formRooms{
+.formRooms {
   padding: 5% 20% 20% 20%;
   text-align: center;
-  background-color: #20598B;
+  background-color: #20598b;
   background-size: cover;
 }
 
-.row{
+.row {
   padding: 5%;
-  background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40,57,101,.9) 100%), url("../../../assets/back.jpg");
+  background-image: linear-gradient(180deg, rgba(2, 40, 77, 0.753) 0%, rgba(40, 57, 101, 0.9) 100%), url("../../../assets/back.jpg");
   border-radius: 15px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.formRooms input,textarea, button{
+.formRooms input,
+textarea,
+button {
   border: none;
   padding: 1%;
   border-radius: 15px;
 }
 
-.formRooms input[type=button]{
+.formRooms input[type=button] {
   margin-top: 2%;
   display: -ms-flexbox;
-    background-color: #1F3A68;
-    color: white;
-    font-size: large;
-    padding: 1.25%;
-    padding-left: 8%;
-    padding-right: 8%;
-    border: 2px solid #FFFFCC;
+  background-color: #1f3a68;
+  color: white;
+  font-size: large;
+  padding: 1.25%;
+  padding-left: 8%;
+  padding-right: 8%;
+  border: 2px solid #ffc;
 }
 
-.formRooms input[type=button]:hover{
+.formRooms input[type=button]:hover {
   background-color: #a47cfc;
-  color: #F2F2F2;
-  transition: all .4s ease;
+  color: #f2f2f2;
+  transition: all 0.4s ease;
 }
 
 @media (max-width: 600px) {
-  .formRooms{
-      padding: 15% 0 15% 0;
+  .formRooms {
+    padding: 15% 0 15% 0;
   }
-  .row{
-      border-radius: 0;
+
+  .row {
+    border-radius: 0;
   }
 }

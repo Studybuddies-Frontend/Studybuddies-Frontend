@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.role = this.tokenStorage.getUser().role;
     }
-    console.log(this.isLoggedIn)
   }
 
   login() {
@@ -59,7 +58,6 @@ export class LoginComponent implements OnInit {
     if (!this.password) {
       Swal.fire('Login', 'Debe indicar una contraseña', 'error')
     }
-    console.log(`Save Session: ${this.saveSession}`)
 
     this.authService.login(this.username, this.password).subscribe(async response => {
       
@@ -151,10 +149,8 @@ export class LoginComponent implements OnInit {
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.role = response.role */
-      console.log(response)
       if (response.result == 0) {
         Swal.fire('Error', response.mensaje, 'error')
-        console.log(response.mensaje)
       }
       if (response.result == 1) {
         Swal.fire('Éxito', 'Se ha realizado el registro con éxito', 'success').then(function () {
@@ -163,7 +159,6 @@ export class LoginComponent implements OnInit {
         })
       }
     }, err => {
-      console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
       return;
     }
@@ -225,7 +220,6 @@ export class LoginComponent implements OnInit {
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.role = response.role */
-      console.log(response)
       if (response.result == 0) {
         Swal.fire('Error', response.mensaje, 'error')
       }
@@ -236,7 +230,6 @@ export class LoginComponent implements OnInit {
         })
       }
     }, err => {
-      console.log(err)
       Swal.fire('Error', 'Se ha producido un error registrando el usuario', 'error')
       return;
     }

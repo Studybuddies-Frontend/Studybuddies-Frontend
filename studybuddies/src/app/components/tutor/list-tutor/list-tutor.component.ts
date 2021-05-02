@@ -18,7 +18,6 @@ export class ListTutorComponent implements OnInit {
 
   getTutores() {
     this.tutorService.getTutores().subscribe((res: any) => {
-      console.log(res.tutores);
       this.tutores = res.tutores;
     });
   }

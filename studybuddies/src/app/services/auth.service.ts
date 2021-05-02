@@ -39,7 +39,6 @@ export class AuthService {
 
   public getRole(): string {
     let user = this.tokenStorage.getUser();
-    console.log(user)
     if (user) {
       return user.role;
     }
@@ -82,7 +81,6 @@ export class AuthService {
 
   public getId(): number {
     let user = this.tokenStorage.getUser();
-    console.log(user)
     if (user) {
       return user.id;
     }

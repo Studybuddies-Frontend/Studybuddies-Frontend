@@ -36,7 +36,6 @@ export class HTTPErrorInterceptorService implements HttpInterceptor {
           this.router.navigateByUrl('/errorPage');    
         }
         
-        console.log(errorMessage);
         return throwError(errorMessage);
         
       })

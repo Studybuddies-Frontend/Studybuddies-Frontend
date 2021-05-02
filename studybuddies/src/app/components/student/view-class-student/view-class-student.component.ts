@@ -27,13 +27,11 @@ export class ViewClassStudentComponent implements OnInit {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualRoom = res.room[0];
-        console.log(this.actualRoom)
       })
   }
 
   public getId(): number {
     const user = window.sessionStorage.getItem('auth-user');
-    console.log(user);
     if (user) {
       let jsonUser = JSON.parse(user);
       return jsonUser.id;
@@ -43,15 +41,12 @@ export class ViewClassStudentComponent implements OnInit {
   }
 
   public deleteRoom() {
-    console.log("hola")
-    console.log(this.guid)
     this.roomService.deleteRooms(this.guid).subscribe(
       res => {
         Swal.fire('Éxito', 'La sala se ha borrado correctamente".', 'success').then(function () {
           window.location.href = "./student/classList";
         })
         console.log("Sala borrada con éxito.");
-        console.log(res)
       },
       err => console.log(err)
     )

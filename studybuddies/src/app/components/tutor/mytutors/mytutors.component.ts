@@ -21,14 +21,12 @@ export class MytutorsComponent implements OnInit {
 
   getMyTutores() {
     this.tutorService.getMyTutores(this.userId).subscribe((res: any) => {
-      console.log(res.tutores);
       this.tutores = res.tutores;
     });
   }
 
   public getId(): number {
     let user = this.tokenStorage.getUser();
-    console.log(user);
     if (user) {
       return user.id;
     }

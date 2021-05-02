@@ -36,7 +36,6 @@ export class ShowTutorComponent implements OnInit {
     this.userService.getAsignaturaByIdTutor(this.id)
       .subscribe((res: any) => {
         this.actualAsignaturas = res.asignaturas;
-        console.log(this.actualAsignaturas)
       })
   }
 }

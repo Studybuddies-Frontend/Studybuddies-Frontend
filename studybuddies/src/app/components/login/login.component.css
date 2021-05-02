@@ -1,193 +1,237 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.tab{
-	cursor: pointer;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-	margin:0;
-	color:#EBA144 !important;
-	background:#20598B !important;
-	font:600 16px/18px 'Titillium Web',sans-serif;
-    height: calc(101vh - 60px);
-	padding-bottom: 1400px;
+.tab {
+  cursor: pointer;
 }
 
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
+body {
+  margin: 0;
+  color: #eba144 !important;
+  background: #20598b !important;
+  font: 600 16px/18px 'Titillium Web', sans-serif;
+  height: calc(101vh - 60px);
+  padding-bottom: 1400px;
+}
 
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:900px;
-	min-height: 1150px;
-	position:relative;
-	background:url(../../../assets/backBig.jpg) no-repeat center;
-	background-size: cover;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 0px 70px;
-	background:rgba(40,57,101,.9);
+
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: table;
 }
+
+.clearfix::after {
+  clear: both;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login-wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 900px;
+  min-height: 1150px;
+  position: relative;
+  background: url(../../../assets/backBig.jpg) no-repeat center;
+  background-size: cover;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 0 70px;
+  background: rgba(40, 57, 101, 0.9);
+}
+
 .login-html .sign-in-htm,
 .login-html .sign-up-alumno-htm,
-.login-html .sign-up-tutor-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
+.login-html .sign-up-tutor-htm {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: all 0.4s linear;
 }
+
 .login-html .sign-in,
 .login-html .sign-up-alumno,
 .login-html .sign-up-tutor,
-.login-form .group .check{
-	display:none;
+.login-form .group .check {
+  display: none;
 }
+
 .login-html .tab,
 .login-form .group .label,
-.login-form .group .button{
-	text-transform:uppercase;
+.login-form .group .button {
+  text-transform: uppercase;
 }
-.login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
+
+.login-html .tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
 }
+
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up-alumno:checked + .tab,
-.login-html .sign-up-tutor:checked + .tab{
-	color:#F2F2F2;
-	border-color:#20598B;
+.login-html .sign-up-tutor:checked + .tab {
+  color: #f2f2f2;
+  border-color: #20598b;
 }
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
+
+.login-form {
+  min-height: 345px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
-.login-form .group{
-	margin-bottom:15px;
+
+.login-form .group {
+  margin-bottom: 15px;
 }
+
 .login-form .group .label,
 .login-form .group .input,
-.login-form .group .button{
-	width:100%;
-	color:#D9D9D9;
-	display:block;
+.login-form .group .button {
+  width: 100%;
+  color: #d9d9d9;
+  display: block;
 }
+
 .login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-}
-.login-form .group .label{
-	color:#D9D9D9;
-	font-size:12px;
-}
-.login-form .group .button{
-	background:#20598B;
-}
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background: #F2F2F2;
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#F2F2F2;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-.login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
-}
-.login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
-}
-.login-form .group .check:checked + label{
-	color:#F2F2F2;
-}
-.login-form .group .check:checked + label .icon{
-	background:#20598B;
-}
-.login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
-}
-.login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
-}
-.login-html .sign-in:checked + .tab + .sign-up-alumno + .tab + .sign-up-tutor + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-.login-html .sign-up-alumno:checked + .tab + .sign-up-tutor + .tab + .login-form .sign-up-alumno-htm{
-	transform:rotate(0);
-}
-.login-html .sign-up-tutor:checked + .tab + .login-form .sign-up-tutor-htm{
-	transform:rotate(0);
+.login-form .group .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:#f2f2f2;
-}
-.foot-lnk{
-	text-align:center;
+.login-form .group input[data-type="password"] {
+  text-security: circle;
+  -webkit-text-security: circle;
 }
 
-.login-form .group .button{
-	background:#20598B;
-	color: #F2F2F2;
-	border: 1px solid #F2F2F2;
-	transition: 0.5s; 
+.login-form .group .label {
+  color: #d9d9d9;
+  font-size: 12px;
 }
 
-.login-form .group .button:hover{
-	background:#F2F2F2;
-	color: #20598B;
-	border: 1px solid #F2F2F2;
+.login-form .group .button {
+  background: #20598b;
+}
+
+.login-form .group label .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  background: #f2f2f2;
+}
+
+.login-form .group label .icon::before,
+.login-form .group label .icon::after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #f2f2f2;
+  position: absolute;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.login-form .group label .icon::before {
+  left: 3px;
+  width: 5px;
+  bottom: 6px;
+  transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon::after {
+  top: 6px;
+  right: 0;
+  transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked + label {
+  color: #f2f2f2;
+}
+
+.login-form .group .check:checked + label .icon {
+  background: #20598b;
+}
+
+.login-form .group .check:checked + label .icon::before {
+  transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked + label .icon::after {
+  transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked + .tab + .sign-up-alumno + .tab + .sign-up-tutor + .tab + .login-form .sign-in-htm {
+  transform: rotate(0);
+}
+
+.login-html .sign-up-alumno:checked + .tab + .sign-up-tutor + .tab + .login-form .sign-up-alumno-htm {
+  transform: rotate(0);
+}
+
+.login-html .sign-up-tutor:checked + .tab + .login-form .sign-up-tutor-htm {
+  transform: rotate(0);
+}
+
+.hr {
+  height: 2px;
+  margin: 60px 0 50px 0;
+  background: #f2f2f2;
+}
+
+.foot-lnk {
+  text-align: center;
+}
+
+.login-form .group .button {
+  background: #20598b;
+  color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  transition: 0.5s;
+}
+
+.login-form .group .button:hover {
+  background: #f2f2f2;
+  color: #20598b;
+  border: 1px solid #f2f2f2;
 }
 
 @media (max-width: 950px) {
-    body{
-		padding-bottom: 0px;
-	}
-	.login-wrap{
-		min-height: 1300px;
-	}
+  body {
+    padding-bottom: 0;
+  }
+
+  .login-wrap {
+    min-height: 1300px;
+  }
 }

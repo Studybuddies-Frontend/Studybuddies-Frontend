@@ -134,7 +134,6 @@ export class CreateClassStudentComponent implements OnInit {
     };
 
     if(this.validate(form)){
-      console.log(room)
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
         res => { //NO SE COMO PUEDO PROBAR ESTO

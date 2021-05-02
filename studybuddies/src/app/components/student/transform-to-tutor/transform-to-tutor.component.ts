@@ -54,7 +54,6 @@ export class TransformToTutorComponent implements OnInit {
     this.userService.upgradeTutor(this.descripcion, this.telefono, this.authService.getId()).subscribe(async response => {
       Swal.fire('Éxito', 'Se ha cambiado tu rol con éxito', 'success')
     }, err => {
-      console.log(err)
       Swal.fire('Error', 'Se ha producido un error cambiando el rol a tutor', 'error')
       return;
     }
