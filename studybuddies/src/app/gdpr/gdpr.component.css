@@ -1,67 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-	margin:0;
-	font:600 16px/18px 'Titillium Web',sans-serif;
-    height: calc(101vh - 60px);
+body {
+  margin: 0;
+  font: 600 16px/18px 'Titillium Web', sans-serif;
+  height: calc(101vh - 60px);
 }
 
-.gdpr-wrap{
-    background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../assets/back.jpg");
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 5%;
+.gdpr-wrap {
+  background-image: linear-gradient(180deg, rgba(106, 126, 143, 0.616) 0%, #20598b 100%), url("../../assets/back.jpg");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5%;
 }
 
-.titulo{
-    margin: auto;
-    text-align: center;
-    margin: 8% 0 4% 0;
-    font: bolder;
-    color:#EBA144;
-    font-size: larger;
+.titulo {
+  margin: auto;
+  text-align: center;
+  margin: 8% 0 4% 0;
+  font: bolder;
+  color: #eba144;
+  font-size: larger;
 }
 
-.texto-titulo{
-    margin: 0 5% 0 5%;
-    padding: 2%;
-    border: 2px solid #EBA144;
-    background: #20598B;
-    color: #F2F2F2;
-    border-radius: 15px;
+.texto-titulo {
+  margin: 0 5% 0 5%;
+  padding: 2%;
+  border: 2px solid #eba144;
+  background: #20598b;
+  color: #f2f2f2;
+  border-radius: 15px;
 }
 
-.subtitulo{
-    margin: auto;
-    margin: 3% 0 3% 10%;
-    font: bolder;
-    color:#F2F2F2;
-    font-size: larger;
+.subtitulo {
+  margin: auto;
+  margin: 3% 0 3% 10%;
+  font: bolder;
+  color: #f2f2f2;
+  font-size: larger;
 }
 
 @media (max-width: 600px) {
-    .subtitulo{
-        margin: 7% 0 7% 0%;
-        text-align: center;
-    }
+  .subtitulo {
+    margin: 7% 0 7% 0%;
+    text-align: center;
+  }
 
-    .titulo{
-        margin: 15% 0 5% 0;
-    }
+  .titulo {
+    margin: 15% 0 5% 0;
+  }
 
-    .texto-titulo{
-        padding: 5%;
-    }
+  .texto-titulo {
+    padding: 5%;
+  }
 }
