@@ -2,26 +2,30 @@
   <form class="formRooms">
     <div class="row">
       <h1 class="titulo">DETALLES DE LA SALA</h1><br>
+      <p class="info-text">
+        Estos son los detalles de la sala que has seleccionado.
+      </p>
       <div class="col-lg">
         <label for="lname">Universidad</label><br>
-        <input type="text" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="university" name="university" value="{{actualRoom['university']}}" readonly=true><br><br>
         <label for="lname">Grado</label><br>
-        <input type="text" id="grade" name="grade" value="{{actualRoom['degree']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="grade" name="grade" value="{{actualRoom['degree']}}" readonly=true><br><br>
         <label for="lname">Asignatura</label><br>
-        <input type="text" id="subjects" name="subjects" value="{{actualRoom['subject']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="subjects" name="subjects" value="{{actualRoom['subject']}}" readonly=true><br><br>
         <label for="lname">Fecha</label><br>
-        <input type="text" id="date" name="date" value="{{actualRoom['date']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="date" name="date" value="{{actualRoom['date']}}" readonly=true><br><br>
       </div>
       <div class="col-lg">
         <label for="lname">Hora inicio</label><br>
-        <input type="text" id="iTime" name="iTime" value="{{actualRoom['iTime']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="iTime" name="iTime" value="{{actualRoom['iTime']}}" readonly=true><br><br>
         <label for="lname">Hora fin</label><br>
-        <input type="text" id="fTime" name="fTime" value="{{actualRoom['fTime']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="fTime" name="fTime" value="{{actualRoom['fTime']}}" readonly=true><br><br>
         <label for="fname">Descripción</label><br>
-        <textarea style="height: 20%;" id="description" name="description" value="{{actualRoom['description']}}" readonly="true"></textarea><br><br>
+        <textarea style="height: 20%;" id="description" *ngIf="actualRoom" name="description" value="{{actualRoom['description']}}" readonly="true"></textarea><br><br>
       </div>
       <div><input type=button value="VOLVER" onclick="history.back()"></div>
-      <div style="margin-top: 3.5%;"><a href="http://{{actualRoom['room_url']}}" target="_blank">UNIRSE</a></div>
+      <div style="margin-top: 3.5%;"><a *ngIf="actualRoom" href="http://{{actualRoom['room_url']}}" target="_blank">UNIRSE</a></div>
+      <div style="margin-top: 3.5%;"><a *ngIf="actualRoom && (actualRoom.id_user==userId)" (click)="deleteRoom()" >BORRAR SALA</a></div>
     </div>
   </form>
 </div>

@@ -4,6 +4,8 @@ import { NgForm } from "@angular/forms";
 import { Class } from "../../../models/class";
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-create-class-tutor',
@@ -22,7 +24,11 @@ export class CreateClassTutorComponent implements OnInit {
     let iDay = form.value.iTime.split(":");
     let fDay = form.value.fTime.split(":");
     let date = form.value.date.split("-");
-    let isCorrect;
+    let uni = form.value.university;
+    let deg = form.value.degree;
+    let sub = form.value.subject;
+    let des = form.value.description;
+    let isCorrect = true;
     let now = new Date();
 
     let checkMismoDia = parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) == now.getDate();
@@ -33,6 +39,10 @@ export class CreateClassTutorComponent implements OnInit {
     document.getElementById("formErrorDate")!.innerHTML = "";
     document.getElementById("formErrorDay")!.innerHTML = "";
     document.getElementById("formErrorMoney")!.innerHTML = "";
+    document.getElementById("formErrorUni")!.innerHTML = "";
+    document.getElementById("formErrorDeg")!.innerHTML = "";
+    document.getElementById("formErrorSub")!.innerHTML = "";
+    document.getElementById("formErrorDes")!.innerHTML = "";
     
     if (checkDiaPasado) {
       document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
@@ -49,18 +59,34 @@ export class CreateClassTutorComponent implements OnInit {
       isCorrect = false;
     } 
     
-    if( form.value.money <= 5){
+    if( form.value.money < 5){
       document.getElementById("formErrorMoney")!.innerHTML = "El precio mínimo de la clase es de 5 euros";
       isCorrect = false;
     }
 
-    if( form.value.money >= 15){
+    if( form.value.money > 15){
       document.getElementById("formErrorMoney")!.innerHTML = "El precio máximo de la clase es de 15 euros";
       isCorrect = false;
     }
-    
-    if(form.value.money >= 5 && form.value.money <= 15 && (!checkDiaPasado && !checkHoraInicioMayorQueFin || checkMismoDia && !checkHoraPasada)){
-      isCorrect = true;
+
+    if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
+      document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(deg) || deg.toLowerCase().includes("coño") ||  deg.toLowerCase().includes("cóño") ||  deg.toLowerCase().includes("cóñó") ||  deg.toLowerCase().includes("coñó")){
+      document.getElementById("formErrorDeg")!.innerHTML = "El grado contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(sub) || sub.toLowerCase().includes("coño") ||  sub.toLowerCase().includes("cóño") ||  sub.toLowerCase().includes("cóñó") ||  sub.toLowerCase().includes("coñó")){
+      document.getElementById("formErrorSub")!.innerHTML = "La asignatura contiene palabras prohibidas";
+      isCorrect = false;
+    }
+
+    if(this.containsSpam(des) || des.toLowerCase().includes("coño") ||  des.toLowerCase().includes("cóño") ||  des.toLowerCase().includes("cóñó") ||  des.toLowerCase().includes("coñó")){
+      document.getElementById("formErrorDes")!.innerHTML = "La descripción contiene palabras prohibidas";
+      isCorrect = false;
     }
     
     console.log(form.value.money);
@@ -68,6 +94,24 @@ export class CreateClassTutorComponent implements OnInit {
 
     return isCorrect;
   }
+
+  containsSpam(str:string){
+    const spam = ["hostia", "ostia", "joder", "puta", "viagra", "gilipollas", "cabron", "imbecil", "idiota", "subnormal", "maricon", "mierda"]
+    let isSpam = false;
+    str=str.toLowerCase();
+    str=this.removeAccents(str);
+
+    for(let i=0; i<spam.length; i++){
+      if(spam.indexOf(str) > -1){
+        isSpam = true;
+      }
+    }
+    return isSpam;
+  }
+
+  removeAccents(str:string) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  } 
 
   createRoom(form: NgForm){
 
@@ -102,10 +146,20 @@ export class CreateClassTutorComponent implements OnInit {
     if(this.validate(form)){
       form.resetForm();
       this.roomService.createRoom(room).subscribe(
-        err => console.error(err)
+        res => { //NO SE COMO PUEDO PROBAR ESTO
+          Swal.fire('Éxito', 'La tutoría se ha creado correctamente', 'success').then(function () {
+            window.location.href = "./tutor/classList";
+          })
+        },
+        err => {
+          console.error(err)
+          Swal.fire('Error', 'Ha surgido un problema. Inténtelo de nuevo', 'error').then(function () {
+            form.reset();
+          })
+        }
       );
 
-      this.router.navigate(["/tutor/classList"])
+      
     }
 
   }

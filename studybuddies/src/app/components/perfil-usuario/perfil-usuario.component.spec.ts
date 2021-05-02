@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+
 
 import { PerfilUsuarioComponent } from './perfil-usuario.component';
 
@@ -8,6 +12,7 @@ describe('PerfilUsuarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ RouterTestingModule, HttpClientTestingModule,FormsModule],
       declarations: [ PerfilUsuarioComponent ]
     })
     .compileComponents();
@@ -22,4 +27,18 @@ describe('PerfilUsuarioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('getId', () => {
+    expect(component.getId).toBeTruthy();
+  });
+
+  it('getUserByGuid', () => {
+    expect(component.getUserByGuid).toBeTruthy();
+  });
+
+  it('getAsignaturasByTutor', () => {
+    expect(component.getAsignaturasByTutor).toBeTruthy();
+  });
+
+ 
 });

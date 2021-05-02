@@ -16,7 +16,7 @@ export class ShowTutorComponent implements OnInit {
 
   constructor(  private tutorService: TutorService,
     private userService: UserService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
     }
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class ShowTutorComponent implements OnInit {
       })
   }
 
-  private getAsignaturasByTutor(){
+  public getAsignaturasByTutor(){
     this.userService.getAsignaturaByIdTutor(this.id)
       .subscribe((res: any) => {
         this.actualAsignaturas = res.asignaturas;
