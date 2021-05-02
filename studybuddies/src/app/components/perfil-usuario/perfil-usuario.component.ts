@@ -17,15 +17,15 @@ export class PerfilUsuarioComponent implements OnInit {
   guid!: number;
   actualUser!: any;
   actualAsignaturas: any[]= [];
-  puntos: number;
+  puntos: number = 0;
   rol!: string;
 
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
-    private auth: AuthService,
-    private tokenStorage: TokenStorageService) { }
+    public userService: UserService,
+    public auth: AuthService,
+    public tokenStorage: TokenStorageService) { }
 
     username = '';
     nombre: '';
@@ -38,7 +38,9 @@ export class PerfilUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.guid = this.getId();
-    this.puntos = this.tokenStorage.getUser().puntos;
+    if(this.tokenStorage.getUser()){
+      this.puntos = this.tokenStorage.getUser().puntos;
+    }
     this.getUserByGuid();
     this.getAsignaturasByTutor();
     this.rol = this.auth.getRole().toUpperCase();

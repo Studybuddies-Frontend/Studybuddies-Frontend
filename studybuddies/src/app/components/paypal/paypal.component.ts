@@ -23,7 +23,7 @@ export class PaypalComponent implements OnInit {
   totalPrice: string
   paid: boolean
   id_user_app = this.auth.getId();
-  puntos: number;
+  puntos: number = 0;
   user: any;
 
   constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
@@ -33,7 +33,9 @@ export class PaypalComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.tokenStorageService.getUser();
-    this.puntos = this.tokenStorageService.getUser().puntos;
+    if(this.user){
+      this.puntos = this.tokenStorageService.getUser().puntos;
+    }
     this.showPaypalButtons = true;
     this.payPalConfig = {
       currency: "EUR",
