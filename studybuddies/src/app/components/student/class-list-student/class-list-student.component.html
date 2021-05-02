@@ -63,5 +63,15 @@
       </table>
       <div class="info" *ngIf="rooms.length === 0"><p class="info-text">No hay ninguna sala creada todavía. Sé el primero en crearla desde <a routerLink="/student/createClass" routerLinkActive="active">aquí</a></p></div>
     </section>
+
+    <section>
+      <div class="row animated fadeIn fast w-75" *ngIf="(rooms | classFilter:search).length <1 && search != null && search != ''">
+        <div class="col-md-12">
+          <div class="alert alert-info" role="alert">
+            No existen resultados para esta búsqueda
+          </div>
+        </div>
+      </div>
+    </section> 
   </div>
 </body>
