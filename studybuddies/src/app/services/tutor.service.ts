@@ -28,4 +28,9 @@ export class TutorService {
     let url = this.urlUsers + `/role/tutor`;
     return this.http.get(url, { headers: this.httpHeaders });
   }
+
+  public getMyTutores(id: any): Observable<any> {
+    let url = this.urlUsers + `/${id}/myTutors`;
+    return this.http.get(url, {headers: this.httpHeaders });
+  }
 }

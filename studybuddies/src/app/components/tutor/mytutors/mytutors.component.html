@@ -1,0 +1,63 @@
+<body>
+  <div class="div-all">
+    <div class="info">
+      <p class="info-text">
+        Aquí puedes encontrar el listado completo de los tutores con los que has tenido tutorías.
+        Contacta con ellos si tienes dudas o si quieres concertar tutorías.
+      </p>
+    </div>
+
+    <section>
+      <form class= "my-2 my-lg-0 w-75 buscar">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Buscar tutores..." [(ngModel)]="search">
+      </form>
+    </section>
+
+    <section>
+      <table class="containertable">
+        <thead>
+          <tr>
+            <th>
+              <h1 class="table">NOMBRE</h1>
+            </th>
+            <th>
+              <h1 class="table">UNIVERSIDAD</h1>
+            </th>
+            <th>
+              <h1 class="table">EMAIL</h1>
+            </th>
+            <th>
+              <h1 class="table">DESCRIPCIÓN</h1>
+            </th>
+            <th>
+              <h1 class="table">DETALLES</h1>
+            </th>
+          </tr>
+        </thead>
+        <div class=empty *ngIf="tutores.length === 0"> No hay tutores actualmente. </div>
+        <tbody>
+          <tr *ngFor="let tutor of (tutores | tutorFilter:search)">
+            <td>{{ tutor["nombre"] }}</td>
+            <td>{{ tutor["universidad"] }}</td>
+            <td>{{ tutor["email"] }}</td>
+            <td>{{ tutor["descripcion"] }}</td>
+            <td>
+              <a href="/tutor/show/{{tutor['id']}}">Ver detalles</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="row animated fadeIn fast w-75" *ngIf="(tutores | tutorFilter:search).length < 1 && search != null && search != ''">
+        <div class="col-md-12">
+          <div class="alert alert-info" role="alert">
+            No existen resultados para esta búsqueda
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
