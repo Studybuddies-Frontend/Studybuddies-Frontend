@@ -51,6 +51,7 @@ import { ListTutorComponent } from './components/tutor/list-tutor/list-tutor.com
 import { TransformToTutorComponent } from './components/student/transform-to-tutor/transform-to-tutor.component';
 import { GdprComponent } from './gdpr/gdpr.component';
 import { MytutorsComponent } from './components/tutor/mytutors/mytutors.component';
+import { TimeFormatPipe } from './pipes/time-format.pipe';
 
 const routes: Routes = [
   {
@@ -167,7 +168,8 @@ const routes: Routes = [
     ListTutorComponent,
     TransformToTutorComponent,
     GdprComponent,
-    MytutorsComponent
+    MytutorsComponent,
+    TimeFormatPipe
   ],
   imports: [
     BrowserModule,

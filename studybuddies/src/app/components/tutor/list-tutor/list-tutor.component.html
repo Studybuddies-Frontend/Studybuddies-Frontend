@@ -47,15 +47,14 @@
           </tr>
         </tbody>
       </table>
+      <div class="info" *ngIf="tutores.length === 0"><p class="info-text">No hay tutores, conviertete en tutor <a routerLink="/student/transformToTutor" routerLinkActive="active">aquí</a></p></div>
     </section>
 
     <section>
-      <div class="alert alert-info" role="alert" *ngIf="(tutores | tutorFilter:search).length < 1 && search != null && search != ''">
-        
-            No existen resultados para esta búsqueda
-     
+      <div class="alert alert-info" role="alert" *ngIf="(tutores | tutorFilter:search).length <1 && search != null && search != ''">
+        No existen resultados para esta búsqueda
       </div>
-    </section>  
+    </section> 
 
   </div>
 </body>
