@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   name: 'desarrollo',
-  urlBackend: 'http://localhost:3000/api/v2',
+  urlBackend: 'http://localhost:3000/api/v3',
   rutaLogin: '/user/login',
   rutaRegister: '/user/register',
   rutaTransform: '/user/transform',

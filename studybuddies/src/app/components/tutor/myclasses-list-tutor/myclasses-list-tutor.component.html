@@ -47,7 +47,7 @@
             <td>{{ room["degree"] }}</td>
             <td>{{ room["subject"] }}</td>
             <td class="esconder">{{ room["description"] }}</td>
-            <td>{{ room["date"] }}</td>
+            <td>{{ room["date"] | date : 'dd/MM/yyyy'}}</td>
             <td class="esconder">{{ room["iTime"] }}</td>
             <td class="esconder">{{ room["fTime"] }}</td>
             <td>

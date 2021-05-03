@@ -13,7 +13,7 @@
         <label for="lname">Asignatura</label><br>
         <input type="text" *ngIf="actualRoom" id="subjects" name="subjects" value="{{actualRoom['subject']}}" readonly=true><br><br>
         <label for="lname">Fecha</label><br>
-        <input type="text" *ngIf="actualRoom" id="date" name="date" value="{{actualRoom['date']}}" readonly=true><br><br>
+        <input type="text" *ngIf="actualRoom" id="date" name="date" value="{{actualRoom['date'] | date : 'dd/MM/yyyy'}}" readonly=true><br><br>
       </div>
       <div class="col-lg">
         <label for="lname">Hora inicio</label><br>

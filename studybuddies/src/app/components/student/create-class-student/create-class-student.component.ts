@@ -62,7 +62,7 @@ export class CreateClassStudentComponent implements OnInit {
     }
 
     if(this.containsSpam(uni) || uni.toLowerCase().includes("coño") ||  uni.toLowerCase().includes("cóño") ||  uni.toLowerCase().includes("cóñó") ||  uni.toLowerCase().includes("coñó")){
-      document.getElementById("formErrorUni")!.innerHTML = "La descripción contiene palabras prohibidas";
+      document.getElementById("formErrorUni")!.innerHTML = "La universidad contiene palabras prohibidas";
       isCorrect = false;
     }
 
