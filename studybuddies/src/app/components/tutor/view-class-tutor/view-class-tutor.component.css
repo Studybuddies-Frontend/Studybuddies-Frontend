@@ -64,6 +64,7 @@
 
 .pointer {
   cursor: pointer;
+  align-content: center;
 }
 
 .formUser label {
@@ -128,11 +129,10 @@ textarea::content {
 }
 
 .formUser a {
-  margin-top: 2%;
   background-color: #20598b;
   color: white;
   font-size: large;
-  padding: 2%;
+  padding: 1.5%;
   padding-left: 3%;
   padding-right: 3%;
   border: 2px solid #ffc;
@@ -187,7 +187,8 @@ textarea::content {
 
 @media (max-width: 600px) {
   .formUser {
-    padding: 15% 2% 20% 4%;
+    padding: 15% 0% 20% 0%;
+    flex-wrap: wrap;
   }
 
   .row {
@@ -196,9 +197,15 @@ textarea::content {
 
   .row2 {
     border-radius: 0;
+    margin: auto;
+    margin-top: 10%;
   }
 
   .button {
     margin-bottom: 10%;
+  }
+
+  .accedePago{
+    margin-bottom:5%;
   }
 }

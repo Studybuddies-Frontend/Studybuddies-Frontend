@@ -92,6 +92,23 @@ textarea::content {
   transition: all 0.4s ease;
 }
 
+.info{
+  font-family: 'Titillium Web', serif;
+  color: #f2f2f2;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.info a{
+  text-decoration: none;
+  color: #eba144;
+  transition: 0.75s;
+}
+
+.info a:hover{
+  color: #a47cfc;
+}
+
 @media (max-width: 600px) {
   .formRooms {
     padding: 15% 0 15% 0;

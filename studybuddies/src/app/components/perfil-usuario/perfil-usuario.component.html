@@ -2,9 +2,10 @@
   <div class="formUser">
     <form class="formRooms"  #perfilForm="ngForm" (ngSubmit)="actualizarPerfil(perfilForm)">
     <div class="row">
-      <h1 class="titulo">DETALLES DEL {{rol}} - {{puntos}} studypoints</h1><br>
+      <h1 class="titulo">DETALLES DEL {{rol}} <span class="studypoints">{{puntos}} <img src="../../../assets/logoSinFondo.png" title="studypoints"></span></h1><br>
       <p class="info-text">
-        Este es tu perfil de usuario. Desde aquí podrás editar los datos.
+        Este es tu perfil de usuario. Desde aquí podrás editar los datos. Con 15 studypoints puedes canjear una tutoría gratuita.
+        Ganas uno por cada tutoría que pagas así que no dudes en apuntarte a algunas.
       </p>
       <!--habria que poner un if segun el rol (?)-->
       <div class="col-lg">
@@ -34,7 +35,7 @@
     </div>
   </form>
   <div class="row2" *ngIf="rol=='TUTOR'">
-    <h1 class="titulo"> ASIGNATURAS IMPARTIDAS </h1><br>
+    <h1 class="titulo m-2"> ASIGNATURAS IMPARTIDAS </h1><br>
     <li *ngFor="let asignatura of actualAsignaturas">
       {{asignatura}}
     </li>

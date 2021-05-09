@@ -21,15 +21,14 @@
       <div class="group">                    
         <input name="checked" class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" [(ngModel)]="checked" #checkedField="ngModel" [ngClass]="{ 'is-invalid': upgradeForm.submitted && checkedField.invalid }" checked>                             
         &nbsp;<label class="form-check-label" for="flexCheckIndeterminate">
-          Acepto que tengo los suficientes conocimientos para registrarme como tutor. 
-          <br>
-          Para más información diríjase a los términos y condicioens de uso de la aplicación.           
-        </label>         
+          Acepto que tengo los suficientes conocimientos para registrarme como tutor
+          </label>         
                     
     </div><br>
     <div><input type="submit" value="CONVIERTETE EN TUTOR" ng-click="submitted=true"></div>
     <div><input type=button value="VOLVER" onclick="location.href = 'index'"></div>
-    
+    <br>
+    <div class="info">Para más información diríjase a los <a target="_blank" href="/useConditions">términos y condiciones de uso de la aplicación.</a></div>
   </div>
 </form>
 </div>
