@@ -28,8 +28,8 @@
                 <label for="lname">Hora fin</label><br>
                 <input type="text" *ngIf="actualRoom" id="fTime" name="fTime" value="{{actualRoom['fTime']}}" readonly=true><br><br>
                 <label for="lname">Precio por hora</label><br>
-                <input style="width: 80px" type="text" min="1" step="any" id="money" *ngIf="actualRoom" name="money" value="{{actualRoom['price_per_hour'] | number:'.2'}} €" readonly=true><br><br>
-                <label for="lname">Precio total</label><br>
+                <input style="width: 80px" type="text" min="1" step="any" id="money" *ngIf="actualRoom" name="money" value="{{actualRoom['price_per_hour'] - 0.5 | number:'.2'}} €" readonly=true><br><br>
+                <label for="lname">Precio total + comisión</label><br>
                 <input style="width: 80px" type="text" min="1" step="any" id="preciototal" *ngIf="actualRoom" name="preciototal" value="{{actualRoom['precio_total'] | number:'.2'}} €" readonly=true><br><br>
                 <label for="fname">Descripción</label><br>
                 <textarea id="description" *ngIf="actualRoom" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
@@ -42,10 +42,10 @@
                 <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
                 <br>
                 <div *ngIf="this.puntos >= 15" class="row noback"> 
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <a *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
                     </div>
-                <div class="col-6">
+                <div class="col-md-6">
                     <a class="pointer" *ngIf="!paid && actualRoom" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
                 </div>
                 </div>

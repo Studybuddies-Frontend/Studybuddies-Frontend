@@ -40,7 +40,7 @@ body {
   color: #000 !important;
 }
 
-div.navbar-nav {
+div#navbar-nav {
   margin-right: auto;
   text-align: center;
 }
