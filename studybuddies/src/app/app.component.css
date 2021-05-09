@@ -40,9 +40,9 @@ body {
   color: #000 !important;
 }
 
-div#navbarNav {
+div#navbar-nav {
   margin-right: auto;
-  text-align: center !important;
+  text-align: center;
 }
 
 .dropdown-menu {
@@ -107,11 +107,21 @@ footer a:hover {
   .copy {
     display: none;
   }
+
+  .desapareceS{
+    display: none;
+  }
 }
 
 @media (min-width: 951px) {
   .dropdown-menu {
     width: 250px;
     padding: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desapareceM{
+    display: none;
   }
 }

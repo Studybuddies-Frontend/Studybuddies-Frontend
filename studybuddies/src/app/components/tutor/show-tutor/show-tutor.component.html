@@ -1,36 +1,38 @@
 <div class="container-fluid">
     <div class="formUser">
         <form class="formRooms">
-        <div class="row">
-            <h1 class="titulo">DETALLES DEL TUTOR </h1><br>
-            <p class="info-text">
-                Este es el perfil del tutor. Desde aquí puedes ver sus datos.
-              </p>
-            <div class="col-lg">
-                <label for="lname">Nombre</label><br>
-                <input type="text" *ngIf='actualUser' id="nombre" name="nombre" value="{{actualUser['nombre']}}" readonly=true><br><br>
-                <label for="lname">Apellidos</label><br>
-                <input type="text" *ngIf='actualUser' id="apellidos" name="apellidos" value="{{actualUser['apellidos']}}" readonly=true><br><br>
-                <label for="lname">Nombre de usuario</label><br>
-                <input type="text" *ngIf='actualUser' id="username" name="username" value="{{actualUser['username']}}" readonly=true><br><br>
-                <label for="fname">Sobre mí</label><br>
-                <textarea style="height: 20%;" *ngIf='actualUser' id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
+            <div class="row">
+                <h1 class="titulo">DETALLES DEL TUTOR </h1><br>
+                <p class="info-text">
+                    Este es el perfil del tutor. Desde aquí puedes ver sus datos.
+                </p>
+                <div class="col-lg">
+                    <label for="lname">Nombre</label><br>
+                    <input type="text" *ngIf='actualUser' id="nombre" name="nombre" value="{{actualUser['nombre']}}" readonly=true><br><br>
+                    <label for="lname">Apellidos</label><br>
+                    <input type="text" *ngIf='actualUser' id="apellidos" name="apellidos" value="{{actualUser['apellidos']}}" readonly=true><br><br>
+                    <label for="lname">Nombre de usuario</label><br>
+                    <input type="text" *ngIf='actualUser' id="username" name="username" value="{{actualUser['username']}}" readonly=true><br><br>
+                    <label for="fname">Sobre mí</label><br>
+                    <textarea style="height: 20%;" *ngIf='actualUser' id="descripcion" name="descripcion" value="{{actualUser['descripcion']}}" readonly="true"></textarea><br><br>
+                </div>
+                <div class="col-lg">
+                    <label for="lname">Universidad</label><br>
+                    <input type="text" *ngIf='actualUser' id="universidad" name="universidad" value="{{actualUser['universidad']}}" readonly=true><br><br>
+                    <label for="lname">Grado</label><br>
+                    <input type="text" *ngIf='actualUser' id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
+                    <label for="lname">Correo de contacto</label><br>
+                    <input type="text" *ngIf='actualUser' id="email" name="email" value="{{actualUser['email']}}" readonly=true><br><br>
+                    <div *ngIf="actualUser && actualUser['telefono']!=null && actualUser['telefono']!=''">
+                        <label for="lname">Teléfono</label><br>
+                        <input type="tel" *ngIf='actualUser' id="telefono" name="telefono" value="{{actualUser['telefono']}}" readonly=true><br><br>
+                    </div>
+                </div>
+                <div><input type=button value="VOLVER" onclick="history.back()"></div>
             </div>
-            <div class="col-lg">
-                <label for="lname">Universidad</label><br>
-                <input type="text" *ngIf='actualUser' id="universidad" name="universidad" value="{{actualUser['universidad']}}" readonly=true><br><br>
-                <label for="lname">Grado</label><br>
-                <input type="text" *ngIf='actualUser' id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
-                <label for="lname">Correo de contacto</label><br>
-                <input type="text" *ngIf='actualUser' id="email" name="email" value="{{actualUser['email']}}" readonly=true><br><br>
-                <label for="lname">Teléfono</label><br>
-                <input type="tel" *ngIf='actualUser' id="telefono" name="telefono" value="{{actualUser['telefono']}}" readonly=true><br><br>
-            </div>
-            <div><input type=button value="VOLVER" onclick="history.back()"></div>
-        </div>
-    </form>
+        </form>
         <div class="row2">
-            <h1 class="titulo"> ASIGNATURAS IMPARTIDAS </h1><br>
+            <h1 class="titulo m-2"> ASIGNATURAS IMPARTIDAS </h1><br>
             <li *ngFor="let asignatura of actualAsignaturas">
                 {{asignatura}}
             </li>

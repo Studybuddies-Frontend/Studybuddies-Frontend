@@ -28,26 +28,24 @@
                 <label for="lname">Hora fin</label><br>
                 <input type="text" *ngIf="actualRoom" id="fTime" name="fTime" value="{{actualRoom['fTime']}}" readonly=true><br><br>
                 <label for="lname">Precio por hora</label><br>
-                <input style="width: 80px" type="text" min="1" step="any" id="money" *ngIf="actualRoom" name="money" value="{{actualRoom['price_per_hour'] | number:'.2'}} €" readonly=true><br><br>
-                <label for="lname">Precio total</label><br>
+                <input style="width: 80px" type="text" min="1" step="any" id="money" *ngIf="actualRoom" name="money" value="{{actualRoom['price_per_hour'] - 0.5 | number:'.2'}} €" readonly=true><br><br>
+                <label for="lname">Precio total + comisión</label><br>
                 <input style="width: 80px" type="text" min="1" step="any" id="preciototal" *ngIf="actualRoom" name="preciototal" value="{{actualRoom['precio_total'] | number:'.2'}} €" readonly=true><br><br>
                 <label for="fname">Descripción</label><br>
                 <textarea id="description" *ngIf="actualRoom" name="description" readonly="true" value="{{actualRoom['description']}}"></textarea><br><br>
             </div>
 
-            <div class="align:center">
+            <span class="align:center">
               
                 <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA
-                    SALA</a>
-                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
-                <br>
-                <div *ngIf="this.puntos >= 15" class="row noback"> 
-                    <div class="col-6">
-                        <a *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
-                    </div>
-                <div class="col-6">
-                    <a class="pointer" *ngIf="!paid && actualRoom" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
-                </div>
+                    SALA<br></a>
+                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO<br></a>
+                <div *ngIf="this.puntos >= 15" class="row noback align-items-center"> 
+                    
+                    <a class="col-lg-5 mx-auto accedePago" *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+                
+                    <a class="col-lg-5 mx-auto pointer" *ngIf="!paid && actualRoom" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
+                
                 </div>
                 <br>
                 <button class="button" (click)="getTutor()">MÁS DEL TUTOR</button>
@@ -58,11 +56,11 @@
                 <br>
                 <p style="margin-top: 5%" *ngIf="actualRoom && actualRoom.authorised_users.length!=0">*No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
 
-            </div>
+            </span>
         </div>
     </form>
         <div class="row2">
-            <h1 class="titulo"> TODOS LOS ASISTENTES </h1><br>
+            <h1 class="titulo m-2">TODOS LOS ASISTENTES</h1>
             <li *ngFor="let users of actualAuthorizedUsers">
                 {{users.username}} - {{users.email}}
             </li>
