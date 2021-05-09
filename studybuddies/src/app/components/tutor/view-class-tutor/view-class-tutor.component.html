@@ -39,7 +39,7 @@
               
                 <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA
                     SALA<br></a>
-                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO<br></a>
                 <div *ngIf="this.puntos >= 15" class="row noback align-items-center"> 
                     
                     <a class="col-lg-5 mx-auto accedePago" *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>

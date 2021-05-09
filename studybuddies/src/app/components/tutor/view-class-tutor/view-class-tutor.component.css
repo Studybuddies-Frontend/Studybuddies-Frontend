@@ -198,6 +198,7 @@ textarea::content {
   .row2 {
     border-radius: 0;
     margin: auto;
+    width: 100%;
     margin-top: 10%;
   }
 
