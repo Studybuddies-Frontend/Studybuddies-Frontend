@@ -98,6 +98,7 @@ export class PaypalComponent implements OnInit {
         );
         this.paid = true;
         this.id_user_app = this.auth.getId();
+        let id=this.id_user_app
         let room = window.sessionStorage.getItem('room');
         if (room) {
           let roomJSON = JSON.parse(room);
@@ -106,7 +107,7 @@ export class PaypalComponent implements OnInit {
           this.paypalService.updateRoomPayment(this.guid, this.id_user_app, false).subscribe(
             res => {
               Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
-                window.location.href = "./tutor/classList";
+                window.location.href = `student/Tmine/${id}`;
               })
               console.log("PAGO realizado con éxito.");
               this.user.puntos += 1;

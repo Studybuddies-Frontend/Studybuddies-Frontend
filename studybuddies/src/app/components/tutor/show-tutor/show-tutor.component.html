@@ -23,8 +23,10 @@
                 <input type="text" *ngIf='actualUser' id="grado" name="grado" value="{{actualUser['grado']}}" readonly=true><br><br>
                 <label for="lname">Correo de contacto</label><br>
                 <input type="text" *ngIf='actualUser' id="email" name="email" value="{{actualUser['email']}}" readonly=true><br><br>
-                <label for="lname">Teléfono</label><br>
-                <input type="tel" *ngIf='actualUser' id="telefono" name="telefono" value="{{actualUser['telefono']}}" readonly=true><br><br>
+                <div *ngIf="actualUser['telefono']!=null && actualUser['telefono']!=''">    
+                    <label for="lname">Teléfono</label><br>
+                    <input type="tel" *ngIf='actualUser' id="telefono" name="telefono" value="{{actualUser['telefono']}}" readonly=true><br><br>
+                </div>    
             </div>
             <div><input type=button value="VOLVER" onclick="history.back()"></div>
         </div>

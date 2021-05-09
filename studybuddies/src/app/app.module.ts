@@ -55,7 +55,7 @@ import { TimeFormatPipe } from './pipes/time-format.pipe';
 
 const routes: Routes = [
   {
-    path: 'paypal/:price', component: PaypalComponent
+    path: 'paypal/:price', component: PaypalComponent, canActivate: [AuthGuardService] 
   },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],
@@ -71,7 +71,7 @@ const routes: Routes = [
   }, */
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuardService] },
 
-  { path: 'perfil', component: PerfilUsuarioComponent },
+  { path: 'perfil', component: PerfilUsuarioComponent, canActivate: [AuthGuardService]  },
 
   {
     path: 'student/createClass', component: CreateClassStudentComponent, canActivate: [RoleGuardService],
@@ -127,9 +127,9 @@ const routes: Routes = [
       expectedRole: 'tutor'
     }
   },
-  { path: 'tutor/show/:id', component: ShowTutorComponent },
-  { path: 'tutores', component: ListTutorComponent },
-  { path: 'misTutores', component: MytutorsComponent },
+  { path: 'tutor/show/:id', component: ShowTutorComponent, canActivate: [AuthGuardService] },
+  { path: 'tutores', component: ListTutorComponent, canActivate: [AuthGuardService] },
+  { path: 'misTutores', component: MytutorsComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classList', component: ClassListTutorComponent, canActivate: [AuthGuardService] },
   { path: 'tutor/classView/:guid', component: ViewClassTutorComponent, canActivate: [AuthGuardService] },
   { path: '', component: HomeComponent },

@@ -15,7 +15,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" routerLink="/student/mine/{{userId}}" routerLinkActive="active">Mis Salas</a>
                         <a class="nav-link" routerLink="/student/createClass" routerLinkActive="active">Crear Sala de estudio</a>
-                        <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Listar Salas de estudio</a>
+                        <a class="nav-link" routerLink="/student/classList" routerLinkActive="active">Salas de estudio activas</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -26,7 +26,7 @@
                         <a class="nav-link" routerLink="/student/Tmine/{{userId}}" routerLinkActive="active">Mis Tutorías pagadas</a>
                         <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/mine/{{userId}}" routerLinkActive="active">Tutorías propias</a>
                         <a class="nav-link" *ngIf="showTutorBoard || showAdminBoard" routerLink="/tutor/createClass" routerLinkActive="active">Crear Tutoría</a>
-                        <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Listar Tutorías</a>
+                        <a class="nav-link" routerLink="/tutor/classList" routerLinkActive="active">Tutorías activas</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -68,7 +68,7 @@
 		<p class="parrafo">
             <span style="float: left;">Contacto: <a href="mailto:soporte@studybuddies.es" >soporte@studybuddies.es</a></span>
             <span class="copy">Copyright 2021 &copy; Studybuddies</span>
-            <span style="float: right;"><a href="/useConditions">Términos y condiciones de uso</a></span>
+            <span style="float: right;"><a target="_blank" href="/useConditions">Términos y condiciones de uso</a></span>
 		</p>
 	</div>
 </footer>
