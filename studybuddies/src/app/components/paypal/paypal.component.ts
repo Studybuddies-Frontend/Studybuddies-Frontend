@@ -5,10 +5,11 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpClient } from "@angular/common/http";
 import { NgxPayPalModule } from 'ngx-paypal';
 import { RoomService } from "src/app/services/class.service";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { PaypalService } from "src/app/services/paypal.service";
 import Swal from 'sweetalert2'
 import { TokenStorageService } from "src/app/services/token-storage.service";
+import { PriceService } from "src/app/services/price.service";
 
 
 @Component({
@@ -21,17 +22,30 @@ export class PaypalComponent implements OnInit {
   public showPaypalButtons: boolean;
   guid: any;
   totalPrice: string
+  desc: boolean;
   paid: boolean
   id_user_app = this.auth.getId();
   puntos: number = 0;
   user: any;
 
-  constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
-    this.totalPrice = this.routes.snapshot.params['price']
+  message:string;
+  subscription: Subscription;
+
+  constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule, private priceService: PriceService) {
     this.auth.getId()
   }
 
   ngOnInit() {
+    this.priceService.getMessage().subscribe(message => this.totalPrice = message)
+    console.log(this.totalPrice)
+
+    if(this.totalPrice.indexOf("desc")>0){
+      this.desc = true;
+      this.totalPrice = this.totalPrice.split("-", 2)[1];
+      console.log(this.desc);
+      console.log(this.totalPrice);
+    }
+
     this.user = this.tokenStorageService.getUser();
     if(this.user){
       this.puntos = this.tokenStorageService.getUser().puntos;
@@ -104,6 +118,7 @@ export class PaypalComponent implements OnInit {
           let roomJSON = JSON.parse(room);
           this.guid = roomJSON.guid;
           this.totalPrice = roomJSON.price_per_hour;
+          if(!this.desc){
           this.paypalService.updateRoomPayment(this.guid, this.id_user_app, false).subscribe(
             res => {
               Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
@@ -115,6 +130,18 @@ export class PaypalComponent implements OnInit {
             },
             err => console.log(err)
           )
+        }else {
+          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, true).subscribe(
+            res => {
+              Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
+                window.location.href = `student/Tmine/${id}`;
+              })
+              console.log("PAGO realizado con éxito.");
+                this.user.puntos -= 15;
+              this.tokenStorageService.saveUser(this.user);
+            },
+            err => console.log(err)
+          )}
         }
       },
       onCancel: (data: any, actions: any) => {

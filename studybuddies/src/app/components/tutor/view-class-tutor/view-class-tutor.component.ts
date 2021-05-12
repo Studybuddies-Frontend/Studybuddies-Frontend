@@ -5,6 +5,8 @@ import { TokenStorageService } from '../../../services/token-storage.service';
 import { AuthService } from "src/app/services/auth.service";
 import Swal from 'sweetalert2';
 import { PaypalService } from 'src/app/services/paypal.service';
+import { PriceService } from 'src/app/services/price.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -25,16 +27,22 @@ export class ViewClassTutorComponent implements OnInit {
   puntos: number;
   user: any;
 
+  message:string;
+  subscription: Subscription;
 
   constructor(
     public paypalService: PaypalService,
     private route: ActivatedRoute,
     private roomService: SalasService,
     private router: Router,
-    public tokenStorageService: TokenStorageService, public auth: AuthService) {
+    public tokenStorageService: TokenStorageService, public auth: AuthService, private priceService: PriceService,) {
   }
 
   ngOnInit(): void {
+    this.priceService.changeMessage("12")
+
+    this.subscription = this.priceService.currentMessage.subscribe(message => this.message = message)
+    console.log(this.message)
 
     this.guid = this.route.snapshot.params['guid']
     this.getRoomByGuid();
@@ -113,4 +121,9 @@ export class ViewClassTutorComponent implements OnInit {
       err => console.log(err)
     )
   }
+
+  // setPrice(){
+  //   this.priceService.setData(this.actualRoom['total_price']);
+  //   console.log(this.priceService.getData())
+  // }
 }
