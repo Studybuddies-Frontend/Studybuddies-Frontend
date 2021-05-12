@@ -9,7 +9,6 @@ import { Observable, Subscription } from "rxjs";
 import { PaypalService } from "src/app/services/paypal.service";
 import Swal from 'sweetalert2'
 import { TokenStorageService } from "src/app/services/token-storage.service";
-import { PriceService } from "src/app/services/price.service";
 
 
 @Component({
@@ -27,24 +26,16 @@ export class PaypalComponent implements OnInit {
   id_user_app = this.auth.getId();
   puntos: number = 0;
   user: any;
+  discount: number
 
-  message:string;
-  subscription: Subscription;
-
-  constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule, private priceService: PriceService) {
+  constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
     this.auth.getId()
   }
 
   ngOnInit() {
-    this.priceService.getMessage().subscribe(message => this.totalPrice = message)
-    console.log(this.totalPrice)
-
-    if(this.totalPrice.indexOf("desc")>0){
-      this.desc = true;
-      this.totalPrice = this.totalPrice.split("-", 2)[1];
-      console.log(this.desc);
-      console.log(this.totalPrice);
-    }
+    // Obtenemos el dato que hemos pasado por el estado
+    this.discount = window.history.state.discount
+    console.log(this.discount)
 
     this.user = this.tokenStorageService.getUser();
     if(this.user){

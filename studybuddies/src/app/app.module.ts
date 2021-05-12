@@ -53,8 +53,6 @@ import { GdprComponent } from './gdpr/gdpr.component';
 import { MytutorsComponent } from './components/tutor/mytutors/mytutors.component';
 import { TimeFormatPipe } from './pipes/time-format.pipe';
 
-import {PriceService} from './services/price.service';
-
 const routes: Routes = [
   {
     path: 'paypal/:price', component: PaypalComponent, canActivate: [AuthGuardService] 
@@ -199,7 +197,6 @@ const routes: Routes = [
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BaseURLInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HTTPErrorInterceptorService, multi: true },
-    PriceService,
   ],
   bootstrap: [AppComponent]
 })

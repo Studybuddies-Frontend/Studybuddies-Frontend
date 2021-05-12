@@ -47,7 +47,7 @@
                     <a class="col-lg-5 mx-auto pointer" *ngIf="!paid && actualRoom && actualRoom['precio_total'] <= 15.5" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
 
                     <div  *ngIf="!paid && actualRoom && actualRoom['precio_total'] > 15.5">
-                    <a class="col-lg-5 mx-auto pointer" href="paypal/{{actualRoom['precio_total']-10}}-desc">CANJEA TUS 15 PUNTOS*</a>
+                    <a class="col-lg-5 mx-auto pointer" (click)="navigateWithState()">CANJEA TUS 15 PUNTOS*</a>
                     <span >(Se aplicará un descuento de 10 euros en esta sala)</span>
                     </div>
                 </div>
