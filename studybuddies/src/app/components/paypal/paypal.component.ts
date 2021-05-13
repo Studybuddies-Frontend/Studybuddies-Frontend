@@ -44,7 +44,7 @@ export class PaypalComponent implements OnInit {
 
   ngOnInit() {
     // Obtenemos el dato que hemos pasado por el estado
-    if(window.history.state.discount){
+    if(window.history.state){
       this.discount = window.history.state.discount
     }
 
