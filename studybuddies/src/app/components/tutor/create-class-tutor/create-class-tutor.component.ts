@@ -59,7 +59,7 @@ export class CreateClassTutorComponent implements OnInit {
     }
 
     if( !maxHora ){
-      document.getElementById("formErrorDay")!.innerHTML = "La duración debe ser menor a x horas";
+      document.getElementById("formErrorDay")!.innerHTML = "La duración debe ser menor a 5 horas";
       isCorrect = false;
     }
     
