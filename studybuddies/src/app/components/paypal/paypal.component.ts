@@ -21,18 +21,30 @@ export class PaypalComponent implements OnInit {
   public showPaypalButtons: boolean;
   guid: any;
   totalPrice: string
-  desc: boolean;
   paid: boolean
   id_user_app = this.auth.getId();
   puntos: number = 0;
   user: any;
-  discount: number
+  discount: boolean
 
   constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
-    this.auth.getId()
+    //this.totalPrice = this.routes.snapshot.params['price']
+    
+    let room = window.sessionStorage.getItem('room');
+    console.log(room)
+     if (room) {
+       
+      let roomJSON = JSON.parse(room);
+      this.guid = roomJSON.guid;
+      this.totalPrice = roomJSON.precio;
+    }
+    console.log(this.totalPrice)
+    
+    this.auth.getId();
   }
 
   ngOnInit() {
+    console.log(this.totalPrice)
     // Obtenemos el dato que hemos pasado por el estado
     this.discount = window.history.state.discount
     console.log(this.discount)
@@ -108,31 +120,22 @@ export class PaypalComponent implements OnInit {
         if (room) {
           let roomJSON = JSON.parse(room);
           this.guid = roomJSON.guid;
-          this.totalPrice = roomJSON.price_per_hour;
-          if(!this.desc){
-          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, false).subscribe(
+          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, this.discount).subscribe(
             res => {
               Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
                 window.location.href = `student/Tmine/${id}`;
               })
               console.log("PAGO realizado con éxito.");
-              this.user.puntos += 1;
+              console.log(this.totalPrice)
+              if(this.discount){
+                this.user.puntos -= 15;
+              }else{
+                this.user.puntos += 1;
+              }
               this.tokenStorageService.saveUser(this.user);
             },
             err => console.log(err)
           )
-        }else {
-          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, true).subscribe(
-            res => {
-              Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
-                window.location.href = `student/Tmine/${id}`;
-              })
-              console.log("PAGO realizado con éxito.");
-                this.user.puntos -= 15;
-              this.tokenStorageService.saveUser(this.user);
-            },
-            err => console.log(err)
-          )}
         }
       },
       onCancel: (data: any, actions: any) => {

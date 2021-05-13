@@ -39,17 +39,14 @@
               
                 <a *ngIf="paid" href="https://meet.jit.si/studybuddies-/{{actualRoom['guid']}}" target="_blank">ACCEDER A LA
                     SALA<br></a>
-                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" (click)="saveData()" href="paypal/{{actualRoom['precio_total']}}">ACCEDER AL PAGO<br></a>
+                <a *ngIf="!paid && !showTutorBoard && actualRoom && this.puntos < 15 && actualRoom['id_user'] != user['id']" (click)="saveData()" href="paypal/{{actualRoom['guid']}}">ACCEDER AL PAGO<br></a>
                 <div *ngIf="this.puntos >= 15" class="row noback align-items-center"> 
                     
-                    <a class="col-lg-5 mx-auto accedePago" *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['precio_total']}}" (click)="saveData()">ACCEDER AL PAGO</a>
+                    <a class="col-lg-5 mx-auto accedePago" *ngIf="!paid  && actualRoom && actualRoom['id_user'] != user['id']" href="paypal/{{actualRoom['guid']}}" (click)="saveData()">ACCEDER AL PAGO</a>
                 
                     <a class="col-lg-5 mx-auto pointer" *ngIf="!paid && actualRoom && actualRoom['precio_total'] <= 15.5" (click)="freeRoom()">CANJEA TUS 15 PUNTOS</a>
 
-                    <div  *ngIf="!paid && actualRoom && actualRoom['precio_total'] > 15.5">
-                    <a class="col-lg-5 mx-auto pointer" (click)="navigateWithState()">CANJEA TUS 15 PUNTOS*</a>
-                    <span >(Se aplicará un descuento de 10 euros en esta sala)</span>
-                    </div>
+                    <a *ngIf="!paid && actualRoom && actualRoom['precio_total'] > 15.5" class="col-lg-5 mx-auto pointer" (click)="navigateWithState()">CANJEA TUS 15 PUNTOS *</a>
                 </div>
                 <br>
                 <button class="button" (click)="getTutor()">MÁS DEL TUTOR</button>

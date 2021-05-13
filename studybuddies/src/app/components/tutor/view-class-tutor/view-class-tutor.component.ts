@@ -32,8 +32,7 @@ export class ViewClassTutorComponent implements OnInit {
     private roomService: SalasService,
     private router: Router,
     public tokenStorageService: TokenStorageService, 
-    public auth: AuthService) {
-  }
+    public auth: AuthService) { }
 
   ngOnInit(): void {
     this.guid = this.route.snapshot.params['guid']
@@ -53,6 +52,7 @@ export class ViewClassTutorComponent implements OnInit {
     this.roomService.getRoomByGuid(this.guid)
       .subscribe((res: any) => {
         this.actualRoom = res.room[0];
+        console.log(this.actualRoom)
       })
   }
 
@@ -80,7 +80,7 @@ export class ViewClassTutorComponent implements OnInit {
 
   saveData() {
     this.reloadPage();
-    return this.tokenStorageService.saveRoom(this.guid, this.actualRoom['price_per_hour']);
+    return this.tokenStorageService.saveRoom(this.guid, this.actualRoom['precio_total']);
   }
 
 
@@ -117,6 +117,7 @@ export class ViewClassTutorComponent implements OnInit {
   // Método para enviar datos cuando redireccionamos a una URL
   // TODO: Deberiamos pasar el precio siempre por el estado de esta forma en lugar de por la url
   public navigateWithState() {
-    this.router.navigateByUrl("paypal/"+this.actualRoom.precio_total, {state: {discount: 10}})
+    this.router.navigateByUrl(`paypal/${this.actualRoom['guid']}`, {state: {discount:true}})
+    return this.tokenStorageService.saveRoom(this.guid, this.actualRoom['precio_total'] - 10);
   }
 }
