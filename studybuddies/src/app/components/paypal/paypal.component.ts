@@ -38,16 +38,15 @@ export class PaypalComponent implements OnInit {
       this.guid = roomJSON.guid;
       this.totalPrice = roomJSON.precio;
     }
-    console.log(this.totalPrice)
     
     this.auth.getId();
   }
 
   ngOnInit() {
-    console.log(this.totalPrice)
     // Obtenemos el dato que hemos pasado por el estado
-    this.discount = window.history.state.discount
-    console.log(this.discount)
+    if(window.history.state.discount){
+      this.discount = window.history.state.discount
+    }
 
     this.user = this.tokenStorageService.getUser();
     if(this.user){
