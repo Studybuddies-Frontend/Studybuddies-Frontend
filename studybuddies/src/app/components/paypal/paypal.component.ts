@@ -5,7 +5,7 @@ import { AuthService } from "src/app/services/auth.service";
 import { HttpClient } from "@angular/common/http";
 import { NgxPayPalModule } from 'ngx-paypal';
 import { RoomService } from "src/app/services/class.service";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { PaypalService } from "src/app/services/paypal.service";
 import Swal from 'sweetalert2'
 import { TokenStorageService } from "src/app/services/token-storage.service";
@@ -25,13 +25,29 @@ export class PaypalComponent implements OnInit {
   id_user_app = this.auth.getId();
   puntos: number = 0;
   user: any;
+  discount: boolean
 
   constructor(public tokenStorageService: TokenStorageService, public paypalService: PaypalService, private routes: ActivatedRoute, public auth: AuthService, public http: HttpClient, private ng_pay: NgxPayPalModule) {
-    this.totalPrice = this.routes.snapshot.params['price']
-    this.auth.getId()
+    //this.totalPrice = this.routes.snapshot.params['price']
+    
+    let room = window.sessionStorage.getItem('room');
+    console.log(room)
+     if (room) {
+       
+      let roomJSON = JSON.parse(room);
+      this.guid = roomJSON.guid;
+      this.totalPrice = roomJSON.precio;
+    }
+    
+    this.auth.getId();
   }
 
   ngOnInit() {
+    // Obtenemos el dato que hemos pasado por el estado
+    if(window.history.state){
+      this.discount = window.history.state.discount
+    }
+
     this.user = this.tokenStorageService.getUser();
     if(this.user){
       this.puntos = this.tokenStorageService.getUser().puntos;
@@ -103,14 +119,18 @@ export class PaypalComponent implements OnInit {
         if (room) {
           let roomJSON = JSON.parse(room);
           this.guid = roomJSON.guid;
-          this.totalPrice = roomJSON.price_per_hour;
-          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, false).subscribe(
+          this.paypalService.updateRoomPayment(this.guid, this.id_user_app, this.discount).subscribe(
             res => {
               Swal.fire('Éxito', 'El pago se ha realizado correctamente. Puede acceder a la sala desde "Mis tutorias pagadas".', 'success').then(function () {
                 window.location.href = `student/Tmine/${id}`;
               })
               console.log("PAGO realizado con éxito.");
-              this.user.puntos += 1;
+              console.log(this.totalPrice)
+              if(this.discount){
+                this.user.puntos -= 15;
+              }else{
+                this.user.puntos += 1;
+              }
               this.tokenStorageService.saveUser(this.user);
             },
             err => console.log(err)

@@ -55,7 +55,7 @@ import { TimeFormatPipe } from './pipes/time-format.pipe';
 
 const routes: Routes = [
   {
-    path: 'paypal/:price', component: PaypalComponent, canActivate: [AuthGuardService] 
+    path: 'paypal/:guid', component: PaypalComponent, canActivate: [AuthGuardService] 
   },
   /* {
     path: 'student', component: StudentComponent, canActivate: [RoleGuardService],

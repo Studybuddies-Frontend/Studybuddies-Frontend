@@ -30,6 +30,10 @@ export class CreateClassTutorComponent implements OnInit {
     let des = form.value.description;
     let isCorrect = true;
     let now = new Date();
+    let iMinutes = parseInt(iDay[0])*60 + parseInt(iDay[1]);
+    let fMinutes = parseInt(fDay[0])*60 + parseInt(fDay[1]);
+    let minHora = (fMinutes - iMinutes) >= 60
+    let maxHora = (fMinutes - iMinutes) <= 300
 
     let checkMismoDia = parseInt(date[0]) == now.getFullYear() && parseInt(date[1]) == now.getMonth()+1 && parseInt(date[2]) == now.getDate();
     let checkHoraPasada = parseInt(iDay[0]) < now.getHours() || parseInt(iDay[0])==now.getHours() && parseInt(iDay[1]) < now.getMinutes();
@@ -48,6 +52,16 @@ export class CreateClassTutorComponent implements OnInit {
       document.getElementById("formErrorDate")!.innerHTML = "La fecha no puede ser pasada";
       isCorrect = false;
     } 
+
+    if( !minHora ){
+      document.getElementById("formErrorDay")!.innerHTML = "La duración debe ser de al menos una hora";
+      isCorrect = false;
+    }
+
+    if( !maxHora ){
+      document.getElementById("formErrorDay")!.innerHTML = "La duración debe ser menor a 5 horas";
+      isCorrect = false;
+    }
     
     if(checkHoraInicioMayorQueFin){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de fin debe ser posterior a la de inicio";
@@ -57,7 +71,7 @@ export class CreateClassTutorComponent implements OnInit {
     if( checkMismoDia && checkHoraPasada){
       document.getElementById("formErrorDay")!.innerHTML = "La hora de inicio debe ser posterior a la actual";
       isCorrect = false;
-    } 
+    }
     
     if( form.value.money < 5){
       document.getElementById("formErrorMoney")!.innerHTML = "El precio mínimo de la clase es de 5 euros";
