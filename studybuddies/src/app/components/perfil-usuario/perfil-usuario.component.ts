@@ -123,5 +123,16 @@ export class PerfilUsuarioComponent implements OnInit {
     );
   }
 
+  studypoints(){
+    Swal.fire({
+      title:'Studypoints',
+      text:'Ganas un studypoint por cada tutoría que pagas. Con 15 studypoints puedes canjear una tutoría de menos de 15.50€ o recibir un descuento de 10€ en una clase mas cara.',
+      imageUrl: '../../../assets/logoSinFondo.png',
+      imageWidth: 200,
+      imageHeight: 120,
+      imageAlt: 'Studypoints',
+    })
+  }
+
 
 }
