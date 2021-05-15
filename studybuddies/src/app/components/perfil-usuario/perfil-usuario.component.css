@@ -181,3 +181,24 @@ textarea::content {
     margin-top: 10%;
   }
 }
+
+.studypoint {
+  margin-top: 0% !important;
+  background-color: #0f2c45 !important;
+  color: #eba144 !important;
+  font-size: medium !important;
+  padding: 0% !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  border: none !important;
+  border-radius: 0px !important;
+  text-decoration: none !important;
+  font-weight: normal !important;
+}
+
+.studypoint:hover  {
+  background-color: none !important;
+  color: #20598b !important;
+  transition: all 0.4s ease !important;
+  cursor: pointer !important;
+}
