@@ -55,7 +55,8 @@
                 <br>
                 <input type=button value="VOLVER" onclick="history.back()">
                 <br>
-                <p style="margin-top: 5%" *ngIf="actualRoom && actualRoom.authorised_users.length!=0">*No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
+                <p style="margin-top: 5%" *ngIf="actualRoom && actualRoom.authorised_users.length!=0 && (actualRoom.id_user==id_user_app)">* No se pueden borrar tutorías que ya hayan sido pagadas por un alumno</p>
+                <p style="margin-top: 5%" *ngIf="!paid && actualRoom && actualRoom['precio_total'] > 15.5 && this.puntos >= 15">* Canjeando tus puntos recibirás un descuento de 10 euros en el pago final</p>
 
             </span>
         </div>
